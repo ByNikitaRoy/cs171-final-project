@@ -5,3 +5,5 @@ wordCloudCombined: For use in the "linkedin chart"
 countryCoverageOverTime2y: volume by country - use for first map chart - needs to be cleaned -> says "volume" after a number of the country names -> no lat long data 
 
 newsVolumeOverTime: what it sounds like
+
+cableNewsCoverageTime: coverage of several news channels over time. use for news channel line chart or whatever we decide on
