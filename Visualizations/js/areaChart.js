@@ -6,12 +6,8 @@ class AreaChart {
         this.parentElement = parentElement;
         this.data = data;
 
-        // define colors
-        this.colors = ['#fddbc7', '#f4a582', '#d6604d', '#b2182b']
-
         this.initVis()
 
-        console.log('multiline')
     }
 
     initVis() {

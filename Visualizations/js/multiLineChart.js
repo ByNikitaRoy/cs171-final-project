@@ -6,12 +6,8 @@ class MultiLineChart {
         this.parentElement = parentElement;
         this.data = data;
 
-        // define colors
-        this.colors = ['#fddbc7', '#f4a582', '#d6604d', '#b2182b']
-
         this.initVis()
 
-        console.log('multiline')
     }
 
     initVis() {
@@ -65,8 +61,6 @@ class MultiLineChart {
             .attr('x', width / 2)
             .attr('y', 10)
 
-        //append the area
-        //with reference to https://d3-graph-gallery.com/graph/area_basic.html
         svg.append("path")
             .datum(vis.data)
             .attr("fill", "none")
@@ -82,13 +76,35 @@ class MultiLineChart {
                     return yScale(d.value)
                 })
             )
-        console.log('test')
+
+        vis.wrangleData()
     }
+
     wrangleData () {
         let vis = this;
 
-        // No data wrangling/filtering needed
 
+        //attempting to figure out grouping but a bunch of this isn't supported
+        /*
+        let products = [
+            { name: 'asparagus', type: 'vegetables', quantity: 5 },
+            { name: 'bananas', type: 'fruit', quantity: 0 },
+            { name: 'goat', type: 'meat', quantity: 23 },
+            { name: 'cherries', type: 'fruit', quantity: 5 },
+            { name: 'fish', type: 'meat', quantity: 22 }
+        ];
+        const groupByCategory = products.groupBy(product => {
+            return product.type;
+        });
+        console.log(groupByCategory);
+        console.log("result")
+
+
+        let ungrouped = vis.data;
+        let groupedChannels = ungrouped.group(({Series}) => Series);
+        console.log("groupedChannels")
+        console.log(groupedChannels)
+*/
         // Update the visualization
         vis.updateVis();
     }
@@ -96,6 +112,7 @@ class MultiLineChart {
     updateVis() {
         let vis = this;
 
-
+        //append the area
+        //with reference to https://d3-graph-gallery.com/graph/area_basic.html
     }
 }
