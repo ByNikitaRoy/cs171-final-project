@@ -13,6 +13,7 @@ class MultiLineChart {
     initVis() {
 
         let vis = this;
+        console.log(vis.data)
         //initial variables
         // Margin object with properties for the four directions
         let margin = {top: 20, right: 20, bottom: 20, left: 25};
@@ -30,14 +31,14 @@ class MultiLineChart {
 
         //create x scale
         let xScale = d3.scaleTime()
-            .domain(d3.extent(vis.data, function (d) {
-                return d.date;
+            .domain(d3.extent(vis.data[3], function (d) {
+                return d.Date;
             }))
             .range([margin.left, width - margin.right])
         //create y scale
         let yScale = d3.scaleLinear()
-            .domain([0, d3.max(vis.data, function (d) {
-                return +d.value;
+            .domain([0, d3.max(vis.data[3], function (d) {
+                return +d.Value;
             })])
             .range([height - margin.bottom, margin.top])
 
@@ -60,7 +61,7 @@ class MultiLineChart {
             .attr("text-anchor", "middle")
             .attr('x', width / 2)
             .attr('y', 10)
-
+/*
         svg.append("path")
             .datum(vis.data)
             .attr("fill", "none")
@@ -69,19 +70,20 @@ class MultiLineChart {
             .attr("opacity", 0.8)
             .attr("d", d3.area()
                 .x(function (d) {
-                    return xScale(d.date)
+                    return xScale(d.Date)
                 })
                 .y0(yScale(0))
                 .y1(function (d) {
-                    return yScale(d.value)
+                    return yScale(d.Value)
                 })
-            )
+            )*/
 
         vis.wrangleData()
     }
 
     wrangleData () {
         let vis = this;
+        
 
 
         //attempting to figure out grouping but a bunch of this isn't supported
