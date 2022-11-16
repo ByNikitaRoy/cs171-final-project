@@ -4,30 +4,32 @@
 class LineChart {
 
     constructor(parentElement, data) {
+
         this.parentElement = parentElement;
         this.data = data;
-
+        console.log(this.data);
+        console.log('constructor intitated')
         this.initVis()
 
     }
 
     initVis() {
         let vis = this;
-
-        vis.chart = LineChart(data, {
+        console.log('init running')
+        vis.chart = new LineChart(vis.data, {
             x: d => d.Date,
             y: d => d.Value,
             z: d => d.Series,
             yLabel: "↑ Unemployment (%)",
-            width,
+            width: 1000,
             height: 500,
             color: "steelblue",
-            voronoi // if true, show Voronoi overlay
+            voronoi: false // if true, show Voronoi overlay
         })
-
+        console.log('past chart ')
         //focus = null
-        //focus = Generators.input(chart) // or say viewof focus = LineChart(…)
-        vis.LineChart(vis.chart)
+        focus = Generators.input(vis.chart) // or say viewof focus = LineChart(…)
+       // vis.LineChart(vis.chart)
 
     }
 
@@ -61,6 +63,7 @@ class LineChart {
         mixBlendMode = "multiply", // blend mode of lines
         voronoi // show a Voronoi overlay? (for debugging)
     } = {}) {
+        console.log('Linechart function running')
         // Compute values.
         const X = d3.map(data, x);
         const Y = d3.map(data, y);
@@ -185,5 +188,5 @@ class LineChart {
 
 // Copyright 2021 Observable, Inc.
 // Released under the ISC license.
-// https://observablehq.com/@d3/multi-line-chart
-function
+// https://observablehq.com/@d3/multi-line-char
+
