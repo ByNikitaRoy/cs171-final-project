@@ -1,15 +1,33 @@
 // Copyright 2021 Observable, Inc.
 // Released under the ISC license.
 // https://observablehq.com/@d3/multi-line-chart
-
-
 class LineChart {
 
     constructor(parentElement, data) {
         this.parentElement = parentElement;
         this.data = data;
 
-        this.LineChart()
+        this.initVis()
+
+    }
+
+    initVis() {
+        let vis = this;
+
+        vis.chart = LineChart(data, {
+            x: d => d.Date,
+            y: d => d.Value,
+            z: d => d.Series,
+            yLabel: "↑ Unemployment (%)",
+            width,
+            height: 500,
+            color: "steelblue",
+            voronoi // if true, show Voronoi overlay
+        })
+
+        //focus = null
+        //focus = Generators.input(chart) // or say viewof focus = LineChart(…)
+        vis.LineChart(vis.chart)
 
     }
 
@@ -44,14 +62,10 @@ class LineChart {
         voronoi // show a Voronoi overlay? (for debugging)
     } = {}) {
         // Compute values.
-        let vis = this;
-        let data1 = vis.data
-        console.log('data')
-        console.log(data1);
-        const X = d3.map(data1, x);
-        const Y = d3.map(data1, y);
-        const Z = d3.map(data1, z);
-        const O = d3.map(data1, d => d);
+        const X = d3.map(data, x);
+        const Y = d3.map(data, y);
+        const Z = d3.map(data, z);
+        const O = d3.map(data, d => d);
         if (defined === undefined) defined = (d, i) => !isNaN(X[i]) && !isNaN(Y[i]);
         const D = d3.map(data, defined);
 
@@ -108,8 +122,7 @@ class LineChart {
             .attr("transform", `translate(${marginLeft},0)`)
             .call(yAxis)
             .call(g => g.select(".domain").remove())
-            .call(voronoi ? () => {
-            } : g => g.selectAll(".tick line").clone()
+            .call(voronoi ? () => {} : g => g.selectAll(".tick line").clone()
                 .attr("x2", width - marginLeft - marginRight)
                 .attr("stroke-opacity", 0.1))
             .call(g => g.append("text")
@@ -169,3 +182,8 @@ class LineChart {
         return Object.assign(svg.node(), {value: null});
     }
 }
+
+// Copyright 2021 Observable, Inc.
+// Released under the ISC license.
+// https://observablehq.com/@d3/multi-line-chart
+function

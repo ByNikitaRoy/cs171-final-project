@@ -83,7 +83,7 @@ class MultiLineChart {
 
     wrangleData () {
         let vis = this;
-        
+
 
 
         //attempting to figure out grouping but a bunch of this isn't supported

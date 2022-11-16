@@ -47,7 +47,7 @@ function createVis(data) {
 
 
 
-	multiLineChart = new MultiLineChart("multiLineChart", newsCoverageData);
+	//multiLineChart = new MultiLineChart("multiLineChart", newsCoverageData);
 	AreaChart1 = new AreaChart("areaChart", newsVolumeOverTime);
 	AreaChart2 = new AreaChart_2("areaChart2", newsVolumeOverTime);
 	LineChart1 = new LineChart("lineChart", cableNewsCoverageData);
