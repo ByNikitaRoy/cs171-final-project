@@ -60,6 +60,7 @@
 
 .background{
   background-color: #333333;
+  //background-color: white;
 }
 
 #tooltip{
@@ -72,14 +73,20 @@
 
 .xAxis{
   color:white;
+  font-size: 14px;
 }
 
 
 .yAxis{
   color:white;
+  font-size: 14px;
 }
 
 .titleText{
   font-size: 30px;
   fill: white;
+}
+.yLabelLine{
+  color:white;
+  font-size: 16px;
 }

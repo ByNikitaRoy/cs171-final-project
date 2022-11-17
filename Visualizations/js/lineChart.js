@@ -7,23 +7,20 @@ class LineChart {
 
         this.parentElement = parentElement;
         this.data = data;
-        console.log(this.data);
-        console.log('constructor intitated')
         this.initVis()
 
     }
 
     initVis() {
         let vis = this;
-        console.log('init running')
         vis.chart = LineChart(vis.data, {
-            x: d => d.Date,
+            x: d => d.date,
             y: d => d.Value,
             z: d => d.Series,
-            yLabel: "↑ Unemployment (%)",
-            width: 1000,
-            height: 500,
-            color: "steelblue",
+            yLabel: "% Airtime on Day",
+            width: 1300,
+            height: 800,
+            color: "#FFFF66",
             voronoi: false // if true, show Voronoi overlay
         })
 
@@ -49,15 +46,14 @@ class LineChart {
             yFormat, // a format specifier string for the y-axis
             yLabel, // a label for the y-axis
             zDomain, // array of z-values
-            color = "currentColor", // stroke color of line, as a constant or a function of *z*
+            color = "#3a6ff6", // stroke color of line, as a constant or a function of *z*
             strokeLinecap, // stroke line cap of line
             strokeLinejoin, // stroke line join of line
             strokeWidth = 1.5, // stroke width of line
             strokeOpacity, // stroke opacity of line
-            mixBlendMode = "multiply", // blend mode of lines
+            mixBlendMode = "overlay", // blend mode of lines
             voronoi // show a Voronoi overlay? (for debugging)
         } = {}) {
-            console.log('Linechart function running')
             // Compute values.
             const X = d3.map(data, x);
             const Y = d3.map(data, y);
@@ -102,36 +98,31 @@ class LineChart {
                 .on("pointerleave", pointerleft)
                 .on("touchstart", event => event.preventDefault());
 
-            // An optional Voronoi display (for fun).
-            if (voronoi) svg.append("path")
-                .attr("fill", "none")
-                .attr("stroke", "#ccc")
-                .attr("d", d3.Delaunay
-                    .from(I, i => xScale(X[i]), i => yScale(Y[i]))
-                    .voronoi([0, 0, width, height])
-                    .render());
-
             svg.append("g")
                 .attr("transform", `translate(0,${height - marginBottom})`)
-                .call(xAxis);
+                .call(xAxis)
+                .attr('class','xAxis');
 
             svg.append("g")
                 .attr("transform", `translate(${marginLeft},0)`)
+                //call yAxis
                 .call(yAxis)
+                .attr('class','yAxis')
                 .call(g => g.select(".domain").remove())
                 .call(voronoi ? () => {} : g => g.selectAll(".tick line").clone()
                     .attr("x2", width - marginLeft - marginRight)
-                    .attr("stroke-opacity", 0.1))
+                    .attr("stroke-opacity", 0.15))
                 .call(g => g.append("text")
                     .attr("x", -marginLeft)
                     .attr("y", 10)
                     .attr("fill", "currentColor")
                     .attr("text-anchor", "start")
+                    .attr('class','yLabelLine')
                     .text(yLabel));
 
             const path = svg.append("g")
                 .attr("fill", "none")
-                .attr("stroke", typeof color === "string" ? color : null)
+                .attr("stroke", typeof color === "string" ? color : "#eaa61d")
                 .attr("stroke-linecap", strokeLinecap)
                 .attr("stroke-linejoin", strokeLinejoin)
                 .attr("stroke-width", strokeWidth)
@@ -140,25 +131,30 @@ class LineChart {
                 .data(d3.group(I, i => Z[i]))
                 .join("path")
                 .style("mix-blend-mode", mixBlendMode)
-                .attr("stroke", typeof color === "function" ? ([z]) => color(z) : null)
+                //.attr("stroke", typeof color === "function" ? ([z]) => color(z) : null)\
+                .attr("stroke", typeof color === "string" ? color : "rgba(203,252,24,0.62)")
                 .attr("d", ([, I]) => line(I));
 
+            //tooltip dot
             const dot = svg.append("g")
                 .attr("display", "none");
 
             dot.append("circle")
-                .attr("r", 2.5);
+                .attr("r", 10)
+                .attr('fill', 'white');
 
+            //tooltip text
             dot.append("text")
                 .attr("font-family", "sans-serif")
-                .attr("font-size", 10)
+                .attr("font-size", 35)
+                .attr('fill', 'white')
                 .attr("text-anchor", "middle")
                 .attr("y", -8);
 
             function pointermoved(event) {
                 const [xm, ym] = d3.pointer(event);
                 const i = d3.least(I, i => Math.hypot(xScale(X[i]) - xm, yScale(Y[i]) - ym)); // closest point
-                path.style("stroke", ([z]) => Z[i] === z ? null : "#ddd").filter(([z]) => Z[i] === z).raise();
+                path.style("stroke", ([z]) => Z[i] === z ? null : "#336699").filter(([z]) => Z[i] === z).raise();
                 dot.attr("transform", `translate(${xScale(X[i])},${yScale(Y[i])})`);
                 if (T) dot.select("text").text(T[i]);
                 svg.property("value", O[i]).dispatch("input", {bubbles: true});
@@ -176,10 +172,9 @@ class LineChart {
                 svg.dispatch("input", {bubbles: true});
             }
 
+
             return Object.assign(svg.node(), {value: null});
         }
-
-        console.log('past chart ')
         //focus = null
         //focus = Generators.input(vis.chart) // or say viewof focus = LineChart(…)
        // vis.LineChart(vis.chart)
