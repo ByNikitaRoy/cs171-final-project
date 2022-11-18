@@ -5,6 +5,13 @@ div {
   font-family: 'Barlow', sans-serif;
 
 }
+.vl {
+  border-left: 2px solid white;
+  height: 15vh;
+  position: relative;
+  left: 50%;
+  opacity: 100%;
+}
 h1 {
   font-size: 24 px;
   font-weight: bolder;
@@ -19,9 +26,9 @@ h3 {
   font-weight: bolder;
 }
 .titleYellowIntro{
-  color: #FFFF66;
+  color: rgba(255, 255, 102, 1);
   font-weight: 700;
-  font-size: 30vh;
+  font-size: 20vh;
 }
 .titleYellowIntroSmall{
   color: #FFFF66;
@@ -41,12 +48,26 @@ h3 {
 h2.blue {
   font-size: 3vh;
   font-weight: normal;
-  color: #333333;
+  color: rgba(51, 51, 51, 1);
+}
+h2.sub {
+  font-size: 6vh;
+  font-weight:500;
+  color: #FFFFFF;
+}
+h2.sub.step {
+  font-size: 6vh;
+  font-weight:500;
+  color: #FFFFFF;
+  opacity: 0%;
 }
 h2.light {
   font-size: 3vh;
-  font-weight: normal;
-  color: #99CCCC;
+  font-weight:500;
+  color: #FFFFFF;
+}
+div.intro {
+  height: 120vh;
 }
 div.dark {
  height: 120vh;

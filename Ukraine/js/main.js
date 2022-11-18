@@ -2,7 +2,8 @@ let multiLineChart, AreaChart1, AreaChart2, LineChart1;
 
 let parseDate = d3.timeParse('%m/%d/%Y');
 let parseDateDash = d3.timeParse('%Y-%m-%d');
-
+//let yellow = rgba(255, 255, 102, 1);
+//let blueDark = rgba(51, 50, 70, 1);
 let promises = [
 
 	d3.csv("data/cableNewsCoverageUpdate.csv", d => {
