@@ -1,0 +1,250 @@
+body {
+
+}
+div {
+  font-family: 'Barlow', sans-serif;
+
+}
+h1 {
+  font-size: 24 px;
+  font-weight: bolder;
+
+}
+h2 {
+  font-size: 3vh;
+  font-weight: normal;
+}
+h3 {
+  font-size: 10 px;
+  font-weight: bolder;
+}
+.titleYellowIntro{
+  color: #FFFF66;
+  font-weight: 700;
+  font-size: 30vh;
+}
+.titleYellowIntroSmall{
+  color: #FFFF66;
+  font-weight: 700;
+  font-size: 10vh;
+}
+.titleBlueIntro{
+  color: #333333;
+  font-weight: 700;
+  font-size: 30vh;
+}
+.titleBlueIntroSmall{
+  color: #333333;
+  font-weight: 700;
+  font-size: 5vh;
+}
+h2.blue {
+  font-size: 3vh;
+  font-weight: normal;
+  color: #333333;
+}
+h2.light {
+  font-size: 3vh;
+  font-weight: normal;
+  color: #99CCCC;
+}
+div.dark {
+ height: 120vh;
+  background: #333333;
+}
+div.mid {
+  height: 120vh;
+  background: #99CCCC;
+}
+div.light {
+  height: 120vh;
+  background: #FFFF66;
+}
+img {
+  max-width: 100vh;
+  max-height: 100vh;
+  display: block; /* remove extra space below image */
+}
+.box{
+  width: 100vh;
+}
+
+/*STYLEEEEEES FOT CHARTS */
+
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.domain {
+  fill: none;
+  stroke: #888;
+  shape-rendering: crispEdges;
+}
+
+#chart-area text {
+  font-size: 11px;
+}
+
+.axis-label {
+  fill: #888;
+  font-size: 10px;
+
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #333;
+  shape-rendering: crispEdges;
+  color: white;
+
+}
+
+.axis text {
+  font-family: sans-serif;
+  font-size: 11px;
+  color:white;
+}
+
+.subtext{
+  font-style: italic
+}
+
+#wrapper{
+  width:100%;
+  height:auto;
+  object-fit: cover;
+  margin:0;
+  padding:0;
+}
+
+.relative {
+  margin: 3%;
+  position: relative;
+}
+
+.centered{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.background{
+  background-color: #333333;
+}
+
+#tooltip{
+  position:absolute;
+}
+
+#areaChart{
+  border-top: #FFFF66;
+}
+
+.xAxis{
+  color:white;
+}
+
+
+.yAxis{
+  color:white;
+}
+
+.titleText{
+  font-size: 30px;
+  fill: white;
+}
+
+/*STYLEEEEEES FROM STEVEN */
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.domain {
+  fill: none;
+  stroke: #888;
+  shape-rendering: crispEdges;
+}
+
+#chart-area text {
+  font-size: 11px;
+}
+
+.axis-label {
+  fill: #888;
+  font-size: 10px;
+
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #333;
+  shape-rendering: crispEdges;
+  color: white;
+
+}
+
+.axis text {
+  font-family: sans-serif;
+  font-size: 11px;
+  color:white;
+}
+
+.subtext{
+  font-style: italic
+}
+
+#wrapper{
+  width:100%;
+  height:auto;
+  object-fit: cover;
+  margin:0;
+  padding:0;
+}
+
+.relative {
+  margin: 3%;
+  position: relative;
+}
+
+.centered{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.background{
+  background-color: #333333;
+//background-color: white;
+}
+
+#tooltip{
+  position:absolute;
+}
+
+#areaChart{
+  border-top: #FFFF66;
+}
+
+.xAxis{
+  color:white;
+  font-size: 14px;
+}
+
+
+.yAxis{
+  color:white;
+  font-size: 14px;
+}
+
+.titleText{
+  font-size: 30px;
+  fill: white;
+}
+.yLabelLine{
+  color:white;
+  font-size: 16px;
+}
