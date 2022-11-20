@@ -1,0 +1,466 @@
+<!doctype html>
+<!--
+	CS171 - FINAL PROJECT -
+	Steven Morse
+	Nikita Roy
+	Ana Merla
+-->
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ukraine</title>
+
+  <!-- Load CSS libraries -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+
+  <!-- GOOGLE FONTS - Barlow -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS code -->
+  <link rel="stylesheet" href="css/style_main.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Wrapper -->
+<div id="wrapper">
+
+  <!-- ONE: Intro Zelensky -->
+  <section class= "banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+    <div class="content container-fluid" style="background-image:url('img/bg 0.png'); background-position-x: right; background-repeat: no-repeat";>
+      <div class="row intro">
+        <div class="col align-left">
+          <h1 class="intro">UKRAINE
+            <br> RUSSIA
+            <br> WAR</h1>
+          <h2 class="major"> A media and language
+            <br> analysis of the conflict. </h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TWO: Intro Putin -->
+  <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+    <div class="container-fluid" style="background-image:url('img/bg 1.png'); background-position-x: left; background-repeat: no-repeat;">
+      <div class="row intro">
+        <div class="row container">
+          <div class= "col-md-6 offset-md-6">
+            <h2 class= "sub" >WHAT IS GOING ON?</h2>
+            <p class="major">On February 24, 2022 Russia invaded Ukraine starting the biggest military mobilization in Europe since World War II.
+              The invasion is likely to have major effects on people around the world, and every country's media has been watching.
+            </p>
+            <h3 class = "strong" >What can we learn from watching the watchers?</h3>
+            <p>Decades of research have demonstrated that events covered by the media are selected, framed, and shaped
+              by what are called "news values": values that confirm existing images and ideologies. </p>
+            <p>This project makes an effort to show what the major international news organizations are focusing their attention on using the Ukraine -
+              Russia conflict as a case study.</p>
+            <!-- <p>Explore with us different perspectives on how the media around the world has been covering the topic.</p> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro into Map -->
+  <section class="wrapper yellow align-center">
+    <div class="inner container-fluid text-center">
+      <div class="col align-self-center">
+        <h2 class = "sub invert" >LET'S START AT THE BEGINNING</h2>
+        <p class = "major invert" >
+          To better understand the access to news about the Russia–Ukraine conflict, let's take a look at how popular the topic has been on the international media.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE: Global Mentions Map -->
+  <section>
+    <div class="container-fluid text-center">
+      <div class="row" style="padding: 1vh">
+        <h2 class= "sub" >GLOBAL UKRAINE MENTIONS</h2>
+      </div>
+      <div class="row" style="padding: 1vh">
+        <p class="major" >How often is the word 'ukraine' mentioned in the media since the beginning of the conflict?
+        </p>
+      </div>
+      <div class="row" style="padding-bottom: 5vh">
+        <div id="map"> </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro into S chart -->
+  <section class="wrapper yellow align-center">
+    <div class="inner container-fluid text-center">
+      <div class="col align-self-center">
+        <h2 class = "sub invert" >TO UNDERSTAND THIS A LITTLE BIT BETTER</h2>
+        <p class = "major invert" >
+          Why don't we compare the same mentions of our key word 'Ukraine', against the overall news coverage?
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUR: S Chart-->
+  <section>
+    <div class="container-fluid text-center mainArea">
+      <div class="row">
+        <div id ="areaChart2" style="padding: 5vh" > </div>
+      </div>
+      <div class="row dark small justify-content-center" style="padding-bottom: 5vh">
+									<span class="col-2">
+										<div class="btn btn-outline-light" id="s-ukraine" style="height: auto"> What about Ukraine mentions?</div>
+									</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro Topics -->
+  <section class="wrapper yellow align-center">
+    <div class="inner container-fluid text-center">
+      <div class="col align-self-center">
+        <h2 class = "sub invert">TOPICS</h2>
+        <p class = "major invert"> Does 1+1 always equals 2? The last visualization tracked every mention of our key word 'Ukraine' since the conflict started back in February. However, the context of each of these mentions is not the same. What are the most popular topics these mentions are present in?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIVE: Topics -->
+  <section>
+    <div class="container-fluid text-center">
+      <div class="row" style="padding: 1vh">
+        <h2 class= "sub" >RELEVANT UKRAINE TOPICS</h2>
+      </div>
+      <div class="row" style="padding: 1vh">
+        <p class="major" > What is media really talking about when talking about Ukraine?
+        </p>
+      </div>
+      <div class="row justify-content-center" id="chart-7" style="padding-bottom: 3vh">
+        <div class="col justify-content-center">
+          <div id ="bubble"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro into Multiline -->
+  <section class="wrapper yellow align-center">
+    <div class="inner container-fluid text-center">
+      <div class="col align-self-center">
+        <h2 class = "sub invert" >HOW DO DIFFERENT NEWS OUTLETS PLAY INTO THIS?</h2>
+        <p class = "major invert" >
+          Major news organisations around the world have embedded journalists in Ukraine to cover bombings and violence in hard-hit towns and cities across broadcast, digital, and print media. However, can we see differences on their reporting?
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIX: (Multiline) News Coverage by various channels-->
+  <section>
+    <div class="container-fluid text-center">
+      <div class="row" style="height: auto; padding-top: 12vh" >
+        <h2 class="sub"> NEWS COVERAGE BY VARIOUS CHANNELS </h2>
+        <div id ="lineChart"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- : VIDEOS -->
+  <section class="align-center">
+    <div style="padding-bottom: 2vh">
+      <h2 class="sub">VIDEOS</h2>
+      <p> Here you can explore videos rated as more relevant  <br>
+        when looking for the keyword 'Ukraine' in TV Broadcasts </p>
+      <span class="col-2">
+											<div class="btn btn-outline-light" id="outlet" style="height: auto"> Russia Today</div>
+										</span>
+    </div>
+
+    <!-- Video Carousel -->
+    <div class="gallery style2 medium lightbox onscroll-fade-in" style="padding-bottom: 3vh">
+      <article>
+        <a href="img/ph1.svg" class="image">
+          <iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20211223_123000_News._Views._Hughes?start=165&end=200" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+        </a>
+      </article>
+      <article>
+        <a href="img/ph1.svg" class="image">
+          <iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20211203_110000_News?start=543&end=578" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+        </a>
+      </article>
+      <article>
+        <a href="img/ph1.svg" class="image">
+          <iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20211228_010000_News?start=753&end=788" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+        </a>
+      </article>
+      <article>
+        <a href="img/ph1.svg" class="image">
+          <iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20220918_040000_News?start=517&end=552" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+        </a>
+      </article>
+      <article>
+        <a href="img/ph1.svg" class="image">
+          <iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20220416_200000_News?start=766&end=801" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+        </a>
+      </article>
+      <article>
+        <a href="img/ph1.svg" class="image">
+          <iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20211220_083000_CrossTalk?start=1523&end=1558" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+        </a>
+      </article>
+      <article>
+        <a href="img/ph1.svg" class="image">
+          <iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20211201_110000_News?start=1063&end=1098" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>			</a>
+      </article>
+      <article>
+        <a href="img/ph1.svg" class="image">
+          <iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20211210_070000_News?start=505&end=540" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+        </a>
+      </article>
+      <article>
+        <a href="img/ph1.svg" class="image">
+          <iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20211210_010000_News?start=691&end=726" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Intro Emotions -->
+  <section class="wrapper yellow align-center">
+    <div class="inner container-fluid text-center">
+      <div class="col align-self-center">
+        <h2 class = "sub invert" >EMOTION</h2>
+        <p class = "major invert">
+          News coverage varies not only on quantity but also on tone. Both factors might have an effect on overall trends in attitudes and behaviours. Let's use of sentiment analysis to analyze the strength of emotions in the articles about Ukraine from different news providers.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEVEN: Tone -->
+  <section>
+    <div class="container-fluid text-center">
+      <div class="row" style="padding: 1vh">
+        <h2 class= "sub" >TONE BY NEWS PROVIDER</h2>
+      </div>
+      <div class="row" style="padding: 1vh">
+        <p class="major" >How neutral are the news in different countries.
+        </p>
+      </div>
+      <div class="row justify-content-center" id="chart-7" style="padding-bottom: 3vh">
+        <div class="col justify-content-center">
+          <svg width="100vh" height="60vh">
+            <rect width="100vh" height="100%" style="fill:rgba(255, 255, 102, 0.5);" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro A Human Conflict -->
+  <section class="wrapper yellow align-center">
+    <div class="inner container-fluid text-center">
+      <div class="col align-self-center">
+        <h2 class = "sub invert">BRINGING IT BACK TO WHAT IT MATTERS</h2>
+        <p class = "major invert">
+          Are we forgetting something?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEN: Casualties -->
+  <section>
+    <div class="container-fluid text-center">
+      <div class="row" style="padding: 1vh">
+        <h2 class= "sub" >CONFLICT CASUALTIES VS NEWS COVERAGE</h2>
+      </div>
+      <div class="row" style="padding: 1vh">
+        <p class="major" >What is the relationship between human toll and conflict coverage?
+        </p>
+      </div>
+      <div class="row justify-content-center" id="chart-7" style="padding-bottom: 3vh">
+        <div class="col justify-content-center">
+          <svg width="100vh" height="60vh">
+            <rect width="100vh" height="100%" style="fill:rgba(255, 255, 102, 0.5);" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conclusion: A Human Conflict -->
+  <section class="wrapper yellow align-center">
+    <div class="inner container-fluid text-center">
+      <div class="col align-self-center">
+        <h2 class = "sub invert">A HUMAN CONFLICT</h2>
+        <p class = "major invert">
+          We have seen how news coverage can greatly vary,
+          and with it, the perception that each one of us might have of the truth.
+          It's what we read on the news was someone's choice: it comes and
+          fades and doesn't always
+          follow the pace of events
+          on the ground</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About the Project -->
+  <section class="wrapper yellow mid align-center">
+    <div class="inner container-fluid text-center">
+      <div class="col align-self-center">
+        <h2 class = "sub invert">ABOUT THE PROJECT</h2>
+        <div class="row" style="padding: 1vh">
+          <h3 class="footer">THE GDELT DATABASE</h3>
+        </div>
+        <div class="row" style="padding: 1vh">
+          <p class="invert" >The Global Database of Events, Language and Tone is a big data project led by Kalev Leetaru.
+            It collects news reports about events around the world and parses the news reports for actors, events, and geography with the aim of providing a comprehensive set
+            of data for researchers, governments, and civic society.
+          </p>
+        </div>
+        <div class="row" style="padding: 1vh">
+          <h3 class="footer">AUTHORS</h3>
+        </div>
+        <div class="row text-center light">
+          <div class="col text-center light">
+            <svg width="30%" height="30%">
+              <rect width="200%" height="200%" style="fill:#333333;" />
+            </svg>
+            <br>
+            <h4 class = "blue" >
+              STEVEN MORSE
+              <br>
+              Background </h4>
+          </div>
+          <div class="col text-center light">
+            <svg width="30%" height="30%">
+              <rect width="200%" height="200%" style="fill:#333333;" />
+            </svg>
+            <br>
+            <h4 class = "blue" >
+              NIKITA ROY
+              <br>
+              Background </h4>
+          </div>
+          <div class="col text-center light">
+            <svg width="30%" height="30%">
+              <rect width="200%" height="200%" style="fill:#21252F;" />
+            </svg>
+
+            <br>
+            <h4 class = "blue" >
+              ANA MERLA
+              <br>
+              Background </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="row" style="height: 7vh; background: #21252F;"></footer>
+  </section>
+
+  <!-- embedding JS libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+  <!-- d3 -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <script type="module">
+
+    import {timeFormat} from "https://cdn.skypack.dev/d3-time-format@4";
+
+    const format = timeFormat("%x");
+
+  </script>
+
+  <!-- Scrollama-->
+  <script src="https://unpkg.com/scrollama"></script>
+  <script src="js/scrolly.js"></script>
+
+  <!-- Animation Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <!-- own js files -->
+  <script src="js/multiLineChart.js"></script>
+  <script src="js/areaChart.js"></script>
+  <script src="js/areaChart2.js"></script>
+  <script src="js/lineChart.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/bubble.js"></script>
+</div> <!-- Closing Wrapper -->
+</body>
+</html>
+
+
+<!-- Intro Granularity on Emotions: Context -->
+<!--<section class="wrapper yellow align-center">
+	<div class="inner container-fluid text-center">
+		<div class="col align-self-center">
+			<h2 class = "sub invert">CONTEXT</h2>
+			<p class = "major invert">
+				So far, we have outlined that the quantity and the tone of the news that we see every day vary and are important to understand how we shape our understanding of the world. But can we take a deeper dive into how they might vary? In what context are our news being created?
+			</p>
+		</div>
+	</div>
+</section> -->
+
+<!-- NINE: Context -->
+<!-- <section>
+	<div class="container-fluid text-center">
+		<div class="row" style="padding: 1vh">
+			<h2 class= "sub" >CONTEXT AND MEDIA OUTLETS</h2>
+		</div>
+		<div class="row" style="padding: 1vh">
+			<p class="major" >What can sway how much a topic is reported on?
+			</p>
+		</div>
+		<div class="row justify-content-center" id="chart-7" style="padding-bottom: 3vh">
+			<div class="col justify-content-center">
+				<svg width="100vh" height="60vh">
+					<rect width="100vh" height="100%" style="fill:rgba(255, 255, 102, 0.5);" />
+				</svg>
+			</div>
+		</div>
+	</div>
+</section> -->
+
+
+
+<!-- Button
+<div class="col-4">
+    <div class="btn btn-primary" id="cs171-basics">I WANNA KNOW MORE</div>
+    <div id="content"></div>
+</div>-->
+<!--
+<div class="row narrow">
+    <a class="nlink" href="https://www.harvard.edu/">"Harvard University"</a>
+</div> -->
+
+
+<!-- Drop Down Menu -->
+<!-- <div class="row justify-content-center">
+<div class="align-self-center col-2">
+    <div class="user-control">
+        <div class="form-group">
+            <select id="area" class="form-control" onchange="dataManipulation()">
+                <option value="all">All Areas</option>
+                <option value="boston">Boston</option>
+                <option value="cambridge">Cambridge</option>
+                <option value="somerville">Somerville</option>
+            </select>
+        </div>
+    </div>
+</div>-->
