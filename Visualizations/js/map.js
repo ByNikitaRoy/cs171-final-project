@@ -1,3 +1,4 @@
+
 class MapViz {
   constructor(_parentNodeId, _data, _geo) {
     this.container = d3.select(`#${_parentNodeId}`);
