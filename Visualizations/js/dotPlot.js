@@ -94,13 +94,13 @@ class DotPlot {
 
         let wrapper = vis.svg.append("g").attr("class", "chordWrapper")
             .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
-/*
+
         //control
         this.container = d3.select(`#${this.parentElement}`);
 
         this.controlWrapper = this.container.append("div").attr("class", "control");
         this.control();
-*/
+
         vis.wrangleData();
 
     }
@@ -270,7 +270,7 @@ class DotPlot {
         });
 
     }
-/*
+
     control() {
 
         //play-pause button
@@ -308,11 +308,13 @@ class DotPlot {
             .attr("class", "slider")
             .attr("type", "range")
             .attr("min", 0)
-            .attr("max", this.data.length - 1)
+            // ---- what is this data length relate to?
+            .attr("max", this.dataByCountry[0].days.length - 1)
             .attr("step", 1);
 
         progressEnter.append("span").attr("class", "slider-label");
 
+        this.timeIndexSelected = this.selectedTime
         //progress update
         progressUpdate
             .select("input")
@@ -331,5 +333,5 @@ class DotPlot {
                 d3.timeFormat("%b. %Y")(this.data[this.timeIndexSelected].minDateOfWeek)
             );
     }
-*/
+
 }
