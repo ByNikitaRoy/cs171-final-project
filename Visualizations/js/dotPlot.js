@@ -15,7 +15,7 @@ class DotPlot {
     initVis () {
         let vis = this;
         console.log("dotPlot Running")
-
+        console.log(vis.data)
         //set margins width and height
         vis.margin = {top: 20, right: 20, bottom: 20, left: 40};
         vis.width = 1000;
@@ -35,23 +35,15 @@ class DotPlot {
             .append('g')
             .attr('transform', `translate (${vis.margin.left}, ${vis.margin.top})`);
 
-        vis.svg.append('g')
-            .attr('class', 'title bar-title')
-            .append('text')
-            .text('dotPlot')
-            .attr('transform', `translate(${vis.width / 2}, 10)`)
-            .attr('text-anchor', 'middle');
-
         //xscale and yscale these are static
         vis.xScale = d3.scaleLinear()
             .range([0, vis.width - vis.margin.left -vis.margin.right])
             .domain([-5,0])
             .nice();
 
-        vis.yScale = d3.scaleLog()
-            .range([0, vis.height - vis.margin.bottom- vis.margin.top])
-            .domain([0,39000000])
-            .nice();
+        vis.yScale = d3.scaleSymlog()
+            .range([0, (vis.height - vis.margin.bottom- vis.margin.top)])
+            .domain([39000000,7000]);
 
         //x and y axis
         vis.xAxisGroup = vis.svg.append('g')
@@ -64,11 +56,13 @@ class DotPlot {
 
         vis.xAxisGroup
             .call(d3.axisBottom()
-                .scale(vis.xScale));
+                .scale(vis.xScale))
+            .attr('class', 'xAxis');
 
         vis.yAxisGroup
             .call(d3.axisLeft()
-                .scale(vis.yScale));
+                .scale(vis.yScale))
+            .attr('class', 'yAxis');
 
         //figure out how to get the values to show up
 
@@ -81,9 +75,6 @@ class DotPlot {
     }
 
 
-    /*
-     *  Data wrangling
-     */
     wrangleData () {
         let vis = this;
         console.log('wrangleData running')
@@ -138,7 +129,45 @@ class DotPlot {
 
     updateVis() {
         let vis = this;
-        console.log('updateVis running')face
+        console.log('updateVis running')
+        console.log('data by country')
+        console.log(vis.dataByCountry)
+        // Add dots
+        vis.svg.append('g')
+            .selectAll("dot")
+            .data(vis.dataByCountry)
+            .enter()
+            .append("circle")
+            .attr("cx", function (d) {
+                return vis.xScale(d.tone); } )
+            .attr("cy", function (d) {
+                return vis.yScale(d.sum); } )
+            .attr("r", function(d) {
+
+                return 9;
+            })
+            .style("fill", function (d){
+                console.log(d.days[0].CONTINENT)
+                let cont;
+                let switchTest = d.days[0].CONTINENT
+                switch (switchTest) {
+                    case "Asia":
+                        return "#99CCCC";
+                    case "North America":
+                        return "#336699";
+                    case "Europe":
+                        return "#FFFF66";
+                    case "Africa":
+                        return "#669966";
+                    case "South America":
+                        return "purple";
+                    case "Oceania":
+                        return "green"
+                    case "#N/A":
+                        return 'red';
+                }
+            })
+            .attr('opacity','0.9')
 
     }
 }
