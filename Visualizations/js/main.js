@@ -52,7 +52,7 @@ function createVis(data) {
 
   //multiLineChart = new MultiLineChart("multiLineChart", newsCoverageData);
   AreaChart1 = new AreaChart("areaChart", newsVolumeOverTime);
-  //AreaChart2 = new AreaChart_2("areaChart2", newsVolumeOverTime);
+  AreaChart2 = new AreaChart_2("areaChart2", newsVolumeOverTime);
   LineChart1 = new LineChart("lineChart", cableNewsCoverageData);
   map = new MapViz("map", data[3], data[4]);
   bubbleChart = new BubbleViz("bubble", data[2]);

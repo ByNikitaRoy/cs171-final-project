@@ -62,18 +62,18 @@ class AreaChart_2 {
             .attr('class','yAxis');
 
         //Create chart title
-        svg.append('text')
-            .text('Percent of Global News Volume Containing "Ukraine"')
-            .attr('class', 'titleText')
-            .attr("text-anchor", "middle")
-            .attr('x', width / 2)
-            .attr('y', 10)
+        //svg.append('text')
+        //    .text('Percent of Global News Volume Containing "Ukraine"')
+        //   .attr('class', 'titleText')
+        //   .attr("text-anchor", "middle")
+        //   .attr('x', width / 2)
+        //  .attr('y', 10)
 
         //append the area
         //with reference to https://d3-graph-gallery.com/graph/area_basic.html
         svg.append("path")
             .datum(vis.data)
-            .attr("fill", "rgba(51,102,145,0.6)")
+           .attr("fill", "rgba(51,102,145,0.6)")
             .attr("stroke","rgba(145,196,196, 1)")
             .attr("stroke-width", 1)
             // .attr("opacity", 1)
