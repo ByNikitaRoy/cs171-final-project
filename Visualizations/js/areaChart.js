@@ -54,13 +54,13 @@ class AreaChart {
             .attr("transform", `translate(${margin.left}, 0)`)
             .attr('class','yAxis');
 
-        //Create chart title
-        svg.append('text')
-            .text('Percent of Global News Volume Containing "Ukraine"')
-            .attr('class', 'titleText')
-            .attr("text-anchor", "middle")
-            .attr('x', width / 2)
-            .attr('y', 10)
+       //Create chart title
+       // svg.append('text')
+       //    .text('Percent of Global News Volume Containing "Ukraine"')
+       //     .attr('class', 'titleText')
+       //    .attr("text-anchor", "middle")
+       //    .attr('x', width / 2)
+       //   .attr('y', 10)
 
         //append the area
         //with reference to https://d3-graph-gallery.com/graph/area_basic.html
