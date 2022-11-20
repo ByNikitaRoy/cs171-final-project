@@ -44,7 +44,7 @@ class DotPlot {
 
         vis.yScale = d3.scaleSymlog()
             .range([0, (vis.height - vis.margin.bottom - vis.margin.top)])
-            .domain([39000000, 7000]);
+            .domain([39000000,400]);
 
         //x and y axis
         vis.xAxisGroup = vis.svg.append('g')
@@ -69,8 +69,8 @@ class DotPlot {
         var regionSet = new Set();
         for (var i = 0; i < vis.dataByCountry.length; i++) {
             regionSet.add(vis.dataByCountry[i].continent);
-        }
-        ;
+        };
+
         var regions = Array.from(regionSet);
         var ordinal = d3.scaleOrdinal()
             .domain(regions)
@@ -95,8 +95,14 @@ class DotPlot {
         let wrapper = vis.svg.append("g").attr("class", "chordWrapper")
             .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
+        //control
+        this.container = d3.select(`#${this.parentElement}`);
+
+        this.controlWrapper = this.container.append("div").attr("class", "control");
+        this.control();
 
         vis.wrangleData();
+
     }
 
 
@@ -105,7 +111,7 @@ class DotPlot {
         console.log('wrangleData running')
 
         //temporarily set selected time range to a day
-        vis.selectedTime = "2022-02-01"
+        vis.selectedTime = "2022-07-01"
         let parseDateDash = d3.timeParse('%Y-%m-%d');
 
         vis.selectedTimeConverted = parseDateDash(vis.selectedTime)
@@ -203,6 +209,8 @@ class DotPlot {
                 }
             })
             .attr('opacity', '0.9')
+            .attr('transform', `translate (${vis.margin.left}, 0)`);
+
 
     }
 
@@ -261,6 +269,69 @@ class DotPlot {
             vis.dataByCountry[index].continent = continentValue;
         });
 
+    }
+
+    control() {
+
+        //play-pause button
+        const button = this.controlWrapper
+            .selectAll("button.play-pause")
+            .data([""]);
+        const buttonEnter = button
+            .enter()
+            .append("button")
+            .attr("class", "play-pause");
+        const buttonUpdate = button.merge(buttonEnter);
+        button.exit().remove();
+
+        //button update
+        buttonUpdate.text(this.isLooping ? "Pause" : "Play").on("click", () => {
+            this.isLooping = !this.isLooping;
+
+            this.control();
+
+            if (this.isLooping) this.start();
+            else this.stop();
+        });
+
+        //progress slider
+        const progress = this.controlWrapper.selectAll("div.progress").data([""]);
+        const progressEnter = progress
+            .enter()
+            .append("div")
+            .attr("class", "progress");
+        const progressUpdate = progress.merge(progressEnter);
+        progress.exit().remove();
+
+        progressEnter
+            .append("input")
+            .attr("class", "slider")
+            .attr("type", "range")
+            .attr("min", 0)
+            // ---- what is this data length relate to?
+            .attr("max", this.dataByCountry[0].days.length - 1)
+            .attr("step", 1);
+
+        progressEnter.append("span").attr("class", "slider-label");
+
+        this.timeIndexSelected = this.selectedTime
+        //progress update
+        progressUpdate
+            .select("input")
+            .property("value", this.timeIndexSelected)
+            .on("input", (e) => {
+                this.timeIndexSelected = e.target.value;
+
+                //render
+                this.dot();
+                this.control();
+            });
+
+        progressUpdate
+            .select(".slider-label")
+            .text(
+                d3.timeFormat("%b. %Y")(this.data[this.timeIndexSelected].minDateOfWeek)
+            );
     }
 
 }

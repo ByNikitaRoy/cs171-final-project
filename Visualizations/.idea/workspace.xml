@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e54726cb-1768-439a-9a9f-5864896b8653" name="Changes" comment="Added index 2: everything is coming together theeeereee! :)">
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index2.html" beforeDir="false" afterPath="$PROJECT_DIR$/index2.html" afterDir="false" />
-    </list>
+    <list default="true" id="b6125b42-31dc-4a87-8516-7567d5584d05" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,7 +10,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -23,7 +20,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2HpSAslWoC8YThEpZxEGOYFVEc0" />
+  <component name="ProjectId" id="2HanzLRailJTChjqnebToWP8hkz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -31,35 +28,25 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/aname/OneDrive/Documentos/Harvard/Classes/3rd/DataViz/GitHub/cs171-final-project/Ukraine/css/charts.css&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/stevenmorse/Dropbox/Harvard Courses/Visualization/Final Project/cs171-final-project/Visualizations&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e54726cb-1768-439a-9a9f-5864896b8653" name="Changes" comment="" />
-      <created>1668980391720</created>
+      <changelist id="b6125b42-31dc-4a87-8516-7567d5584d05" name="Changes" comment="" />
+      <created>1668532322563</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1668980391720</updated>
-      <workItem from="1668980392937" duration="52000" />
-      <workItem from="1668980570958" duration="2380000" />
-      <workItem from="1668983278923" duration="2021000" />
+      <updated>1668532322563</updated>
+      <workItem from="1668532323823" duration="4983000" />
+      <workItem from="1668567138920" duration="14466000" />
+      <workItem from="1668870368853" duration="26859000" />
     </task>
-    <task id="LOCAL-00001" summary="Added index 2: everything is coming together theeeereee! :)">
-      <created>1668981600420</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1668981600420</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -75,9 +62,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added index 2: everything is coming together theeeereee! :)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added index 2: everything is coming together theeeereee! :)" />
   </component>
 </project>
