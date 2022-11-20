@@ -1,4 +1,4 @@
-let multiLineChart, AreaChart1, AreaChart2, LineChart1;
+let  AreaChart1, AreaChart2, LineChart1, GapMinderChart,DotPlotChart;
 
 let parseDate = d3.timeParse('%m/%d/%Y');
 let parseDateDash = d3.timeParse('%Y-%m-%d');
@@ -13,19 +13,21 @@ let promises = [
 	}),
 	d3.csv("data/newsVolumeOverTime.csv", d => {
 		//convert to ints and parse the date
-		d.value = +d.Value;
+		d.Average = +d.Value;
 		d.date = parseDate(d.Date);
 		d.deaths = +d.Deaths;
 		return d;
 	}),
-	d3.csv("data/CableNewsCoverage/cableNewsCovAljaz.csv"),
-	d3.csv("data/CableNewsCoverage/cableNewsCovBBC.csv"),
-	d3.csv("data/CableNewsCoverage/cableNewsCovCNBC.csv"),
-	d3.csv("data/CableNewsCoverage/cableNewsCovCNN.csv"),
-	d3.csv("data/CableNewsCoverage/cableNewsCovDW.csv"),
-	d3.csv("data/CableNewsCoverage/cableNewsCovFOX.csv"),
-	d3.csv("data/CableNewsCoverage/cableNewsCovMSNBC.csv"),
-	d3.csv("data/CableNewsCoverage/cableNewsCovRT.csv")
+	d3.json("data/nations.json"),
+	d3.csv("data/sentimentAnalysis3.csv", d => {
+		//convert to ints and parse the date
+		d.AverageDocTone = +d.AverageDocTone;
+		d.Lat = +d.Lat;
+		d.Lon = +d.Lon;
+		d.NumberOfArticles = +d.NumberOfArticles;
+		d.date = parseDateDash(d.Date);
+		return d;
+	})
 	];
 
 Promise.all(promises)
@@ -36,22 +38,23 @@ Promise.all(promises)
 		console.log(err)
 	});
 
-//data.group(({type})) => type);
-
-//filter
-
 
 function createVis(data) {
 	let cableNewsCoverageData = data[0];
-	let newsCoverageData = data;
-	let newsVolumeOverTime = data[1]
+	let newsVolumeOverTime = data[1];
+	let nationsData = data[2];
+	let dotPlotData = data[3];
 
+	console.log("nationsData")
+	console.log(nationsData)
+	console.log("dotPlotData")
+	console.log(dotPlotData)
 
-
-	//multiLineChart = new MultiLineChart("multiLineChart", newsCoverageData);
-	AreaChart1 = new AreaChart("areaChart", newsVolumeOverTime);
-	AreaChart2 = new AreaChart_2("areaChart2", newsVolumeOverTime);
-	LineChart1 = new LineChart("lineChart", cableNewsCoverageData);
+	//AreaChart1 = new AreaChart("areaChart", newsVolumeOverTime);
+	//AreaChart2 = new AreaChart_2("areaChart2", newsVolumeOverTime);
+	//LineChart1 = new LineChart("lineChart", cableNewsCoverageData);
+	//GapMinderChart = new GapMinderVis("gapMinderVis", nationsData);
+	DotPlotChart = new DotPlot("dotPlotVis", dotPlotData);
 
 
 
