@@ -15,8 +15,12 @@
 	<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 	<!-- Custom CSS code -->
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="assets/css/scrollmain.css"/>
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css"/></noscript>
 </head>
-<!-- Intro div -->
+
+<body>
+<!-- Intro Z div -->
 	<div class="container-fluid" style="background-image:url('img/bg 0.png'); background-position-x: right; background-repeat: no-repeat;">
 			<div class="row justify-content-center intro">
 				<div class="col align-left">
@@ -29,7 +33,7 @@
 			</div>
 		<div class="row container-fluid justify-content-center vl"></div>
 	</div>
-<!-- Intro div -->
+<!-- Intro P div -->
 	<div class="container-fluid" style="background-image:url('img/bg 1.png'); background-position-x: left; background-repeat: no-repeat;">
 			<div class="row intro">
 					<div class="col align-right">
@@ -41,7 +45,7 @@
 									<br>
 									Russia invaded Ukraine starting the biggest military mobilization in Europe since World War II.
 									<br>
-									The invasion is likely to have major effects on people around the world, and the whole world is watching.
+									The invasion is likely to have major effects on people around the world, and every country's media has been watching.
 									</h2></div></div>
 								 </div>
 							</div>
@@ -54,8 +58,7 @@
 <div class="container-fluid text-center">
 	<div class="row text-center light">
 		<div class="col -7 align-self-center">
-			<h1 class = "titleBlueIntroSmall" >We have the ability to analyze
-				conflicts in ways we couldn't before</h1>
+			<h1 class = "titleBlueIntroSmall" >What can we learn from watching the watchers?</h1>
 			<h2 class = "blue" >Explore with us different perspectives on how the media around the world has been covering the topic.</h2>
 		</div>
 	</div>
@@ -66,7 +69,7 @@
 				<h1 class = "titleYellowIntroSmall"> IN THE INTERNATIONAL EYE</h1>
 		</div>
 		<div class="row container" style="padding: 1vh">
-			<div class= "col-md-6 offset-5 justify-content-center">
+			<div class= "col-md-6 offset-3 justify-content-center">
 				<h2 class="light" >
 					What are the international mentions of the word 'ukraine' in the media since the beginning of the conflict?</h2>
 			</div>
@@ -74,18 +77,24 @@
 			<div class="row" id="chart-1">
 				<img src="img/ph1.svg" alt="Map 1" height="700vh"/>
 			</div>
-
-	</div>
-
-		<!-- Vis 2: S Chart---------------------------------------------IMPLEMENTED-->
-	<div class="container-fluid text-center mainArea">
-		<!-- Vis 2.1: Percent of Global News Volume Containing 'Ukraine'---------------------------------------------IMPLEMENTED-->
-		<div class="row" id="areaChart" style= "background:#333333"></div></div>
-		<div class="container-fluid mainArea" >
-			<!-- Vis 2.1: Percent of Global News Volume Containing 'Ukraine'---------------------------------------------IMPLEMENTED-->
-		<div class="row" id ="areaChart2" style= "background:#333333"></div>
 	</div>
 </div>
+		<!-- Vis 2: S Chart---------------------------------------------IMPLEMENTED-->
+	<div class="container-fluid text-center mainArea">
+		<div class="row dark small justify-content-center">
+			<span class="col-2">
+				<div class="btn btn-outline-light" id="s-ukraine" style="height: auto"> What about Ukraine mentions?</div>
+			</span>
+		</div>
+		<!-- Vis 2.1: Percent of Global News Volume Containing 'Ukraine'---------------------------------------------IMPLEMENTED
+		<div class="row" id="areaChart" style= "background:#333333"></div></div>
+		<div class="container-fluid mainArea" >-->
+			<!-- Vis 2.1: Percent of Global News Volume Containing 'Ukraine'---------------------------------------------IMPLEMENTED-->
+		<div class="row">
+				 <div id ="areaChart2" style= "background:#21252F"> </div>
+	</div>
+		</div>
+
 		<!-- Breather 2 -->
 		<div class="container-fluid text-center">
 			<div class="row text-center mid">
@@ -98,42 +107,67 @@
 		<!-- Vis 2.2: News Coverage by various channels--------------------------------------------------------------------IMPLEMENTED-->
 		<div class="container-fluid text-center">
 			<div class="row dark" style="height: auto; padding-top: 12vh" >
-				<div id ="multiLineChart"></div>
+				<h2 class="light"> News Coverage by various channels </h2>
+				<div id ="lineChart"></div>
 			</div>
 		</div>
 		<!-- Videos -->
-	<div class="container-fluid text-center">
-		<div class="row dark">
-			<div class="row"> <h2 class="light" style="padding-top:20vh;">ability to see some news clips and how they are grabbing attention <br>
-				news clips should come from the same day of coverage</h2>
-			</div>
-			<div class="row" style="height: 15vh">
-				<div class="col-3">
-					<svg width="20%" height="30%">
-						<rect width="200%" height="40%" style="fill:#FFFF66;" />
-					</svg>
-				</div>
-				<div class="col-3">
-					<svg width="20%" height="30%">
-						<rect width="200%" height="40%" style="fill:#FFFF66;" />
-					</svg>
-				</div>
-				<div class="col-3">
-					<svg width="20%" height="30%">
-						<rect width="200%" height="40%" style="fill:#FFFF66;" />
-					</svg>
-				</div>
-				<div class="col-3">
-					<svg width="20%" height="30%">
-						<rect width="200%" height="40%" style="fill:#FFFF66;" />
-					</svg>
-				</div>
-				</div>
-			<div class="row" style="height: 10vh; background: #FFFF66">
-			<h2 class="blue"> SEE MORE </h2> </div>
-			</div>
-		</div>
+
+	<section class="align-center mid">
+	<div class="mid small">
+		<h2 class="titleBlueIntroMed">VIDEOS</h2>
+		<h2 class = "blue" > Here you can explore videos rated as more relevant  <br>
+			when looking for the keyword 'Ukraine' in TV Broadcasts </h2>	</div>
+	<h2 class="titleBlueIntroSmall"> Russia Today</h2>
+	<!-- Gallery -->
+	<div class="gallery style2 medium lightbox onscroll-fade-in">
+		<article>
+			<a href="img/ph1.svg" class="video">
+				<iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20211223_123000_News._Views._Hughes?start=165&end=200" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+			</a>
+		</article>
+		<article>
+			<a href="img/ph1.svg" class="image">
+				<iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20211203_110000_News?start=543&end=578" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+			</a>
+		</article>
+		<article>
+			<a href="img/ph1.svg" class="image">
+				<iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20211228_010000_News?start=753&end=788" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+			</a>
+		</article>
+		<article>
+			<a href="img/ph1.svg" class="image">
+				<iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20220918_040000_News?start=517&end=552" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+			</a>
+		</article>
+		<article>
+			<a href="img/ph1.svg" class="image">
+				<iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20220416_200000_News?start=766&end=801" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+			</a>
+		</article>
+		<article>
+			<a href="img/ph1.svg" class="image">
+				<iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20211220_083000_CrossTalk?start=1523&end=1558" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+			</a>
+		</article>
+		<article>
+			<a href="img/ph1.svg" class="image">
+				<iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20211201_110000_News?start=1063&end=1098" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>			</a>
+		</article>
+		<article>
+			<a href="img/ph1.svg" class="image">
+				<iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20211210_070000_News?start=505&end=540" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+			</a>
+		</article>
+		<article>
+			<a href="img/ph1.svg" class="image">
+				<iframe width="400" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/RT_20211210_010000_News?start=691&end=726" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+			</a>
+		</article>
 	</div>
+
+</section>
 		<!-- Breather 3 EMOTION-->
 	<div class="container-fluid text-center">
 		<div class="row text-center light">
@@ -242,7 +276,7 @@
 		</div>
 		<div class="col text-center light">
 			<svg width="30%" height="30%">
-				<rect width="200%" height="200%" style="fill:#333333;" />
+				<rect width="200%" height="200%" style="fill:#21252F;" />
 			</svg>
 
 			<br>
@@ -254,7 +288,6 @@
 		</div>
 </div>
 
-</body>
 <!-- embedding JS libraries -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
@@ -266,6 +299,15 @@
 <script src="https://unpkg.com/scrollama"></script>
 <script src="js/scrolly.js"></script>
 
+<!-- Animation Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
 <!-- own js files -->
 <script src="js/multiLineChart.js"></script>
 <script src="js/areaChart.js"></script>
@@ -274,3 +316,28 @@
 <script src="js/main.js"></script>
 </body>
 </html>
+<!-- Button
+<div class="col-4">
+	<div class="btn btn-primary" id="cs171-basics">I WANNA KNOW MORE</div>
+	<div id="content"></div>
+</div>-->
+<!--
+<div class="row narrow">
+	<a class="nlink" href="https://www.harvard.edu/">"Harvard University"</a>
+</div> -->
+
+
+<!-- Drop Down Menu -->
+<!-- <div class="row justify-content-center">
+<div class="align-self-center col-2">
+	<div class="user-control">
+		<div class="form-group">
+			<select id="area" class="form-control" onchange="dataManipulation()">
+				<option value="all">All Areas</option>
+				<option value="boston">Boston</option>
+				<option value="cambridge">Cambridge</option>
+				<option value="somerville">Somerville</option>
+			</select>
+		</div>
+	</div>
+</div>-->

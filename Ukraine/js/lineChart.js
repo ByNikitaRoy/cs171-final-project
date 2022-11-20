@@ -19,7 +19,7 @@ class LineChart {
             z: d => d.Series,
             yLabel: "% Airtime on Day",
             width: 1300,
-            height: 800,
+            height: 600,
             color: "#FFFF66",
             voronoi: false // if true, show Voronoi overlay
         })

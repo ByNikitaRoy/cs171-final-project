@@ -71,10 +71,10 @@ class AreaChart_2 {
         //with reference to https://d3-graph-gallery.com/graph/area_basic.html
         svg.append("path")
             .datum(vis.data)
-            .attr("fill", "#FFFF66")
-            //.attr("stroke", "#038C9E")
-            .attr("stroke-width", 2.5)
-            .attr("opacity", 0.8)
+            .attr("fill", "rgba(51,102,145,0.6)")
+            .attr("stroke","rgba(145,196,196, 1)")
+            .attr("stroke-width", 1)
+           // .attr("opacity", 1)
             .attr("d", d3.area()
                 .x(function (d) {
                     return xScale(d.date)
@@ -87,9 +87,9 @@ class AreaChart_2 {
         svg.append("path")
             .datum(vis.data)
             .attr("fill", "none")
-            .attr("stroke", "#038C9E")
+            .attr("stroke", "#FFFF66")
             .attr("stroke-width", 2.5)
-            //.attr("opacity", 0.5)
+            .attr("opacity", 1)
             .attr("d", d3.area()
                 .x(function (d) {
                     return xScale(d.date)
