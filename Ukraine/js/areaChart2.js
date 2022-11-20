@@ -84,6 +84,8 @@ class AreaChart_2 {
                     return yScale(d.value)
                 })
             )
+        document.getElementById("s-ukraine").onclick = () => {
+
         svg.append("path")
             .datum(vis.data)
             .attr("fill", "none")
@@ -98,7 +100,7 @@ class AreaChart_2 {
                 .y1(function (d) {
                     return yScaleDeaths(d.deaths)
                 })
-            )
+            ) }
 
 
 
