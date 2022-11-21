@@ -20,7 +20,7 @@ class LineChart {
             yLabel: "% Airtime on Day",
             width: 1300,
             height: 800,
-            color: "#FFFF66",
+            color: "rgba(255, 255, 255, 1)",
             voronoi: false // if true, show Voronoi overlay
         })
 
@@ -30,7 +30,7 @@ class LineChart {
             z = () => 1, // given d in data, returns the (categorical) z-value
             title, // given d in data, returns the title text
             defined, // for gaps in data
-            curve = d3.curveLinear, // method of interpolation between points
+            curve = d3.curveCatmullRom, // method of interpolation between points
             marginTop = 20, // top margin, in pixels
             marginRight = 30, // right margin, in pixels
             marginBottom = 30, // bottom margin, in pixels
@@ -46,7 +46,7 @@ class LineChart {
             yFormat, // a format specifier string for the y-axis
             yLabel, // a label for the y-axis
             zDomain, // array of z-values
-            color = "#3a6ff6", // stroke color of line, as a constant or a function of *z*
+            color = "rgba(255, 255, 255, 0.6)", // stroke color of line, as a constant or a function of *z*
             strokeLinecap, // stroke line cap of line
             strokeLinejoin, // stroke line join of line
             strokeWidth = 1.5, // stroke width of line
@@ -114,7 +114,7 @@ class LineChart {
                     .attr("stroke-opacity", 0.15))
                 .call(g => g.append("text")
                     .attr("x", -marginLeft)
-                    .attr("y", 10)
+                    .attr("y", 11)
                     .attr("fill", "currentColor")
                     .attr("text-anchor", "start")
                     .attr('class','yLabelLine')
@@ -141,27 +141,32 @@ class LineChart {
 
             dot.append("circle")
                 .attr("r", 10)
-                .attr('fill', 'white');
+                .attr('fill', 'rgba(255, 255, 102, 1')
+                .attr("stroke", typeof color === "string" ? color : 'rgba(255, 255, 102)')
+                .attr("stroke-width", 20)
+                .attr("stroke-opacity", 0.2);
 
             //tooltip text
             dot.append("text")
-                .attr("font-family", "sans-serif")
+                .attr("font-family", "Barlow")
+                .attr("font-weight", 500)
                 .attr("font-size", 35)
-                .attr('fill', 'white')
+                .attr('fill', 'rgba(255, 255, 102, 0.9)')
                 .attr("text-anchor", "middle")
-                .attr("y", -8);
+                .attr("y", -100);
+
 
             function pointermoved(event) {
                 const [xm, ym] = d3.pointer(event);
                 const i = d3.least(I, i => Math.hypot(xScale(X[i]) - xm, yScale(Y[i]) - ym)); // closest point
-                path.style("stroke", ([z]) => Z[i] === z ? null : "#336699").filter(([z]) => Z[i] === z).raise();
+                path.style("stroke", ([z]) => Z[i] === z ? null : "rgba(255, 255, 255, 0.15)").filter(([z]) => Z[i] === z).raise();
                 dot.attr("transform", `translate(${xScale(X[i])},${yScale(Y[i])})`);
                 if (T) dot.select("text").text(T[i]);
                 svg.property("value", O[i]).dispatch("input", {bubbles: true});
             }
 
             function pointerentered() {
-                path.style("mix-blend-mode", null).style("stroke", "#ddd");
+                path.style("mix-blend-mode", null).style("stroke", "rgba(255, 255, 255, 0.8)");
                 dot.attr("display", null);
             }
 
