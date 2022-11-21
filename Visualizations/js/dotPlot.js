@@ -25,7 +25,7 @@ class DotPlot {
 
         //Set the color for each continent
         let color = d3.scaleOrdinal()
-            .range(["#EFB605", "#E58903", "#E01A25", "#C20049", "#991C71", "#66489F", "#2074A0"])
+            .range(["#FFFF66", "#669166", "#336691", "#D599FF", "#9CDE9C", "#C1F2EC", "#CDCCF4"])
             .domain(["Africa", "Asia", "Europe", "North America",
                 "South America", "Oceania", "#NA"]);
 
@@ -79,7 +79,7 @@ class DotPlot {
         var regions = Array.from(regionSet);
         var ordinal = d3.scaleOrdinal()
             .domain(regions)
-            .range(["#EFB605", "#E58903", "#E01A25", "#C20049", "#991C71", "#66489F", "#2074A0"]);
+            .range(["#FFFF66", "#669166", "#336691", "#D599FF", "#9CDE9C", "#C1F2EC", "#CDCCF4"]);
 
         vis.svg.append("g")
             .attr("class", "legendOrdinal")
@@ -167,7 +167,7 @@ class DotPlot {
         console.log(this.timeIndexSelected)
         console.log(this.dataByCountryInit[0].days.length - 1)
         if(this.timeIndexSelected == this.dataByCountryInit[0].days.length - 1){
-            this.timeIndexSelected = 15;
+            this.timeIndexSelected = 14;
             console.log('STOP')
             stop();
         }
@@ -202,22 +202,22 @@ class DotPlot {
                 switch (switchTest) {
 
                     case "Asia":
-                        return "#EFB605";
+                        return "#FFFF66";
                     case "North America":
-                        return "#2074A0";
+                        return "#D599FF";
                     case "Europe":
-                        return "#C20049";
+                        return "#336691";
                     case "Africa":
-                        return "#66489F";
+                        return "#9CDE9C";
                     case "South America":
-                        return "#E58903";
+                        return "#669166";
                     case "Oceania":
-                        return "#E01A25"
+                        return "#C1F2EC"
                     case "Russia":
-                        return '#991C71';
+                        return '#CDCCF4';
                 }
             })
-            .attr('opacity', '0.9')
+            //.attr('opacity', '0.95')
             .attr('transform', `translate (${vis.margin.left}, 0)`)
             .attr('class', 'circle')
             .attr('id','circle')
@@ -343,7 +343,7 @@ class DotPlot {
             });
 
         if(this.timeIndexSelected == undefined){
-            this.timeIndexSelected  = 15;
+            this.timeIndexSelected  = 14;
         }
         progressUpdate
             .select(".slider-label")
