@@ -20,7 +20,7 @@
       box-sizing: border-box;
     }
     div.intro {
-        height: 100vh;
+        height: 80vh;
     }
     section.wrapper.yellow {
         background:rgba(255, 255, 102, 0.9);
