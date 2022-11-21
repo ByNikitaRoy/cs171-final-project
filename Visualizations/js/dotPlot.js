@@ -66,9 +66,10 @@ class DotPlot {
                 .scale(vis.yScale))
             .attr('class', 'yAxis');
 
-        //add additional scale points
-
-
+        //add tooltip
+        vis.tooltip = d3.select("body").append('div')
+            .attr('class', "tooltip")
+            .attr('id', 'circleTooltip')
 
         // Add a legend
         var regionSet = new Set();
@@ -184,6 +185,33 @@ class DotPlot {
 
         dots.enter()
             .append("circle")
+            .attr('class', 'circle')
+            .on('mouseover', function(event, d) {
+
+                console.log(d)
+
+                d3.select(this)
+                    .attr('stroke-width', '10px')
+                    .attr('stroke', '#FFFFFF')
+                    //.attr('fill', '#FFFFFF');
+
+                vis.tooltip
+                    .style("opacity", 1)
+                    .style("left", event.pageX + 20 + "px")
+                    .style("top", event.pageY + "px")
+                    .html(`
+                         <div style=" border-radius: 5px; background: white; padding: 10px">
+                             <h5>${d.country}<h5>                          
+                         </div>`);
+            })
+            .on('mouseout', function(event, d) {
+
+                d3.select(this)
+                    .attr('stroke-width', '0px')
+
+                vis.tooltip
+                    .style("opacity", 0)
+            })
             .merge(dots)
             .transition()
             .duration(100)
@@ -219,7 +247,6 @@ class DotPlot {
             })
             //.attr('opacity', '0.95')
             .attr('transform', `translate (${vis.margin.left}, 0)`)
-            .attr('class', 'circle')
             .attr('id','circle')
             .attr('clip-path','url(#chart-area');
 
