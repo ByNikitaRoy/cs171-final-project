@@ -18,7 +18,7 @@ class DotPlot {
         console.log("dotPlot Running")
         console.log(vis.data)
         //set margins width and height
-        vis.margin = {top: 20, right: 20, bottom: 20, left: 40};
+        vis.margin = {top: 20, right: 20, bottom: 20, left: 50};
         vis.width = 1000;
         vis.height = 800;
         vis.padding = 20;
