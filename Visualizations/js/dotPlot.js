@@ -21,6 +21,7 @@ class DotPlot {
         vis.margin = {top: 20, right: 20, bottom: 20, left: 40};
         vis.width = 1000;
         vis.height = 800;
+        vis.padding = 20;
 
         //Set the color for each continent
         let color = d3.scaleOrdinal()
@@ -40,8 +41,7 @@ class DotPlot {
         //xscale and yscale these are static
         vis.xScale = d3.scaleLinear()
             .range([0, vis.width - vis.margin.left - vis.margin.right])
-            .domain([-5, 0])
-            .nice();
+            .domain([-5, 0]);
 
         vis.yScale = d3.scaleSymlog()
             .range([0, (vis.height - vis.margin.bottom - vis.margin.top)])
@@ -50,11 +50,11 @@ class DotPlot {
         //x and y axis
         vis.xAxisGroup = vis.svg.append('g')
             .attr('class', 'axis x-axis')
-            .attr('transform', `translate (${vis.margin.left},${vis.height - vis.margin.bottom})`);
+            .attr('transform', `translate (${vis.margin.left},${vis.height - vis.margin.bottom-vis.margin.top})`);
 
         vis.yAxisGroup = vis.svg.append('g')
             .attr('class', 'axis y-axis')
-            .attr('transform', `translate (${vis.margin.left}, ${vis.margin.top})`);
+            .attr('transform', `translate (${vis.margin.left},0)`);
 
         vis.xAxisGroup
             .call(d3.axisBottom()
@@ -65,6 +65,10 @@ class DotPlot {
             .call(d3.axisLeft()
                 .scale(vis.yScale))
             .attr('class', 'yAxis');
+
+        //add additional scale points
+
+
 
         // Add a legend
         var regionSet = new Set();
@@ -91,6 +95,14 @@ class DotPlot {
         vis.svg.select(".legendOrdinal")
             .attr('class','legendDots')
             .call(legendOrdinal);
+
+        vis.svg.append('clipPath')
+            .attr('id', 'chart-area')
+            .append('rect')
+            .attr('x', vis.margin.left)
+            .attr('y',0)
+            .attr('width', vis.width - vis.padding*2)
+            .attr('height', vis.height - vis.padding*2)
 
         let wrapper = vis.svg.append("g").attr("class", "chordWrapper")
             .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
@@ -207,7 +219,9 @@ class DotPlot {
             })
             .attr('opacity', '0.9')
             .attr('transform', `translate (${vis.margin.left}, 0)`)
-            .attr('class', 'circle');
+            .attr('class', 'circle')
+            .attr('id','circle')
+            .attr('clip-path','url(#chart-area');
 
         dots.exit()
             .remove();

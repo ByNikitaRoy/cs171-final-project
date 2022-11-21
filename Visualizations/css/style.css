@@ -215,3 +215,78 @@
   background: #faf8b7;
   cursor: pointer;
 }
+
+
+
+
+#dotPlotVis .control {
+  display: flex;
+  column-gap: 20px;
+  margin: 20px 0px;
+  align-items: center;
+}
+
+#dotPlotVis button.play-pause {
+  width: 60px;
+  padding: 4px;
+  background-color: #3e4f5d;
+  color: lightgray;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+#dotPlotVis .progress {
+  height: fit-content;
+  flex-grow: 1;
+  background-color: #333333;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#dotPlotVis .progress .slider {
+  position: relative;
+  width: 100%;
+  background-color: none;
+}
+#dotPlotVis .slider-label {
+  font-size: 14px;
+  text-align: center;
+  color: #faf8b7;
+  font-weight: bold;
+  white-space: nowrap;
+}
+#dotPlotVis .slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 22px;
+  background: #3e4f5d;
+  outline: none;
+  opacity: 0.8;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 2px;
+}
+
+#dotPlotVis .slider:hover {
+  opacity: 1;
+}
+
+#dotPlotVis .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 25px;
+  border-radius: 7.5px;
+  background: #faf8b7;
+  cursor: pointer;
+}
+
+#dotPlotVis .slider::-moz-range-thumb {
+  width: 15px;
+  height: 25px;
+  border-radius: 7.5px;
+  background: #faf8b7;
+  cursor: pointer;
+}
