@@ -83,11 +83,10 @@ class DotPlot {
 
 
         var legendOrdinal = d3.legendColor()
-            .title("Legend:")
+            .title("Legend: Continent")
             .shape("path", d3.symbol().type(d3.symbolCircle).size(150)())
             .shapePadding(10)
             .scale(ordinal);
-
 
         vis.svg.select(".legendOrdinal")
             .attr('class','legendDots')
@@ -181,7 +180,6 @@ class DotPlot {
                 return 9;
             })
             .style("fill", function (d) {
-                let cont;
                 let switchTest = d.days[0].CONTINENT
                 switch (switchTest) {
 
@@ -197,7 +195,7 @@ class DotPlot {
                         return "#E58903";
                     case "Oceania":
                         return "#E01A25"
-                    case "#N/A":
+                    case "Russia":
                         return '#991C71';
                 }
             })
@@ -228,10 +226,14 @@ class DotPlot {
         vis.data.forEach(row => {
 
             if (row.date < vis.selectedTimeConverted) {
+                console.log('push')
+                console.log(row.date)
+                console.log(vis.selectedTimeConverted)
                 vis.filteredData.push(row)
             }
         })
 
+        console.log(this.filteredData)
         //group by country
         vis.dataByCountryInit = Array.from(d3.group(vis.filteredData, d => d.Country), ([country, days, sum, tone, continent]) => ({
             country,
@@ -314,13 +316,15 @@ class DotPlot {
                 //render
                 this.wrangleData();
                 this.control();
+                console.log('test')
+                console.log(this.dataByCountryInit[0])
                 if(this.timeIndexSelected = this.dataByCountryInit[0].days.length - 1){
                     return false;
                 }
             });
 
         if(this.timeIndexSelected == undefined){
-            this.timeIndexSelected  = 0;
+            this.timeIndexSelected  = 1;
         }
         progressUpdate
             .select(".slider-label")

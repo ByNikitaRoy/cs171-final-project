@@ -23,10 +23,8 @@ let promises = [
   d3.csv("data/sentimentAnalysis3.csv", d => {
     //convert to ints and parse the date
     d.AverageDocTone = +d.AverageDocTone;
-    d.Lat = +d.Lat;
-    d.Lon = +d.Lon;
     d.NumberOfArticles = +d.NumberOfArticles;
-    d.date = parseDateDash(d.Date);
+    d.date = new Date(d.Date);
     return d;
   })
 ];
@@ -52,7 +50,7 @@ function createVis(data) {
 
   //multiLineChart = new MultiLineChart("multiLineChart", newsCoverageData);
   AreaChart1 = new AreaChart("areaChart", newsVolumeOverTime);
-  AreaChart2 = new AreaChart_2("areaChart2", newsVolumeOverTime);
+  //AreaChart2 = new AreaChart_2("areaChart2", newsVolumeOverTime);
   LineChart1 = new LineChart("lineChart", cableNewsCoverageData);
   map = new MapViz("map", data[3], data[4]);
   bubbleChart = new BubbleViz("bubble", data[2]);
