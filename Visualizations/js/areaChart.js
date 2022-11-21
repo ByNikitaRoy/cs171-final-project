@@ -66,7 +66,8 @@ class AreaChart {
         //with reference to https://d3-graph-gallery.com/graph/area_basic.html
         svg.append("path")
             .datum(vis.data)
-            .attr("fill", "#FFFF66")
+            .attr("fill", "rgba(255, 255, 102, 0.88)")
+            .attr("stroke","rgba(255, 255, 102, 1)")
             //.attr("stroke", "#038C9E")
             .attr("stroke-width", 2.5)
             .attr("opacity", 0.8)
