@@ -188,7 +188,6 @@ class DotPlot {
             .attr('class', 'circle')
             .on('mouseover', function(event, d) {
 
-                console.log('moused')
                 console.log(d)
 
                 d3.select(this)
@@ -206,7 +205,6 @@ class DotPlot {
                          </div>`);
             })
             .on('mouseout', function(event, d) {
-                console.log('mousedout')
 
                 d3.select(this)
                     .attr('stroke-width', '0px')
