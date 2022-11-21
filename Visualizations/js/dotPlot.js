@@ -45,7 +45,7 @@ class DotPlot {
 
         vis.yScale = d3.scaleSymlog()
             .range([0, (vis.height - vis.margin.bottom - vis.margin.top)])
-            .domain([39000000,400]);
+            .domain([15000000,400]);
 
         //x and y axis
         vis.xAxisGroup = vis.svg.append('g')
@@ -63,7 +63,9 @@ class DotPlot {
 
         vis.yAxisGroup
             .call(d3.axisLeft()
-                .scale(vis.yScale))
+                .scale(vis.yScale)
+                .tickFormat(d3.format(",d"))
+                .tickValues([1000,10000,50000,1000000,15000000]))
             .attr('class', 'yAxis');
 
         //add tooltip
@@ -133,12 +135,19 @@ class DotPlot {
         //go through every line of the data
         //if less than selected date -> add it to the filtered data
 
+        vis.timeHolder = this.selectedTime
+        vis.lowerBound = new Date((vis.timeHolder- (30* 86400000) ));
+
         vis.data.forEach(row => {
 
             if (row.date < this.selectedTime) {
-                vis.filteredData.push(row)
+                if( vis.lowerBound < row.date ){
+                    vis.filteredData.push(row)
+                }
             }
         })
+        //console.log('filteredData')
+        //console.log(vis.filteredData)
 
         //group by country
         vis.dataByCountry = Array.from(d3.group(vis.filteredData, d => d.Country), ([country, days, sum, tone, continent]) => ({
@@ -188,7 +197,7 @@ class DotPlot {
             .attr('class', 'circle')
             .on('mouseover', function(event, d) {
 
-                console.log(d)
+                //console.log(d)
 
                 d3.select(this)
                     .attr('stroke-width', '10px')
@@ -271,6 +280,7 @@ class DotPlot {
         console.log('data')
         console.log(vis.data)
 
+
         //go through every line of the data
         //if less than selected date -> add it to the filtered data
 
@@ -282,7 +292,6 @@ class DotPlot {
             }
         })
 
-        console.log(this.filteredData)
         //group by country
         vis.dataByCountryInit = Array.from(d3.group(vis.filteredData, d => d.Country), ([country, days, sum, tone, continent]) => ({
             country,
