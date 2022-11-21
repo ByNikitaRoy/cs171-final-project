@@ -125,7 +125,7 @@ class MapViz {
   }
 
   dot() {
-    //selected data
+   //selected data
     const data =
       this.data[this.timeIndexSelected]?.data.filter(
         (d) => this.featureMapping[d.country]

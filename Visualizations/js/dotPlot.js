@@ -7,6 +7,7 @@ class DotPlot {
     constructor(parentElement, displayData) {
         this.parentElement = parentElement;
         this.data = displayData;
+        this.loopStepTime = 1;
 
         this.initVis();
     }
@@ -67,14 +68,14 @@ class DotPlot {
 
         // Add a legend
         var regionSet = new Set();
-        for (var i = 0; i < vis.dataByCountry.length; i++) {
-            regionSet.add(vis.dataByCountry[i].continent);
+        for (var i = 0; i < vis.dataByCountryInit.length; i++) {
+            regionSet.add(vis.dataByCountryInit[i].continent);
         };
 
         var regions = Array.from(regionSet);
         var ordinal = d3.scaleOrdinal()
             .domain(regions)
-            .range(d3.schemeCategory10);
+            .range(["#EFB605", "#E58903", "#E01A25", "#C20049", "#991C71", "#66489F", "#2074A0"]);
 
         vis.svg.append("g")
             .attr("class", "legendOrdinal")
@@ -82,7 +83,7 @@ class DotPlot {
 
 
         var legendOrdinal = d3.legendColor()
-            .title("Legend: Continent")
+            .title("Legend:")
             .shape("path", d3.symbol().type(d3.symbolCircle).size(150)())
             .shapePadding(10)
             .scale(ordinal);
@@ -101,39 +102,32 @@ class DotPlot {
         this.controlWrapper = this.container.append("div").attr("class", "control");
         this.control();
 
-        vis.wrangleData();
-
     }
 
 
     wrangleData() {
         let vis = this;
         console.log('wrangleData running')
-
         //temporarily set selected time range to a day
-        vis.selectedTime = "2022-07-01"
         let parseDateDash = d3.timeParse('%Y-%m-%d');
 
-        vis.selectedTimeConverted = parseDateDash(vis.selectedTime)
+
+        //vis.selectedTimeConverted = parseDateDash(this.timeIndexSelected)
+
+        this.selectedTime = this.dataByCountryInit[0].days[this.timeIndexSelected].date;
 
         // we want to filter data to the period of time up to the selectedTime
         vis.filteredData = [];
-
-        console.log('data')
-        console.log(vis.data)
 
         //go through every line of the data
         //if less than selected date -> add it to the filtered data
 
         vis.data.forEach(row => {
 
-            if (row.date < vis.selectedTimeConverted) {
+            if (row.date < this.selectedTime) {
                 vis.filteredData.push(row)
             }
         })
-
-        //data has been filtered
-        console.log(vis.filteredData)
 
         //group by country
         vis.dataByCountry = Array.from(d3.group(vis.filteredData, d => d.Country), ([country, days, sum, tone, continent]) => ({
@@ -168,15 +162,14 @@ class DotPlot {
 
     updateVis() {
         let vis = this;
-        console.log('updateVis running')
-        console.log('data by country')
-        console.log(vis.dataByCountry)
+        console.log('updateVis Running')
         // Add dots
         vis.svg.append('g')
             .selectAll("dot")
             .data(vis.dataByCountry)
             .enter()
             .append("circle")
+            .join()
             .attr("cx", function (d) {
                 return vis.xScale(d.tone);
             })
@@ -188,38 +181,37 @@ class DotPlot {
                 return 9;
             })
             .style("fill", function (d) {
-                console.log(d.days[0].CONTINENT)
                 let cont;
                 let switchTest = d.days[0].CONTINENT
                 switch (switchTest) {
+
                     case "Asia":
-                        return "#99CCCC";
+                        return "#EFB605";
                     case "North America":
-                        return "#336699";
+                        return "#2074A0";
                     case "Europe":
-                        return "#FFFF66";
+                        return "#C20049";
                     case "Africa":
-                        return "#669966";
+                        return "#66489F";
                     case "South America":
-                        return "purple";
+                        return "#E58903";
                     case "Oceania":
-                        return "green"
+                        return "#E01A25"
                     case "#N/A":
-                        return 'red';
+                        return '#991C71';
                 }
             })
             .attr('opacity', '0.9')
             .attr('transform', `translate (${vis.margin.left}, 0)`);
 
-
     }
 
     initWrangleData() {
         let vis = this;
-        console.log('wrangleData running')
+        console.log('init wrangleData running')
 
         //temporarily set selected time range to a day
-        vis.selectedTime = "2022-02-01"
+        vis.selectedTime = "2022-11-17"
         let parseDateDash = d3.timeParse('%Y-%m-%d');
 
         vis.selectedTimeConverted = parseDateDash(vis.selectedTime)
@@ -240,11 +232,8 @@ class DotPlot {
             }
         })
 
-        //data has been filtered
-        console.log(vis.filteredData)
-
         //group by country
-        vis.dataByCountry = Array.from(d3.group(vis.filteredData, d => d.Country), ([country, days, sum, tone, continent]) => ({
+        vis.dataByCountryInit = Array.from(d3.group(vis.filteredData, d => d.Country), ([country, days, sum, tone, continent]) => ({
             country,
             days,
             sum,
@@ -253,7 +242,7 @@ class DotPlot {
         }))
 
         //vis.dataByCountry["United Arab Emirates"].sum = 23;
-        vis.dataByCountry.forEach((row, index) => {
+        vis.dataByCountryInit.forEach((row, index) => {
             let sumPublications = 0
             let avgTone = 0
             let rowLength = row.days.length
@@ -264,11 +253,13 @@ class DotPlot {
             });
 
             avgTone = avgTone / rowLength
-            vis.dataByCountry[index].tone = avgTone;
-            vis.dataByCountry[index].sum = sumPublications;
-            vis.dataByCountry[index].continent = continentValue;
+            vis.dataByCountryInit[index].tone = avgTone;
+            vis.dataByCountryInit[index].sum = sumPublications;
+            vis.dataByCountryInit[index].continent = continentValue;
         });
 
+        console.log('data post init ')
+        console.log(vis.dataByCountryInit)
     }
 
     control() {
@@ -308,13 +299,11 @@ class DotPlot {
             .attr("class", "slider")
             .attr("type", "range")
             .attr("min", 0)
-            // ---- what is this data length relate to?
-            .attr("max", this.dataByCountry[0].days.length - 1)
+            .attr("max", 319)
             .attr("step", 1);
 
         progressEnter.append("span").attr("class", "slider-label");
 
-        this.timeIndexSelected = this.selectedTime
         //progress update
         progressUpdate
             .select("input")
@@ -323,15 +312,44 @@ class DotPlot {
                 this.timeIndexSelected = e.target.value;
 
                 //render
-                this.dot();
+                this.wrangleData();
                 this.control();
+                if(this.timeIndexSelected = this.dataByCountryInit[0].days.length - 1){
+                    return false;
+                }
             });
 
+        if(this.timeIndexSelected == undefined){
+            this.timeIndexSelected  = 0;
+        }
         progressUpdate
             .select(".slider-label")
             .text(
-                d3.timeFormat("%b. %Y")(this.data[this.timeIndexSelected].minDateOfWeek)
+                d3.timeFormat("%b-%d-%Y")(this.dataByCountryInit[0].days[this.timeIndexSelected].date)
             );
+    }
+    progressUpdate
+    start(){
+        //clear prev
+        if (this.interval) clearInterval(this.interval);
+
+        //interval
+        const onStep = (isFirstStep = false) => {
+            if (!isFirstStep) this.timeIndexSelected++;
+
+            if (this.timeIndexSelected >= this.data.length)
+                this.timeIndexSelected = 0;
+
+            this.wrangleData();
+            this.control();
+        };
+
+        onStep();
+        this.interval = setInterval(onStep, this.loopStepTime);
+    }
+
+    stop() {
+        if (this.interval) clearInterval(this.interval);
     }
 
 }
