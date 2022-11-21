@@ -4,8 +4,6 @@
     <list default="true" id="e54726cb-1768-439a-9a9f-5864896b8653" name="Changes" comment="Added index 2: everything is coming together theeeereee! :)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index2.html" beforeDir="false" afterPath="$PROJECT_DIR$/index2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/areaChart2.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/areaChart2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +49,7 @@
       <workItem from="1668532323823" duration="4983000" />
       <workItem from="1668567138920" duration="14466000" />
       <workItem from="1668870368853" duration="26859000" />
-      <workItem from="1668986286560" duration="1623000" />
+      <workItem from="1668986286560" duration="2658000" />
     </task>
     <servers />
   </component>
