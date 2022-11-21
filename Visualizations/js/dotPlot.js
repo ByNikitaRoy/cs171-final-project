@@ -110,7 +110,6 @@ class DotPlot {
         //temporarily set selected time range to a day
         let parseDateDash = d3.timeParse('%Y-%m-%d');
 
-
         //vis.selectedTimeConverted = parseDateDash(this.timeIndexSelected)
 
         this.selectedTime = this.dataByCountryInit[0].days[this.timeIndexSelected].date;
@@ -153,8 +152,13 @@ class DotPlot {
             vis.dataByCountry[index].sum = sumPublications;
             vis.dataByCountry[index].continent = continentValue;
         });
-
-
+        console.log(this.timeIndexSelected)
+        console.log(this.dataByCountryInit[0].days.length - 1)
+        if(this.timeIndexSelected == this.dataByCountryInit[0].days.length - 1){
+            this.timeIndexSelected = 15;
+            console.log('STOP')
+            stop();
+        }
         // Update the visualization
         vis.updateVis();
     }
@@ -163,12 +167,14 @@ class DotPlot {
         let vis = this;
         console.log('updateVis Running')
         // Add dots
-        vis.svg.append('g')
-            .selectAll("dot")
-            .data(vis.dataByCountry)
-            .enter()
+        let dots = vis.svg.selectAll("circle")
+            .data(vis.dataByCountry);
+
+        dots.enter()
             .append("circle")
-            .join()
+            .merge(dots)
+            .transition()
+            .duration(100)
             .attr("cx", function (d) {
                 return vis.xScale(d.tone);
             })
@@ -200,7 +206,11 @@ class DotPlot {
                 }
             })
             .attr('opacity', '0.9')
-            .attr('transform', `translate (${vis.margin.left}, 0)`);
+            .attr('transform', `translate (${vis.margin.left}, 0)`)
+            .attr('class', 'circle');
+
+        dots.exit()
+            .remove();
 
     }
 
@@ -226,9 +236,7 @@ class DotPlot {
         vis.data.forEach(row => {
 
             if (row.date < vis.selectedTimeConverted) {
-                console.log('push')
-                console.log(row.date)
-                console.log(vis.selectedTimeConverted)
+
                 vis.filteredData.push(row)
             }
         })
@@ -313,18 +321,15 @@ class DotPlot {
             .on("input", (e) => {
                 this.timeIndexSelected = e.target.value;
 
+
                 //render
                 this.wrangleData();
                 this.control();
-                console.log('test')
-                console.log(this.dataByCountryInit[0])
-                if(this.timeIndexSelected = this.dataByCountryInit[0].days.length - 1){
-                    return false;
-                }
+
             });
 
         if(this.timeIndexSelected == undefined){
-            this.timeIndexSelected  = 1;
+            this.timeIndexSelected  = 15;
         }
         progressUpdate
             .select(".slider-label")
