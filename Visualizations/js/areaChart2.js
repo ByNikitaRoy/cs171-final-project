@@ -51,7 +51,7 @@ class AreaChart_2 {
         //add xaxis axis
         svg.append("g")
             .attr("transform", "translate(0," + (height - margin.bottom) + ")")
-            .call(d3.axisBottom(xScale).tickFormat(d3.timeFormat("%b %Y")))
+            .call(d3.axisBottom(xScale).tickFormat(d3.timeFormat("%b")))
             .attr("font-size", '12px')
             .attr('class','xAxis');
 
@@ -103,7 +103,72 @@ class AreaChart_2 {
                         return yScaleDeaths(d.deaths)
                     })
                 ) }
+        //TOOLTIP
 
+        //For converting Dates to strings
+        var formatTime = d3.timeFormat("%b %d , %Y");
+        let bisectDate = d3.bisector(d => d.date).right;
+
+        let group = svg.append('g')
+            .attr('class', 'tooltip2')
+
+        //create rect for mouseover
+        svg.append('rect')
+            .attr('fill', 'transparent')
+            .attr('x', 25)
+            .attr('y', 0)
+            .attr('width', width - (margin.left * 2))
+            .attr('height', height)
+
+        //on mouseover
+        svg.on('mouseover', function (data) {
+            console.log('moused over1')
+        })
+        //when mouseover moves create and remove
+        svg.on('mousemove', function (data) {
+            d3.select('#tooltip').remove();
+            d3.select('#tooltip1').remove();
+            d3.select('#tooltip2').remove();
+
+            let xPosition = d3.pointer(event)[0];
+            let yPosition = d3.pointer(event) [0];
+            console.log(xPosition)
+            const mouseDate = xScale.invert(xPosition);
+            const mouseVolume = yScale.invert(yPosition);
+
+
+            console.log(mouseDate)
+            console.log(mouseVolume)
+
+            //add the line
+            group.append('line')
+                .attr('id', 'tooltip1')
+                .attr('x1', xPosition)
+                .attr('x2', xPosition)
+                .attr("y1", margin.top + 50)
+                .attr("y2", height - margin.bottom)
+                .attr('stroke', 'lightgrey')
+                .attr('stroke-width', '2px')
+
+
+            svg.append('text')
+                .attr('id', 'tooltip')
+                .attr('x', xPosition + 10)
+                .attr('y', margin.top + 50)
+                .attr('text-anchor', 'start')
+                .attr('font-size', '15px')
+                .attr('fill', 'white')
+                .text(function () {
+                    return formatTime(mouseDate);
+                })
+
+            console.log('moused move')
+        })
+            //remove the line
+            .on('mouseout', function () {
+                d3.select('#tooltip').remove();
+                console.log('moused out')
+            })
 
 
 

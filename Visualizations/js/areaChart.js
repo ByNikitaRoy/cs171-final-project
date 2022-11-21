@@ -18,7 +18,7 @@ class AreaChart {
         let margin = {top: 20, right: 20, bottom: 20, left: 25};
 
         // Width and height as the inner dimensions of the chart area
-        let width = 1300- margin.left - margin.right,
+        let width = 1300 - margin.left - margin.right,
             height = 500 - margin.top - margin.bottom;
 
         //create svg area
@@ -44,23 +44,23 @@ class AreaChart {
         //add xaxis axis
         svg.append("g")
             .attr("transform", "translate(0," + (height - margin.bottom) + ")")
-            .call(d3.axisBottom(xScale).tickFormat(d3.timeFormat("%b %Y")))
+            .call(d3.axisBottom(xScale).tickFormat(d3.timeFormat("%b")))
             .attr("font-size", '12px')
-            .attr('class','xAxis');
+            .attr('class', 'xAxis');
 
         //add yaxis
         svg.append("g")
             .call(d3.axisLeft(yScale))
             .attr("transform", `translate(${margin.left}, 0)`)
-            .attr('class','yAxis');
+            .attr('class', 'yAxis');
 
-       //Create chart title
-       // svg.append('text')
-       //    .text('Percent of Global News Volume Containing "Ukraine"')
-       //     .attr('class', 'titleText')
-       //    .attr("text-anchor", "middle")
-       //    .attr('x', width / 2)
-       //   .attr('y', 10)
+        //Create chart title
+        // svg.append('text')
+        //    .text('Percent of Global News Volume Containing "Ukraine"')
+        //     .attr('class', 'titleText')
+        //    .attr("text-anchor", "middle")
+        //    .attr('x', width / 2)
+        //   .attr('y', 10)
 
         //append the area
         //with reference to https://d3-graph-gallery.com/graph/area_basic.html
@@ -81,8 +81,74 @@ class AreaChart {
             )
 
 
+        //TOOLTIP
 
+        //For converting Dates to strings
+        var formatTime = d3.timeFormat("%b %d , %Y");
+        let bisectDate = d3.bisector(d => d.date).right;
+
+        let group = svg.append('g')
+            .attr('class', 'tooltip2')
+
+        //create rect for mouseover
+        svg.append('rect')
+            .attr('fill', 'transparent')
+            .attr('x', 25)
+            .attr('y', 0)
+            .attr('width', width - (margin.left * 2))
+            .attr('height', height)
+
+        //on mouseover
+        svg.on('mouseover', function (data) {
+            console.log('moused over1')
+        })
+        //when mouseover moves create and remove
+        svg.on('mousemove', function (data) {
+            d3.select('#tooltip').remove();
+            d3.select('#tooltip1').remove();
+            d3.select('#tooltip2').remove();
+
+            let xPosition = d3.pointer(event)[0];
+            let yPosition = d3.pointer(event) [0];
+            console.log(xPosition)
+            const mouseDate = xScale.invert(xPosition);
+            const mouseVolume = yScale.invert(yPosition);
+
+
+            console.log(mouseDate)
+            console.log(mouseVolume)
+
+            //add the line
+            group.append('line')
+                .attr('id', 'tooltip1')
+                .attr('x1', xPosition)
+                .attr('x2', xPosition)
+                .attr("y1", margin.top + 50)
+                .attr("y2", height - margin.bottom)
+                .attr('stroke', 'lightgrey')
+                .attr('stroke-width', '2px')
+
+
+            svg.append('text')
+                .attr('id', 'tooltip')
+                .attr('x', xPosition + 10)
+                .attr('y', margin.top + 50)
+                .attr('text-anchor', 'start')
+                .attr('font-size', '15px')
+                .attr('fill', 'white')
+                .text(function () {
+                    return formatTime(mouseDate);
+                })
+
+            console.log('moused move')
+        })
+            //remove the line
+            .on('mouseout', function () {
+                d3.select('#tooltip').remove();
+                console.log('moused out')
+            })
     }
+
     wrangleData () {
         let vis = this;
 
