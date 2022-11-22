@@ -47,6 +47,10 @@ class DotPlot {
             .range([0, (vis.height - vis.margin.bottom - vis.margin.top)])
             .domain([15000000,400]);
 
+        vis.rScale = d3.scaleSymlog()
+            .range([40 , 0])
+            .domain([15000000,400]);
+
         //x and y axis
         vis.xAxisGroup = vis.svg.append('g')
             .attr('class', 'axis x-axis')
@@ -65,7 +69,7 @@ class DotPlot {
             .call(d3.axisLeft()
                 .scale(vis.yScale)
                 .tickFormat(d3.format(",d"))
-                .tickValues([1000,10000,50000,1000000,15000000]))
+                .tickValues([1000,10000,50000, 200000, 1000000, 5000000, 15000000]))
             .attr('class', 'yAxis');
 
         //add tooltip
@@ -232,7 +236,8 @@ class DotPlot {
             })
             .attr("r", function (d) {
 
-                return 9;
+                return vis.rScale(d.sum)
+
             })
             .style("fill", function (d) {
                 let switchTest = d.days[0].CONTINENT
@@ -254,7 +259,7 @@ class DotPlot {
                         return '#CDCCF4';
                 }
             })
-            //.attr('opacity', '0.95')
+            .attr('opacity', '0.8')
             .attr('transform', `translate (${vis.margin.left}, 0)`)
             .attr('id','circle')
             .attr('clip-path','url(#chart-area');
