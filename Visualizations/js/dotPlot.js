@@ -46,9 +46,10 @@ class DotPlot {
             .range([vis.margin.bottom, (vis.height - vis.margin.bottom - vis.margin.top)])
             .domain([15000000,400]);
 
-        vis.rScale = d3.scaleSymlog()
+        vis.rScale = d3.scaleLog()
             .range([40 , 0])
             .domain([15000000,400]);
+
 
         //x and y axis
         vis.xAxisGroup = vis.svg.append('g')
@@ -247,8 +248,13 @@ class DotPlot {
                 return vis.yScale(d.sum);
             })
             .attr("r", function (d) {
-
-                return Math.abs(vis.rScale(d.sum));
+                let result = vis.rScale(d.sum);
+                if(result > 0){
+                    return result
+                }
+                else{
+                    return 0;
+                }
 
             })
             .style("fill", function (d) {
