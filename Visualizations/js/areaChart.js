@@ -15,7 +15,7 @@ class AreaChart {
         let vis = this;
         //initial variables
         // Margin object with properties for the four directions
-        let margin = {top: 20, right: 20, bottom: 20, left: 25};
+        let margin = {top: 20, right: 20, bottom: 20, left: 40};
 
         // Width and height as the inner dimensions of the chart area
         let width = 1300 - margin.left - margin.right,
@@ -50,10 +50,28 @@ class AreaChart {
 
         //add yaxis
         svg.append("g")
-            .call(d3.axisLeft(yScale))
+            .call(d3.axisLeft(yScale).tickFormat(d3.format(".0%")))
             .attr("transform", `translate(${margin.left}, 0)`)
             .attr('class', 'yAxis');
 
+        //add yaxis label
+        svg.append("text")
+            .attr("class", "ylabel")
+            .attr("text-anchor", "middle")
+            .attr("y", -15)
+            .attr("x", -height/2)
+            .attr("dy", ".75em")
+            .attr("transform", "rotate(-90)")
+            .text("Percent of Monitored Media Articles");
+
+        //add year label
+        svg.append("text")
+            .attr("class", "yearLabel")
+            .attr("text-anchor", "start")
+            .attr("y", height-12)
+            .attr("x", 58)
+            .attr("dy", ".75em")
+            .text("2021");
         //Create chart title
         // svg.append('text')
         //    .text('Percent of Global News Volume Containing "Ukraine"')

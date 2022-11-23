@@ -16,7 +16,7 @@ class AreaChart_2 {
         let vis = this;
         //initial variables
         // Margin object with properties for the four directions
-        let margin = {top: 20, right: 20, bottom: 20, left: 25};
+        let margin = {top: 20, right: 20, bottom: 20, left: 40};
 
         // Width and height as the inner dimensions of the chart area
         let width = 1300- margin.left - margin.right,
@@ -42,6 +42,7 @@ class AreaChart_2 {
             })])
             .range([height - margin.bottom, margin.top])
 
+        //create yscale deaths
         let yScaleDeaths = d3.scaleLinear()
             .domain([0, d3.max(vis.data, function (d) {
                 return +d.deaths;
@@ -57,9 +58,43 @@ class AreaChart_2 {
 
         //add yaxis
         svg.append("g")
-            .call(d3.axisLeft(yScale))
+            .call(d3.axisLeft(yScale).tickFormat(d3.format(".0%")))
             .attr("transform", `translate(${margin.left}, 0)`)
             .attr('class','yAxis');
+
+        //add yaxisDeaths
+        svg.append("g")
+            .call(d3.axisRight(yScaleDeaths))
+            .attr("transform", `translate(${width-margin.right}, 0)`)
+            .attr('class','yAxisDeaths');
+
+        //add yaxis label
+        svg.append("text")
+            .attr("class", "ylabel")
+            .attr("text-anchor", "middle")
+            .attr("y", -15)
+            .attr("x", -height/2)
+            .attr("dy", ".75em")
+            .attr("transform", "rotate(-90)")
+            .text("Percent of Monitored Media Articles");
+
+        //add year label
+        svg.append("text")
+            .attr("class", "yearLabel")
+            .attr("text-anchor", "start")
+            .attr("y", height-12)
+            .attr("x", 58)
+            .attr("dy", ".75em")
+            .text("2021");
+
+        //add deaths label
+        svg.append("text")
+            .attr("class", "yLabel")
+            .attr("text-anchor", "end")
+            .attr("y", 0)
+            .attr("x", margin.left)
+            .attr("dy", ".75em")
+            .text("Publications");
 
         //Create chart title
         //svg.append('text')
@@ -90,8 +125,8 @@ class AreaChart_2 {
 
             svg.append("path")
                 .datum(vis.data)
-                .attr("fill", "none")
-                .attr("stroke", "#FFFF66")
+                .attr("fill", "#FFFF66")
+                //.attr("stroke", "#FFFF66")
                 .attr("stroke-width", 2.5)
                 .attr("opacity", 1)
                 .attr("d", d3.area()

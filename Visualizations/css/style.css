@@ -290,3 +290,37 @@
   background: #faf8b7;
   cursor: pointer;
 }
+
+.xlabel {
+  fill: #ffffff;
+  font-size: 16px;
+  color:#ffffff
+}
+
+.ylabel {
+  fill: #ffffff;
+  font-size: 14px;
+}
+
+.yearLabel{
+  fill: #ffffff;
+  font-size: 14px;
+}
+
+.yAxisDeaths{
+  font-size: 12px;
+  color: #FFFF66;
+  fill: #FFFF66;
+
+}
+
+.yAxisDeaths line{
+  stroke-width: 1px;
+  fill: #FFFF66;
+}
+
+.deathsLabel{
+  font-size: 14px;
+  fill: #FFFF66;
+
+}

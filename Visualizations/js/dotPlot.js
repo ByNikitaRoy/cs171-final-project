@@ -15,8 +15,7 @@ class DotPlot {
 
     initVis() {
         let vis = this;
-        console.log("dotPlot Running")
-        console.log(vis.data)
+
         //set margins width and height
         vis.margin = {top: 20, right: 20, bottom: 20, left: 50};
         vis.width = 1000;
@@ -41,10 +40,10 @@ class DotPlot {
         //xscale and yscale these are static
         vis.xScale = d3.scaleLinear()
             .range([0, vis.width - vis.margin.left - vis.margin.right])
-            .domain([-5, 0]);
+            .domain([0, 5]);
 
         vis.yScale = d3.scaleSymlog()
-            .range([0, (vis.height - vis.margin.bottom - vis.margin.top)])
+            .range([vis.margin.bottom, (vis.height - vis.margin.bottom - vis.margin.top)])
             .domain([15000000,400]);
 
         vis.rScale = d3.scaleSymlog()
@@ -62,7 +61,7 @@ class DotPlot {
 
         vis.xAxisGroup
             .call(d3.axisBottom()
-                .scale(vis.xScale))
+                .scale(vis.xScale).ticks(0))
             .attr('class', 'xAxis');
 
         vis.yAxisGroup
@@ -71,6 +70,25 @@ class DotPlot {
                 .tickFormat(d3.format(",d"))
                 .tickValues([1000,10000,50000, 200000, 1000000, 5000000, 15000000]))
             .attr('class', 'yAxis');
+
+        //add xAxis Labels
+        vis.svg.append("text")
+            .attr("class", "xlabel")
+            .attr("text-anchor", "middle")
+            .attr("y", vis.height-vis.margin.bottom-10)
+            .attr("x", vis.width/2+ vis.margin.left)
+            .attr("dy", ".75em")
+            .text("Increasingly Negative Tone -->");
+
+        //add yAxis Labels
+        vis.svg.append("text")
+            .attr("class", "ylabel")
+            .attr("text-anchor", "start")
+            .attr("y",-10)
+            .attr("x", -vis.margin.left)
+            .attr("dy", ".75em")
+            .text("Number of Publications");
+
 
         //add tooltip
         vis.tooltip = d3.select("body").append('div')
@@ -90,7 +108,7 @@ class DotPlot {
 
         vis.svg.append("g")
             .attr("class", "legendOrdinal")
-            .attr('transform', `translate (${vis.width - (vis.width *(1/5))}, ${vis.margin.top})`);
+            .attr('transform', `translate (${vis.width - (vis.width *(1/6))}, ${vis.margin.top})`);
 
 
         var legendOrdinal = d3.legendColor()
@@ -125,7 +143,6 @@ class DotPlot {
 
     wrangleData() {
         let vis = this;
-        console.log('wrangleData running')
         //temporarily set selected time range to a day
         let parseDateDash = d3.timeParse('%Y-%m-%d');
 
@@ -150,8 +167,7 @@ class DotPlot {
                 }
             }
         })
-        //console.log('filteredData')
-        //console.log(vis.filteredData)
+
 
         //group by country
         vis.dataByCountry = Array.from(d3.group(vis.filteredData, d => d.Country), ([country, days, sum, tone, continent]) => ({
@@ -178,11 +194,9 @@ class DotPlot {
             vis.dataByCountry[index].sum = sumPublications;
             vis.dataByCountry[index].continent = continentValue;
         });
-        console.log(this.timeIndexSelected)
-        console.log(this.dataByCountryInit[0].days.length - 1)
+
         if(this.timeIndexSelected == this.dataByCountryInit[0].days.length - 1){
             this.timeIndexSelected = 14;
-            console.log('STOP')
             stop();
         }
         // Update the visualization
@@ -191,7 +205,6 @@ class DotPlot {
 
     updateVis() {
         let vis = this;
-        console.log('updateVis Running')
         // Add dots
         let dots = vis.svg.selectAll("circle")
             .data(vis.dataByCountry);
@@ -201,7 +214,6 @@ class DotPlot {
             .attr('class', 'circle')
             .on('mouseover', function(event, d) {
 
-                //console.log(d)
 
                 d3.select(this)
                     .attr('stroke-width', '10px')
@@ -236,7 +248,7 @@ class DotPlot {
             })
             .attr("r", function (d) {
 
-                return vis.rScale(d.sum)
+                return Math.abs(vis.rScale(d.sum));
 
             })
             .style("fill", function (d) {
@@ -271,7 +283,6 @@ class DotPlot {
 
     initWrangleData() {
         let vis = this;
-        console.log('init wrangleData running')
 
         //temporarily set selected time range to a day
         vis.selectedTime = "2022-11-17"
@@ -281,10 +292,6 @@ class DotPlot {
 
         // we want to filter data to the period of time up to the selectedTime
         vis.filteredData = [];
-
-        console.log('data')
-        console.log(vis.data)
-
 
         //go through every line of the data
         //if less than selected date -> add it to the filtered data
@@ -322,9 +329,6 @@ class DotPlot {
             vis.dataByCountryInit[index].sum = sumPublications;
             vis.dataByCountryInit[index].continent = continentValue;
         });
-
-        console.log('data post init ')
-        console.log(vis.dataByCountryInit)
     }
 
     control() {
