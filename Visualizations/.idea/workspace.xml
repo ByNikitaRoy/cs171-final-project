@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e54726cb-1768-439a-9a9f-5864896b8653" name="Changes" comment="Added index 2: everything is coming together theeeereee! :)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/steven.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/steven.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index2.html" beforeDir="false" afterPath="$PROJECT_DIR$/index2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/areaChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/areaChart.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +57,12 @@
       <workItem from="1669048609695" duration="218000" />
       <workItem from="1669049162280" duration="290000" />
       <workItem from="1669050858018" duration="4518000" />
+      <workItem from="1669055479097" duration="183000" />
+      <workItem from="1669058412904" duration="598000" />
+      <workItem from="1669129672941" duration="611000" />
+      <workItem from="1669169195165" duration="481000" />
+      <workItem from="1669237259642" duration="611000" />
+      <workItem from="1669244151309" duration="1068000" />
     </task>
     <servers />
   </component>
