@@ -99,7 +99,31 @@ class AreaChart {
                 })
             )
 
+        // Add dots
+        svg.append('g')
+            .selectAll("dot")
+            .data(vis.data)
+            .enter(vis.data)
+            .append("circle")
 
+            .attr("cx", function (d) { return xScale(d.date); } )
+            .attr("cy", function (d) { return yScale(d.value); } )
+            .attr("r", function(d) {
+               // console.log(d.sevent);
+                if(d.sevent == 1)
+                    return 7;
+                else
+                    return 0;
+            })
+            .style("fill", "rgba(145,196,196, 1)")
+            .style("stroke-width", 10)
+            .style("stroke", "rgba(255,255,255, 0.5)")
+           // .on("mouseover",function (data) {
+            //    console.log('moused over1')
+           // })
+           // .on("mousemove", mousemoveDots )
+           // .on("mouseleave", mouseleaveDots )
+//
         //TOOLTIP
 
         //For converting Dates to strings
@@ -119,7 +143,7 @@ class AreaChart {
 
         //on mouseover
         svg.on('mouseover', function (data) {
-            console.log('moused over1')
+
         })
         //when mouseover moves create and remove
         svg.on('mousemove', function (data) {
@@ -129,20 +153,16 @@ class AreaChart {
 
             let xPosition = d3.pointer(event)[0];
             let yPosition = d3.pointer(event) [0];
-            console.log(xPosition)
+
             const mouseDate = xScale.invert(xPosition);
             const mouseVolume = yScale.invert(yPosition);
-
-
-            console.log(mouseDate)
-            console.log(mouseVolume)
 
             //add the line
             group.append('line')
                 .attr('id', 'tooltip1')
                 .attr('x1', xPosition)
                 .attr('x2', xPosition)
-                .attr("y1", margin.top + 50)
+                .attr("y1", margin.top)
                 .attr("y2", height - margin.bottom)
                 .attr('stroke', 'lightgrey')
                 .attr('stroke-width', '2px')
@@ -151,7 +171,7 @@ class AreaChart {
             svg.append('text')
                 .attr('id', 'tooltip')
                 .attr('x', xPosition + 10)
-                .attr('y', margin.top + 50)
+                .attr('y', margin.top +15)
                 .attr('text-anchor', 'start')
                 .attr('font-size', '15px')
                 .attr('fill', 'white')
@@ -159,12 +179,12 @@ class AreaChart {
                     return formatTime(mouseDate);
                 })
 
-            console.log('moused move')
+
         })
             //remove the line
             .on('mouseout', function () {
                 d3.select('#tooltip').remove();
-                console.log('moused out')
+
             })
     }
 
