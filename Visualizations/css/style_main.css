@@ -184,7 +184,7 @@
             padding: 5rem 3.5rem 5rem 3.5rem ;
             margin: 0 auto;
             max-width: 100%;
-            width: 64rem;
+            width: 63rem;
         }
         /* Types for the wrapper */
         h1.invert {
@@ -218,7 +218,7 @@
 
 .gallery.style2 {
     background-color: rgba(33,37,47, 1);
-    color: color: rgba(255, 255, 102, 1);;
+    color: rgba(255, 255, 102, 1);
     display: -moz-flex;
     display: -webkit-flex;
     display: -ms-flex;
