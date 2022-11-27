@@ -114,7 +114,7 @@ class DotPlot {
 
         var legendOrdinal = d3.legendColor()
             .title("Legend: Continent")
-            .shape("path", d3.symbol().type(d3.symbolCircle).size(150)())
+            .shape("path", d3.symbol().type(d3.symbolCircle).size(200)())
             .shapePadding(10)
             .scale(ordinal);
 
@@ -122,6 +122,7 @@ class DotPlot {
             .attr('class','legendDots')
             .call(legendOrdinal);
 
+        //add clipping path
         vis.svg.append('clipPath')
             .attr('id', 'chart-area')
             .append('rect')

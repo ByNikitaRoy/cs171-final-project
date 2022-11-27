@@ -9,10 +9,13 @@ class LineChart {
         this.data = data;
         this.initVis()
 
+
+
     }
 
     initVis() {
         let vis = this;
+        vis.newsChannels = ['Al Jazeera', 'BBC News', 'CNN','Deutsche Welle News', 'Fox News', 'MSNBC', 'Russia Today'];
         vis.chart = LineChart(vis.data, {
             x: d => d.date,
             y: d => d.Value/100,
@@ -87,6 +90,7 @@ class LineChart {
                 .x(i => xScale(X[i]))
                 .y(i => yScale(Y[i]));
 
+            //create svg and specify functions for actions
             const svg = d3.select("#lineChart" ).append("svg")
                 .attr("width", width)
                 .attr("height", height)
@@ -111,7 +115,7 @@ class LineChart {
                 .call(g => g.select(".domain").remove())
                 .call(voronoi ? () => {} : g => g.selectAll(".tick line").clone()
                     .attr("x2", width - marginLeft - marginRight)
-                    .attr("stroke-opacity", 0.15))
+                    .attr("stroke-opacity", 0.05))
                 .call(g => g.append("text")
                     .attr("x", -marginLeft)
                     .attr("y", 11)
@@ -120,6 +124,7 @@ class LineChart {
                     .attr('class','yLabelLine')
                     .text(yLabel));
 
+            //add all of the paths
             const path = svg.append("g")
                 .attr("fill", "none")
                 .attr("stroke", typeof color === "dotplotjsonextract" ? color : "#eaa61d")
@@ -154,7 +159,36 @@ class LineChart {
                 .attr('fill', 'rgba(255, 255, 102, 0.9)')
                 .attr("text-anchor", "middle")
                 .attr("y", -100);
+            /*
+            //legend
+            // Add a legend
+            var regionSet = new Set();
+            for (var i = 0; i < 7; i++) {
+                regionSet.add(vis.newsChannels[i]);
+            };
 
+            var regions = Array.from(regionSet);
+            var ordinal = d3.scaleOrdinal()
+                .domain(regions)
+                .range(["#FFFF66", "#426b42", "#336691", "#D599FF", "#a4fda4", "#6c068a", "#ffffff"]);
+
+            svg.append("g")
+                .attr("class", "legendOrdinal")
+                .attr('transform', `translate (${width - (width *(1/6))}, ${marginTop})`);
+
+
+            var legendOrdinal = d3.legendColor()
+                .title("Legend: Continent")
+                .shape("path", d3.symbol().type(d3.symbolCircle).size(200)())
+                .shapePadding(10)
+                .scale(ordinal);
+
+            svg.select(".legendOrdinal")
+                .attr('class','legendDots')
+                .on("click", legendSelect)
+                .call(legendOrdinal);
+
+            */
 
             function pointermoved(event) {
                 const [xm, ym] = d3.pointer(event);
@@ -176,7 +210,11 @@ class LineChart {
                 svg.node().value = null;
                 svg.dispatch("input", {bubbles: true});
             }
+        
+            function legendSelect(){
+                console.log('legendSelect Running')
 
+            }
 
             return Object.assign(svg.node(), {value: null});
         }

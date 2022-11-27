@@ -8,6 +8,7 @@ let promises = [
     //convert to ints and parse the date
     d.value = +d.Value;
     d.date = parseDateDash(d.Date);
+
     return d;
   }),
   d3.csv("data/newsVolumeOverTime.csv", (d) => {
