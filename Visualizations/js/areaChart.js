@@ -135,7 +135,7 @@ console.log('funciona')
             .style("stroke-width", 10)
             .style("stroke", "rgba(255,255,255, 0.5)")
 
-        //TOOLTIP
+   /*     //TOOLTIP
 
         //For converting Dates to strings
         var formatTime = d3.timeFormat("%b %d , %Y");
@@ -196,7 +196,7 @@ console.log('funciona')
             .on('mouseout', function () {
                 d3.select('#tooltip').remove();
 
-            })
+            })*/
     }
 
     wrangleData () {

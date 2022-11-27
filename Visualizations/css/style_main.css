@@ -102,6 +102,9 @@
         h5 {
             font-size: 0.9rem;
         }
+        h5.invert {
+            color: rgba(255, 255, 255,.75);
+        }
 
         h6 {
             font-size: 0.7rem;
