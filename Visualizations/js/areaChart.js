@@ -28,6 +28,10 @@ class AreaChart {
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+        //add tooltip
+        vis.tooltip = d3.select("body").append('div')
+            .attr('class', "tooltip")
+            .attr('id', 'circleTooltip')
         //create x scale
         let xScale = d3.scaleTime()
             .domain(d3.extent(vis.data, function (d) {
@@ -101,27 +105,10 @@ class AreaChart {
 
         // Add dots
         svg.append('g')
-            .selectAll("dot")
+            .selectAll("circle")
             .data(vis.data)
             .enter(vis.data)
             .append("circle")
-            .on('mouseover', function(event, d) {
-
-console.log('funciona')
-                d3.select(this)
-                    .attr('stroke-width', '10px')
-                    .attr('stroke', '#FFFFFF')
-                //.attr('fill', '#FFFFFF');
-
-                vis.tooltip
-                    .style("opacity", 1)
-                    .style("left", event.pageX + 20 + "px")
-                    .style("top", event.pageY + "px")
-                    .html(`
-                         <div style=" border-radius: 5px; background: white; padding: 10px">
-                             <h5 class="tooltips">${d.country}<h5>                          
-                         </div>`);
-            })
             .attr("cx", function (d) { return xScale(d.date); } )
             .attr("cy", function (d) { return yScale(d.value); } )
             .attr("r", function(d) {
@@ -134,8 +121,25 @@ console.log('funciona')
             .style("fill", "rgba(145,196,196, 1)")
             .style("stroke-width", 10)
             .style("stroke", "rgba(255,255,255, 0.5)")
+            .on('mouseover', function(event, d) {
 
-   /*     //TOOLTIP
+                vis.tooltip
+                    .style("opacity", 1)
+                    .style("left", event.pageX + 20 + "px")
+                    .style("top", event.pageY + "px")
+                    .html(`
+                         <div style=" border-radius: 5px; background:rgba(33,37,47,.85); padding: 10px">
+                             <h4>${d.Date}</h4>
+                             <h6>${d.sdescription}</h6>                          
+                         </div>`);
+            })
+            .on('mouseout', function(event, d) {
+
+                vis.tooltip
+                    .style("opacity", 0)
+            })
+
+       /* //TOOLTIP
 
         //For converting Dates to strings
         var formatTime = d3.timeFormat("%b %d , %Y");
@@ -153,7 +157,7 @@ console.log('funciona')
             .attr('height', height)
 
         //on mouseover
-        svg.on('mouseover', function (data) {
+        svg.on('mouseover', function (data,event) {
 
         })
         //when mouseover moves create and remove
@@ -187,11 +191,11 @@ console.log('funciona')
                 .attr('font-size', '15px')
                 .attr('fill', 'white')
                 .text(function () {
-                    return formatTime(mouseDate);
-                })
+                    return formatTime(mouseDate)})
 
 
-        })
+
+        //})
             //remove the line
             .on('mouseout', function () {
                 d3.select('#tooltip').remove();
