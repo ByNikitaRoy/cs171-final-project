@@ -113,7 +113,7 @@ class DotPlot {
 
 
         var legendOrdinal = d3.legendColor()
-            .title("Legend: Continent")
+            .title("Regions:")
             .shape("path", d3.symbol().type(d3.symbolCircle).size(200)())
             .shapePadding(10)
             .scale(ordinal);
