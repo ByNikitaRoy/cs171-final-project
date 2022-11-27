@@ -157,7 +157,7 @@ class AreaChart_2 {
 
         //on mouseover
         svg.on('mouseover', function (data) {
-            console.log('moused over1')
+
         })
         //when mouseover moves create and remove
         svg.on('mousemove', function (data) {
@@ -167,13 +167,12 @@ class AreaChart_2 {
 
             let xPosition = d3.pointer(event)[0];
             let yPosition = d3.pointer(event) [0];
-            console.log(xPosition)
+
             const mouseDate = xScale.invert(xPosition);
             const mouseVolume = yScale.invert(yPosition);
 
 
-            console.log(mouseDate)
-            console.log(mouseVolume)
+
 
             //add the line
             group.append('line')
@@ -197,12 +196,12 @@ class AreaChart_2 {
                     return formatTime(mouseDate);
                 })
 
-            console.log('moused move')
+
         })
             //remove the line
             .on('mouseout', function () {
                 d3.select('#tooltip').remove();
-                console.log('moused out')
+
             })
 
 

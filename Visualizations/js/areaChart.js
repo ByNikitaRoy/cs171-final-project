@@ -105,7 +105,23 @@ class AreaChart {
             .data(vis.data)
             .enter(vis.data)
             .append("circle")
+            .on('mouseover', function(event, d) {
 
+console.log('funciona')
+                d3.select(this)
+                    .attr('stroke-width', '10px')
+                    .attr('stroke', '#FFFFFF')
+                //.attr('fill', '#FFFFFF');
+
+                vis.tooltip
+                    .style("opacity", 1)
+                    .style("left", event.pageX + 20 + "px")
+                    .style("top", event.pageY + "px")
+                    .html(`
+                         <div style=" border-radius: 5px; background: white; padding: 10px">
+                             <h5 class="tooltips">${d.country}<h5>                          
+                         </div>`);
+            })
             .attr("cx", function (d) { return xScale(d.date); } )
             .attr("cy", function (d) { return yScale(d.value); } )
             .attr("r", function(d) {
@@ -118,12 +134,7 @@ class AreaChart {
             .style("fill", "rgba(145,196,196, 1)")
             .style("stroke-width", 10)
             .style("stroke", "rgba(255,255,255, 0.5)")
-           // .on("mouseover",function (data) {
-            //    console.log('moused over1')
-           // })
-           // .on("mousemove", mousemoveDots )
-           // .on("mouseleave", mouseleaveDots )
-//
+
         //TOOLTIP
 
         //For converting Dates to strings
