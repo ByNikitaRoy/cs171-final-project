@@ -75,7 +75,7 @@ class AreaChart {
             .attr("y", height-12)
             .attr("x", 58)
             .attr("dy", ".75em")
-            .text("2021");
+            .text("2022");
         //Create chart title
         // svg.append('text')
         //    .text('Percent of Global News Volume Containing "Ukraine"')

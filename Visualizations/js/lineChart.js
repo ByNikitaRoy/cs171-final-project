@@ -210,7 +210,7 @@ class LineChart {
                 svg.node().value = null;
                 svg.dispatch("input", {bubbles: true});
             }
-        
+
             function legendSelect(){
                 console.log('legendSelect Running')
 
