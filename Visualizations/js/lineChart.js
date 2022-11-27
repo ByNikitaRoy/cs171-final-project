@@ -15,7 +15,7 @@ class LineChart {
         let vis = this;
         vis.chart = LineChart(vis.data, {
             x: d => d.date,
-            y: d => d.Value,
+            y: d => d.Value/100,
             z: d => d.Series,
             yLabel: "% Airtime on Day",
             width: 1300,
@@ -43,7 +43,7 @@ class LineChart {
             yType = d3.scaleLinear, // type of y-scale
             yDomain, // [ymin, ymax]
             yRange = [height - marginBottom, marginTop], // [bottom, top]
-            yFormat, // a format specifier string for the y-axis
+            yFormat, // a format specifier dotplotjsonextract for the y-axis
             yLabel, // a label for the y-axis
             zDomain, // array of z-values
             color = "rgba(255, 255, 255, 0.6)", // stroke color of line, as a constant or a function of *z*
@@ -64,7 +64,7 @@ class LineChart {
 
             // Compute default domains, and unique the z-domain.
             if (xDomain === undefined) xDomain = d3.extent(X);
-            if (yDomain === undefined) yDomain = [0, d3.max(Y, d => typeof d === "string" ? +d : d)];
+            if (yDomain === undefined) yDomain = [0, d3.max(Y, d => typeof d === "dotplotjsonextract" ? +d : d)];
             if (zDomain === undefined) zDomain = Z;
             zDomain = new d3.InternSet(zDomain);
 
@@ -106,7 +106,7 @@ class LineChart {
             svg.append("g")
                 .attr("transform", `translate(${marginLeft},0)`)
                 //call yAxis
-                .call(yAxis)
+                .call(d3.axisLeft(yScale).tickFormat(d3.format(".0%")))
                 .attr('class','yAxis')
                 .call(g => g.select(".domain").remove())
                 .call(voronoi ? () => {} : g => g.selectAll(".tick line").clone()
@@ -122,7 +122,7 @@ class LineChart {
 
             const path = svg.append("g")
                 .attr("fill", "none")
-                .attr("stroke", typeof color === "string" ? color : "#eaa61d")
+                .attr("stroke", typeof color === "dotplotjsonextract" ? color : "#eaa61d")
                 .attr("stroke-linecap", strokeLinecap)
                 .attr("stroke-linejoin", strokeLinejoin)
                 .attr("stroke-width", strokeWidth)
@@ -132,7 +132,7 @@ class LineChart {
                 .join("path")
                 .style("mix-blend-mode", mixBlendMode)
                 //.attr("stroke", typeof color === "function" ? ([z]) => color(z) : null)\
-                .attr("stroke", typeof color === "string" ? color : "rgba(203,252,24,0.62)")
+                .attr("stroke", typeof color === "dotplotjsonextract" ? color : "rgba(203,252,24,0.62)")
                 .attr("d", ([, I]) => line(I));
 
             //tooltip dot
@@ -142,7 +142,7 @@ class LineChart {
             dot.append("circle")
                 .attr("r", 10)
                 .attr('fill', 'rgba(255, 255, 102, 1')
-                .attr("stroke", typeof color === "string" ? color : 'rgba(255, 255, 102)')
+                .attr("stroke", typeof color === "dotplotjsonextract" ? color : 'rgba(255, 255, 102)')
                 .attr("stroke-width", 20)
                 .attr("stroke-opacity", 0.2);
 

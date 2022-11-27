@@ -87,15 +87,6 @@ class AreaChart_2 {
             .attr("dy", ".75em")
             .text("2021");
 
-        //add deaths label
-        svg.append("text")
-            .attr("class", "yLabel")
-            .attr("text-anchor", "end")
-            .attr("y", 0)
-            .attr("x", margin.left)
-            .attr("dy", ".75em")
-            .text("Publications");
-
         //Create chart title
         //svg.append('text')
         //    .text('Percent of Global News Volume Containing "Ukraine"')

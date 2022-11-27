@@ -92,7 +92,7 @@ class AreaChart {
             .attr("stroke","rgba(255, 255, 102, 1)")
             //.attr("stroke", "#038C9E")
             .attr("stroke-width", 2.5)
-            .attr("opacity", 0.8)
+            .attr("opacity", 0.95)
             .attr("d", d3.area()
                 .x(function (d) {
                     return xScale(d.date)
@@ -120,7 +120,7 @@ class AreaChart {
             })
             .style("fill", "rgba(145,196,196, 1)")
             .style("stroke-width", 10)
-            .style("stroke", "rgba(255,255,255, 0.5)")
+            .style("stroke", "rgba(255,255,255,0.5)")
             .on('mouseover', function(event, d) {
 
                 vis.tooltip

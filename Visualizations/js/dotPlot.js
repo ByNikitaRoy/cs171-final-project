@@ -15,7 +15,7 @@ class DotPlot {
 
     initVis() {
         let vis = this;
-
+        vis.outputArray = []
         //set margins width and height
         vis.margin = {top: 20, right: 20, bottom: 20, left: 50};
         vis.width = 1000;
@@ -105,7 +105,7 @@ class DotPlot {
         var regions = Array.from(regionSet);
         var ordinal = d3.scaleOrdinal()
             .domain(regions)
-            .range(["#FFFF66", "#669166", "#336691", "#D599FF", "#9CDE9C", "#C1F2EC", "#CDCCF4"]);
+            .range(["#FFFF66", "#426b42", "#336691", "#D599FF", "#a4fda4", "#6c068a", "#ffffff"]);
 
         vis.svg.append("g")
             .attr("class", "legendOrdinal")
@@ -200,6 +200,39 @@ class DotPlot {
             this.timeIndexSelected = 14;
             stop();
         }
+        /*
+        code for downloading the file for faster run time optimization
+        vis.outputArray.push(vis.dataByCountry)
+
+        console.log(this.timeIndexSelected)
+        if(this.timeIndexSelected == 318){
+
+
+            function DownloadJSON() {
+                let json  = JSON.stringify(vis.outputArray)
+
+                //Convert JSON dotplotjsonextract to BLOB.
+                json = [json];
+                var blob1 = new Blob(json, { type: "application/json" });
+
+                //Check the Browser.
+                var isIE = false || !!document.documentMode;
+                if (isIE) {
+                    window.navigator.msSaveBlob(blob1, "Customers.txt");
+                } else {
+                    var url = window.URL || window.webkitURL;
+                    let link = url.createObjectURL(blob1);
+                    var a = document.createElement("a");
+                    a.download = "myfile.json";
+                    a.href = link;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }
+            }
+            DownloadJSON()
+            console.log('downloadJson')
+        }*/
         // Update the visualization
         vis.updateVis();
     }
@@ -268,13 +301,13 @@ class DotPlot {
                     case "Europe":
                         return "#336691";
                     case "Africa":
-                        return "#9CDE9C";
+                        return "#a4fda4";
                     case "South America":
-                        return "#669166";
+                        return "#426b42";
                     case "Oceania":
-                        return "#C1F2EC"
+                        return "#6c068a"
                     case "Russia":
-                        return '#CDCCF4';
+                        return '#ffffff';
                 }
             })
             .attr('opacity', '0.8')

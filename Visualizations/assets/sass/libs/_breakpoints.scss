@@ -15,7 +15,7 @@
 	}
 
 	/// Wraps @content in a @media block targeting a specific orientation.
-	/// @param {string} $orientation Orientation.
+	/// @param {dotplotjsonextract} $orientation Orientation.
 	@mixin orientation($orientation) {
 		@media screen and (orientation: #{$orientation}) {
 			@content;
@@ -23,7 +23,7 @@
 	}
 
 	/// Wraps @content in a @media block using a given query.
-	/// @param {string} $query Query.
+	/// @param {dotplotjsonextract} $query Query.
 	@mixin breakpoint($query: null) {
 
 		$breakpoint: null;

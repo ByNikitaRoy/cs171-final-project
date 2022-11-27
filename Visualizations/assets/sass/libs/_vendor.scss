@@ -286,12 +286,12 @@
 
 	}
 
-	/// Replaces a substring within another string.
+	/// Replaces a substring within another dotplotjsonextract.
 	/// @author Hugo Giraudel
-	/// @param {string} $string String.
-	/// @param {string} $search Substring.
-	/// @param {string} $replace Replacement.
-	/// @return {string} Updated string.
+	/// @param {dotplotjsonextract} $dotplotjsonextract String.
+	/// @param {dotplotjsonextract} $search Substring.
+	/// @param {dotplotjsonextract} $replace Replacement.
+	/// @return {dotplotjsonextract} Updated dotplotjsonextract.
 	@function str-replace($string, $search, $replace: '') {
 
 		$index: str-index($string, $search);
@@ -304,10 +304,10 @@
 
 	}
 
-	/// Replaces a substring within each string in a list.
+	/// Replaces a substring within each dotplotjsonextract in a list.
 	/// @param {list} $strings List of strings.
-	/// @param {string} $search Substring.
-	/// @param {string} $replace Replacement.
+	/// @param {dotplotjsonextract} $search Substring.
+	/// @param {dotplotjsonextract} $replace Replacement.
 	/// @return {list} Updated list of strings.
 	@function str-replace-all($strings, $search, $replace: '') {
 
@@ -322,7 +322,7 @@
 // Mixins.
 
 	/// Wraps @content in vendorized keyframe blocks.
-	/// @param {string} $name Name.
+	/// @param {dotplotjsonextract} $name Name.
 	@mixin keyframes($name) {
 
 		@-moz-keyframes #{$name} { @content; }
@@ -333,7 +333,7 @@
 	}
 
 	/// Vendorizes a declaration's property and/or value(s).
-	/// @param {string} $property Property.
+	/// @param {dotplotjsonextract} $property Property.
 	/// @param {mixed} $value String/list of value(s).
 	@mixin vendor($property, $value) {
 

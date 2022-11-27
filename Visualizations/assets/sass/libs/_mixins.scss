@@ -1,7 +1,7 @@
 /// Makes an element's :before pseudoelement a FontAwesome icon.
-/// @param {string} $content Optional content value to use.
-/// @param {string} $category Optional category to use.
-/// @param {string} $where Optional pseudoelement to target (before or after).
+/// @param {dotplotjsonextract} $content Optional content value to use.
+/// @param {dotplotjsonextract} $category Optional category to use.
+/// @param {dotplotjsonextract} $where Optional pseudoelement to target (before or after).
 @mixin icon($content: false, $category: regular, $where: before) {
 
 	text-decoration: none;
@@ -59,8 +59,8 @@
 }
 
 /// Encodes a SVG data URL so IE doesn't choke (via codepen.io/jakob-e/pen/YXXBrp).
-/// @param {string} $svg SVG data URL.
-/// @return {string} Encoded SVG data URL.
+/// @param {dotplotjsonextract} $svg SVG data URL.
+/// @return {dotplotjsonextract} Encoded SVG data URL.
 @function svg-url($svg) {
 
 	$svg: str-replace($svg, '"', '\'');

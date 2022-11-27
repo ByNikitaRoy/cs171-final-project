@@ -12,7 +12,7 @@ let promises = [
   }),
   d3.csv("data/newsVolumeOverTime.csv", (d) => {
     //convert to ints and parse the date
-    d.value = +d.Value;
+    d.value = +d.Value/100;
     d.date = parseDate(d.Date);
     d.deaths = +d.Deaths;
     return d;
