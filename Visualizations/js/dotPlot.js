@@ -83,12 +83,13 @@ class DotPlot {
 
         //add yAxis Labels
         vis.svg.append("text")
-            .attr("class", "ylabel")
-            .attr("text-anchor", "start")
-            .attr("y",-10)
-            .attr("x", -vis.margin.left)
+            .attr("class", "yLabelDot")
+            .attr("text-anchor", "middle")
+            .attr("y", -40)
+            .attr("x", -vis.height/2)
             .attr("dy", ".75em")
-            .text("Number of Publications");
+            .attr("transform", "rotate(-90)")
+            .text("Number of Publications - In Last 20 Days");
 
 
         //add tooltip

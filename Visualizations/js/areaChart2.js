@@ -16,7 +16,7 @@ class AreaChart_2 {
         let vis = this;
         //initial variables
         // Margin object with properties for the four directions
-        let margin = {top: 20, right: 20, bottom: 20, left: 40};
+        let margin = {top: 20, right: 40, bottom: 20, left: 40};
 
         // Width and height as the inner dimensions of the chart area
         let width = 1300- margin.left - margin.right,
@@ -72,11 +72,21 @@ class AreaChart_2 {
         svg.append("text")
             .attr("class", "ylabel")
             .attr("text-anchor", "middle")
-            .attr("y", -15)
+            .attr("y", -18)
             .attr("x", -height/2)
             .attr("dy", ".75em")
             .attr("transform", "rotate(-90)")
             .text("Percent of Monitored Media Articles");
+
+        //add yaxis label for deaths
+        svg.append("text")
+            .attr("class", "yLabelDeaths")
+            .attr("text-anchor", "middle")
+            .attr("y", width )
+            .attr("x", -height/2)
+            .attr("dy", ".75em")
+            .attr("transform", "rotate(-90)")
+            .text("Number of Casualties");
 
         //add year label
         svg.append("text")

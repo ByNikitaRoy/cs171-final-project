@@ -296,8 +296,20 @@
 
 .ylabel {
   fill: #ffffff;
-  font-size: 14px;
+  font-size: 16px;
 }
+
+.yLabelDot {
+  fill: #ffffff;
+  color:#ffffff;
+  font-size: 16px;
+}
+.yLabelDeaths {
+  fill: #FFFF66;
+  color:#FFFF66;
+  font-size: 16px;
+}
+
 
 .yearLabel{
   fill: #ffffff;

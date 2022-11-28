@@ -37,7 +37,7 @@ class LineChart {
             marginTop = 20, // top margin, in pixels
             marginRight = 30, // right margin, in pixels
             marginBottom = 30, // bottom margin, in pixels
-            marginLeft = 40, // left margin, in pixels
+            marginLeft = 55, // left margin, in pixels
             width = 640, // outer width, in pixels
             height = 400, // outer height, in pixels
             xType = d3.scaleUtc, // type of x-scale
@@ -116,13 +116,23 @@ class LineChart {
                 .call(voronoi ? () => {} : g => g.selectAll(".tick line").clone()
                     .attr("x2", width - marginLeft - marginRight)
                     .attr("stroke-opacity", 0.05))
-                .call(g => g.append("text")
+                /*.call(g => g.append("text")
                     .attr("x", -marginLeft)
                     .attr("y", 11)
                     .attr("fill", "currentColor")
                     .attr("text-anchor", "start")
                     .attr('class','yLabelLine')
-                    .text(yLabel));
+                    .text(yLabel));*/
+
+            svg.append("g").append("text")
+                .attr("class", "yLabelDot")
+                .attr("text-anchor", "middle")
+                .attr("y", 0)
+                .attr("x", -height/2)
+                .attr("dy", ".75em")
+                .attr("transform", "rotate(-90)")
+                .text("Percent of Monitored Media Articles");
+
 
             //add all of the paths
             const path = svg.append("g")
@@ -137,7 +147,7 @@ class LineChart {
                 .join("path")
                 .style("mix-blend-mode", mixBlendMode)
                 //.attr("stroke", typeof color === "function" ? ([z]) => color(z) : null)\
-                .attr("stroke", typeof color === "dotplotjsonextract" ? color : "rgba(203,252,24,0.62)")
+                .attr("stroke", typeof color === "dotplotjsonextract" ? color : "rgba(255, 255, 102)")
                 .attr("d", ([, I]) => line(I));
 
             //tooltip dot
@@ -154,7 +164,9 @@ class LineChart {
             //tooltip text
             dot.append("text")
                 .attr("font-family", "Barlow")
-                .attr("font-weight", 500)
+                .attr("font-weight", 700)
+                .attr("stroke", typeof color === "dotplotjsonextract" ? color : 'rgb(33,37,47)')
+                .attr("stroke-width", 1)
                 .attr("font-size", 35)
                 .attr('fill', 'rgba(255, 255, 102, 0.9)')
                 .attr("text-anchor", "middle")
@@ -200,7 +212,8 @@ class LineChart {
             }
 
             function pointerentered() {
-                path.style("mix-blend-mode", null).style("stroke", "rgba(255, 255, 255, 0.8)");
+                path.style("mix-blend-mode", null)
+                    .style("stroke", "rgba(255, 255, 255, 0.8)");
                 dot.attr("display", null);
             }
 

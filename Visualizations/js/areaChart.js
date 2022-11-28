@@ -62,7 +62,7 @@ class AreaChart {
         svg.append("text")
             .attr("class", "ylabel")
             .attr("text-anchor", "middle")
-            .attr("y", -15)
+            .attr("y", -18)
             .attr("x", -height/2)
             .attr("dy", ".75em")
             .attr("transform", "rotate(-90)")
