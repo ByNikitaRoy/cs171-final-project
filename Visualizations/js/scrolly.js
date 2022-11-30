@@ -1,4 +1,4 @@
-// instantiate the scrollama
+/*// instantiate the scrollama
 const scroller = scrollama();
 
 function handleStepEnter(response) {
@@ -17,4 +17,4 @@ scroller
         offset: 0.55
     })
     .onStepEnter((handleStepEnter))
-   .onStepExit((handleStepExit));
+   .onStepExit((handleStepExit));*/
