@@ -50,7 +50,7 @@
 2/18/2022,8.0453,0,0,
 2/19/2022,10.5019,2,1,Shelling intensifies in Eastern Ukraine
 2/20/2022,9.9013,2,0,
-2/21/2022,10.8689,5,1,"President Vladimir V. Putin recognized the independence of two territories in eastern Ukraine, Luhansk and Donetsk, that are largely controlled by Russian-backed separatists. Shortly after, Russian troops were ordered into the area, a move that threatens to sharply escalate the conflict with Ukraine and could be a prelude to a broader invasion."
+2/21/2022,10.8689,5,1,"President Vladimir V. Putin recognized the independence of two territories in eastern Ukraine, Luhansk."
 2/22/2022,15.2497,8,0,
 2/23/2022,13.078,4,0,
 2/24/2022,28.6034,103,1,Russia carries out a large-scale invasion of Ukraine
@@ -69,20 +69,20 @@
 3/9/2022,21.4066,87,0,
 3/10/2022,21.5019,61,0,
 3/11/2022,21.3175,107,0,
-3/12/2022,20.9029,50,1,"From small towns to large cities, the extent of Russia’s aerial bombardment of Ukraine"
-3/13/2022,22.7225,137,0,
+3/12/2022,20.9029,50,0,"From small towns to large cities, the extent of Russia’s aerial bombardment of Ukraine"
+3/13/2022,22.7225,137,1,Russian strikes kill dozens in western Ukraine
 3/14/2022,20.3958,242,0,
 3/15/2022,19.7646,808,0,
 3/16/2022,19.3564,365,0,
 3/17/2022,17.9108,76,0,
 3/18/2022,18.0493,145,0,
 3/19/2022,19.508,98,0,
-3/20/2022,18.2005,49,0,
+3/20/2022,18.2005,49,1,An initial analysis of damage in Mariupol shows widespread attacks across residential areas
 3/21/2022,17.2202,372,0,
 3/22/2022,15.7764,49,0,
 3/23/2022,16.0006,37,0,
 3/24/2022,17.3844,149,0,
-3/25/2022,16.4385,189,0,
+3/25/2022,16.4385,189,1,NATO sharply increases its forces in Eastern Europe
 3/26/2022,16.6945,37,0,
 3/27/2022,17.4569,21,0,
 3/28/2022,15.0261,36,0,
@@ -90,7 +90,7 @@
 3/30/2022,13.9396,9,0,
 3/31/2022,13.5923,203,0,
 4/1/2022,13.6528,81,0,
-4/2/2022,14.3841,2,0,
+4/2/2022,14.3841,2,1,Ukraine reclaims control of dozens of towns after Russian troops withdraw from around Kyiv
 4/3/2022,15.276,93,0,
 4/4/2022,14.2461,48,0,
 4/5/2022,14.3218,36,0,
@@ -101,14 +101,14 @@
 4/10/2022,14.7198,122,0,
 4/11/2022,12.8301,37,0,
 4/12/2022,12.799,99,0,
-4/13/2022,13.3807,41,0,
+4/13/2022,13.3807,41,1,Russia tightens its grip on Mariupol
 4/14/2022,12.7797,67,0,
 4/15/2022,12.3267,78,0,
 4/16/2022,12.8917,33,0,
 4/17/2022,12.8764,20,0,
 4/18/2022,11.9007,64,0,
 4/19/2022,12.2952,20,0,
-4/20/2022,12.0903,25,0,
+4/20/2022,12.0903,25,1,The Russian military advances from several directions
 4/21/2022,11.9101,318,0,
 4/22/2022,11.6911,99,0,
 4/23/2022,12.8678,28,0,
@@ -131,7 +131,7 @@
 5/10/2022,11.1349,99,0,
 5/11/2022,10.5806,492,0,
 5/12/2022,10.1757,62,0,
-5/13/2022,10.0784,329,0,
+5/13/2022,10.0784,329,1,Finland and Sweden consider joining NATO
 5/14/2022,11.2932,11,0,
 5/15/2022,12.8881,228,0,
 5/16/2022,10.4603,49,0,
@@ -147,7 +147,7 @@
 5/26/2022,8.7309,98,0,
 5/27/2022,8.5325,48,0,
 5/28/2022,9.8251,92,0,
-5/29/2022,10.0198,115,0,
+5/29/2022,10.0198,115,1,Russia is closer to capturing key eastern city
 5/30/2022,10.0309,45,0,
 5/31/2022,9.6963,15,0,
 6/1/2022,9.5441,55,0,
@@ -171,16 +171,16 @@
 6/19/2022,9.2557,7,0,
 6/20/2022,8.5128,19,0,
 6/21/2022,8.4992,30,0,
-6/22/2022,7.9947,18,0,
+6/22/2022,7.9947,18,1,How Russia regained momentum in eastern Ukraine
 6/23/2022,8.3074,127,0,
 6/24/2022,7.7243,2,0,
 6/25/2022,8.2111,38,0,
-6/26/2022,10.062,19,0,
+6/26/2022,10.062,19,1,Russia launches barrage of missiles across Ukraine
 6/27/2022,9.3559,45,0,
 6/28/2022,8.1011,33,0,
 6/29/2022,8.3459,10,0,
 6/30/2022,8.3186,49,0,
-7/1/2022,7.6631,29,0,
+7/1/2022,7.6631,29,1,Ukrainian counterattacks edge closer to Kherson
 7/2/2022,7.1513,12,0,
 7/3/2022,8.2498,32,0,
 7/4/2022,7.9128,14,0,
@@ -250,10 +250,10 @@
 9/6/2022,7.5746,74,0,
 9/7/2022,7.2275,174,0,
 9/8/2022,6.4564,151,0,
-9/9/2022,5.816,3,0,
-9/10/2022,6.3751,257,0,
+9/9/2022,5.816,3,1,Ukraine rapidly advances around a key northeastern city
+9/10/2022,6.3751,257,1,"In stunning retreat, Russia loses key northeastern cities to Ukrainian offensive"
 9/11/2022,7.8737,3,0,
-9/12/2022,7.0744,16,0,
+9/12/2022,7.0744,16,1,"Ukraine recaptured 3,400 square miles in one week"
 9/13/2022,6.5645,7,0,
 9/14/2022,6.6809,94,0,
 9/15/2022,6.9019,149,0,
@@ -271,16 +271,16 @@
 9/27/2022,7.8756,222,0,
 9/28/2022,7.9565,84,0,
 9/29/2022,7.2176,198,0,
-9/30/2022,8.9505,46,0,
+9/30/2022,8.9505,46,1,"Ukraine is on the verge of encircling Lyman, a major rail hub"
 10/1/2022,9.2566,11,0,
 10/2/2022,8.372,7,0,
 10/3/2022,7.4799,1,0,
-10/4/2022,7.5659,4,0,
+10/4/2022,7.5659,4,1,Ukraine forces a Russian retreat with a rapid advance in the south
 10/5/2022,7.8822,150,0,
 10/6/2022,7.8063,45,0,
 10/7/2022,8.7953,25,0,
 10/8/2022,8.8005,96,0,
-10/9/2022,8.9048,19,0,
+10/9/2022,8.9048,19,1,"Pressing on two fronts, Ukraine extends its gains in the east and makes a sudden advance in the south"
 10/10/2022,10.4619,21,0,
 10/11/2022,9.6911,10,0,
 10/12/2022,8.6576,239,0,
@@ -312,7 +312,7 @@
 11/7/2022,7.3241,,0,
 11/8/2022,6.4669,,0,
 11/9/2022,6.0728,,0,
-11/10/2022,7.0039,,0,
+11/10/2022,7.0039,,1,Russia announces a retreat from Kherson
 11/11/2022,8.4691,,0,
 11/12/2022,7.6437,,0,
-11/13/2022,7.7388,,0,
+11/13/2022,7.7388,,1,Ukraine has reclaimed more than half the territory Russia has taken this year
