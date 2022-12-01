@@ -156,8 +156,8 @@
 #map button.play-pause {
   width: 60px;
   padding: 4px;
-  background-color: #3e4f5d;
-  color: lightgray;
+  background-color: rgba(255, 255, 102, 1);
+  color: #3e4f5d;
   border: none;
   border-radius: 2px;
   cursor: pointer;
@@ -230,8 +230,8 @@
 #dotPlotVis button.play-pause {
   width: 60px;
   padding: 4px;
-  background-color: #3e4f5d;
-  color: lightgray;
+  background-color: rgba(255, 255, 102, 1);
+  color: #3e4f5d;
   border: none;
   border-radius: 2px;
   cursor: pointer;
