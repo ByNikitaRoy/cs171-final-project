@@ -61,11 +61,6 @@ class AreaChart_2 {
             .attr("transform", `translate(${margin.left}, 0)`)
             .attr('class','yAxis');
 
-        //add yaxisDeaths
-        svg.append("g")
-            .call(d3.axisRight(yScaleDeaths))
-            .attr("transform", `translate(${width-margin.right}, 0)`)
-            .attr('class','yAxisDeaths');
 
         //add yaxis label
         svg.append("text")
@@ -77,15 +72,7 @@ class AreaChart_2 {
             .attr("transform", "rotate(-90)")
             .text("Percent of Monitored Media Articles");
 
-        //add yaxis label for deaths
-        svg.append("text")
-            .attr("class", "yLabelDeaths")
-            .attr("text-anchor", "middle")
-            .attr("y", width )
-            .attr("x", -height/2)
-            .attr("dy", ".75em")
-            .attr("transform", "rotate(-90)")
-            .text("Number of Casualties");
+
 
         //add year label
         svg.append("text")
@@ -121,7 +108,23 @@ class AreaChart_2 {
                     return yScale(d.value)
                 })
             )
+        //Show Casualties
         document.getElementById("s-ukraine").onclick = () => {
+            //add yaxisDeaths
+            svg.append("g")
+                .call(d3.axisRight(yScaleDeaths))
+                .attr("transform", `translate(${width-margin.right}, 0)`)
+                .attr('class','yAxisDeaths');
+
+            //add yaxis label for deaths
+            svg.append("text")
+                .attr("class", "yLabelDeaths")
+                .attr("text-anchor", "middle")
+                .attr("y", width )
+                .attr("x", -height/2)
+                .attr("dy", ".75em")
+                .attr("transform", "rotate(-90)")
+                .text("Number of Casualties");
 
             svg.append("path")
                 .datum(vis.data)
