@@ -18,9 +18,9 @@ class AreaChart {
         let margin = {top: 20, right: 20, bottom: 20, left: 40};
 
         // Width and height as the inner dimensions of the chart area
-        let width = 1300 - margin.left - margin.right,
-            height = 500 - margin.top - margin.bottom;
 
+       let width = document.getElementById(vis.parentElement).getBoundingClientRect().width - margin.left - margin.right;
+       let height = document.getElementById(vis.parentElement).getBoundingClientRect().height - margin.top - margin.bottom;
         //create svg area
         let svg = d3.select("#areaChart").append("svg")
             .attr("width", width + margin.left + margin.right)

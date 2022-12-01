@@ -2,6 +2,10 @@
   font: 10px sans-serif;
 }
 
+.graphArea{
+  height: 70vh;
+}
+
 .domain {
   fill: none;
   stroke: #888;
