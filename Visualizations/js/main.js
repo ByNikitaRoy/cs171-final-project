@@ -21,7 +21,7 @@ let promises = [
   d3.csv("data/new_data_topics.csv"),
   d3.csv("data/volume_news_over_country - country coverage over time 2y.csv"),
   d3.json("data/geo-world.json"),
-  d3.csv("data/sentimentAnalysis3.csv", d => {
+  d3.csv("data/sentimentAnalysisFinal.csv", d => {
     //convert to ints and parse the date
     d.AverageDocTone = +d.AverageDocTone;
     d.NumberOfArticles = +d.NumberOfArticles;

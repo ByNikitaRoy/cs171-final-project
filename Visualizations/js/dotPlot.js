@@ -7,7 +7,7 @@ class DotPlot {
     constructor(parentElement, displayData) {
         this.parentElement = parentElement;
         this.data = displayData;
-        this.loopStepTime = 1;
+        this.loopStepTime =50;
 
         this.initVis();
     }
@@ -18,8 +18,8 @@ class DotPlot {
         vis.outputArray = []
         //set margins width and height
         vis.margin = {top: 20, right: 20, bottom: 20, left: 50};
-        vis.width = 1000;
-        vis.height = 800;
+        vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right;
+        vis.height = document.getElementById(vis.parentElement).getBoundingClientRect().height - vis.margin.top;
         vis.padding = 20;
 
         //Set the color for each continent

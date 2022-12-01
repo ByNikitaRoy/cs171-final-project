@@ -21,8 +21,8 @@ class LineChart {
             y: d => d.Value/100,
             z: d => d.Series,
             yLabel: "% Airtime on Day",
-            width: 1300,
-            height: 800,
+            width: document.getElementById(vis.parentElement).getBoundingClientRect().width - 40,
+            height: document.getElementById(vis.parentElement).getBoundingClientRect().height - 40,
             color: "rgba(255, 255, 255, 1)",
             voronoi: false // if true, show Voronoi overlay
         })
