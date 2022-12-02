@@ -21,8 +21,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Custom CSS code -->
+    <link rel="stylesheet" href="css/style_charts.css">
     <link rel="stylesheet" href="css/style_main.css">
-    <link rel="stylesheet" href="css/style.css">
    </head>
    <body>
 
@@ -30,11 +30,11 @@
   <div id="wrapper">
 
       <!-- ONE: Intro Zelensky -->
-      <section class= "orient-right content-align-left" id="first">
+      <section class= "intro orient-right content-align-left" id="first">
         <div style="background-image:url('img/bg 0.png'); background-position-x: right; background-repeat: no-repeat";>
           <div class="row intro">
             <div class="row container">
-            <div class="col-md-6 offset-md-1">
+            <div class=" padded col-md-6 offset-md-1">
               <h1 class="intro">UKRAINE
                 <br> RUSSIA
                 <br> WAR</h1>
@@ -52,11 +52,11 @@
       </section>
 
       <!-- TWO: Intro Putin -->
-      <section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="second">
+      <section class="intro orient-right content-align-left image-position-center" id="second">
         <div class="container-fluid" style="background-image:url('img/bg 1.png'); background-position-x: left; background-repeat: no-repeat;">
           <div class="row intro">
             <div class="row container">
-              <div class= "col-md-6 offset-md-6" style="padding-top: 4vh">
+              <div class= "padded col-md-6 offset-md-6">
                 <h2 class= "sub" >WHAT CAN WE LEARN FROM ANALYZING GLOBAL MEDIA?</h2>
               <!--  <h5 class="invert">As you read this article, you will be able to explore how web and television media is covering the Russia - Ukraine conflict.
                   By deconstructing patterns and trends in the coverage of the Russia-Ukraine conflict we can expose regional biases, interests, and priorities.</h5>
@@ -85,8 +85,8 @@
       <section class="wrapper yellow align-center">
         <div class="inner container-fluid text-center">
           <div class="col align-self-center">
-            <h2 class = "sub invert" >LET'S TAKE A LOOK FROM ABOVE</h2>
-            <p class = "major invert" >
+            <h2 class ="sub invert" >LET'S TAKE A LOOK FROM ABOVE</h2>
+            <p class ="major invert" >
               To better understand global coverage of the Russia–Ukraine conflict,
               let's take a look at how popular the topic has been on the internet.
               Specifically, let's look at where web articles are originating from across the globe.         </p>
@@ -97,10 +97,10 @@
       <!-- THREE: Global Mentions Map -->
       <section class="wrapper yellow mid align-center">
         <div class="container-fluid text-center">
-          <div class="row" style="padding: 1vh">
+          <div class="row padded light">
             <h2 class= "sub" >GLOBAL UKRAINE MENTIONS</h2>
           </div>
-          <div class="row" style="padding: 1vh">
+           <div class="row padded light">
             <p class="major" >How often is 'Ukraine' mentioned in global web-media since January 2022?
             </p>
           </div>
@@ -156,18 +156,19 @@
       <!-- FOUR: Area Chart-->
       <section class="wrapper yellow mid align-center">
           <div class="container-fluid text-center mainArea">
-              <div class="row" style="padding: 1vh">
+              <div class="row padded light">
                   <h2 class= "sub" >PERCENT OF GLOBAL WEB ARTICLES CONTAINING 'UKRAINE'</h2>
               </div>
               <div class="container-fluid">
                   <div class="row justify-content-md-center">
                       <div class="col-md-3" style="padding: 3vh">
-                          <h3 style="height: min-content"> How often is 'Ukraine' mentioned in global web-media since January 2022?</h3>
-                          <p>In this graph you can observe...</p>
+                          <h4 class= "sub" style="height: min-content"> How often is 'Ukraine' mentioned in global web-media since January 2022?</h4>
+                          <h5 class= "sub">This chart looks specifically at broadcast news data and the percent of airtime dedicated to coverage of topics surrounding a keyword.
+                              In this case, the key word is “Ukraine or Ukrainian”.</h5>
 
                           <!--About Button -->
-                          <div class="dark small justify-content-center" style="padding-bottom: 5vh; padding-top: 5vh" id="aboutArea">
-                            <button type="button" onclick="aboutData()" class="btn btn-outline-light justify-content-md-center" id="about2" style="height: auto">About this data</button>
+                          <div class="align-left" style="padding-bottom: 5vh; padding-top: 5vh" id="aboutArea">
+                            <button type="button" onclick="aboutData()" class="about btn btn-outline-light justify-content-md-center" id="about2" style="height: auto">About this data</button>
                           </div>
                       </div>
 
@@ -197,14 +198,14 @@
       <!-- FIVE: Topics -->
       <section class="wrapper yellow mid align-center">
         <div class="container-fluid text-center">
-          <div class="row" style="padding: 1vh">
+           <div class="row padded light">
             <h2 class= "sub" >RELEVANT UKRAINE TOPICS</h2>
           </div>
-          <div class="row" style="padding: 1vh">
+          <div class="row padded light">
             <p class="major" > What is the media focusing on when talking about Ukraine?
             </p>
           </div>
-          <div class="row justify-content-center" style="padding-bottom: 3vh">
+          <div class="row padded justify-content-center">
             <div class="col justify-content-center">
               <div class="col justify-content-center" id ="bubble"></div>
             </div>
@@ -352,7 +353,7 @@
           <div class="row" style="padding: 1vh">
             <h2 class= "sub" >TONE BY COUNTRY OVER TIME</h2>
           </div>
-          <div class="row" style="padding: 1vh">
+          <div class="row padded light">
             <p class="major" >How negatively, on average, do articles talk about the conflict in different countries?
             </p>
           </div>
@@ -396,7 +397,7 @@
           <div class="row" style="padding: 1vh">
             <h2 class= "sub" >WAR CASUALTIES VS NEWS COVERAGE</h2>
           </div>
-          <div class="row" style="padding: 1vh">
+           <div class="row padded light">
             <p class="major" >What is the relationship between human toll and conflict coverage?
             </p>
           </div>
@@ -443,7 +444,7 @@
         <div class="inner container-fluid text-center">
           <div class="col align-self-center">
             <h2 class = "sub">ABOUT THE PROJECT</h2>
-            <div class="row" style="padding: 1vh">
+            <div class="row padded light">
               <h3 class="footer">THE GDELT DATABASE</h3>
             </div>
             <div class="row" style="padding: 1vh">
@@ -469,15 +470,7 @@
 
                 <h5 class="invert"> Background </h5>
               </div>
-              <div class="col text-center light">
-                <img src="img/nikita.png">
-                <br>
-                <br>
-                <h4 class = "" >
-                  NIKITA ROY </h4>
 
-                <h5 class="invert"> Background </h5>
-              </div>
               <div class="col text-center light">
                 <img src="img/ana.png">
                 <br>
@@ -487,6 +480,16 @@
 
                   <h5 class="invert"> Background </h5>
               </div>
+
+                <div class="col text-center light">
+                    <img src="img/nikita.png">
+                    <br>
+                    <br>
+                    <h4 class = "" >
+                        NIKITA ROY </h4>
+
+                    <h5 class="invert"> Background </h5>
+                </div>
             </div>
           </div>
         </div>
@@ -509,20 +512,10 @@
       </script>
 
       <!-- Bootstrap-->
-
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-
 
       <!-- Animation Scripts -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.13.0/d3-legend.js"></script>
-      <!--<script src="assets/js/jquery.min.js"></script>
-      <script src="assets/js/jquery.scrollex.min.js"></script>
-      <script src="assets/js/jquery.scrolly.min.js"></script>
-      <script src="assets/js/browser.min.js"></script>
-      <script src="assets/js/breakpoints.min.js"></script>
-      <script src="assets/js/util.js"></script>
-      <script src="assets/js/main.js"></script> -->
-
 
       <!-- own js files -->
       <script src="js/multiLineChart.js"></script>
@@ -537,43 +530,3 @@
   </div> <!-- Closing Wrapper -->
 </body>
 </html>
-
-
-<!-- Intro Granularity on Emotions: Context -->
-<!--<section class="wrapper yellow align-center">
-	<div class="inner container-fluid text-center">
-		<div class="col align-self-center">
-			<h2 class = "sub invert">CONTEXT</h2>
-			<p class = "major invert">
-				So far, we have outlined that the quantity and the tone of the news that we see every day vary and are important to understand how we shape our understanding of the world. But can we take a deeper dive into how they might vary? In what context are our news being created?
-			</p>
-		</div>
-	</div>
-</section> -->
-
-
-<!-- Button
-<div class="col-4">
-    <div class="btn btn-primary" id="cs171-basics">I WANNA KNOW MORE</div>
-    <div id="content"></div>
-</div>-->
-<!--
-<div class="row narrow">
-    <a class="nlink" href="https://www.harvard.edu/">"Harvard University"</a>
-</div> -->
-
-
-<!-- Drop Down Menu -->
-<!-- <div class="row justify-content-center">
-<div class="align-self-center col-2">
-    <div class="user-control">
-        <div class="form-group">
-            <select id="area" class="form-control" onchange="dataManipulation()">
-                <option value="all">All Areas</option>
-                <option value="boston">Boston</option>
-                <option value="cambridge">Cambridge</option>
-                <option value="somerville">Somerville</option>
-            </select>
-        </div>
-    </div>
-</div>-->

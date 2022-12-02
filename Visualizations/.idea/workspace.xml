@@ -3,66 +3,33 @@
   <component name="ChangeListManager">
     <list default="true" id="e54726cb-1768-439a-9a9f-5864896b8653" name="Changes" comment="Added index 2: everything is coming together theeeereee! :)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/fontawesome-all.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/noscript.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/breakpoints.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/browser.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/demo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/jquery.scrollex.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/jquery.scrolly.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/util.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/base/_page.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/base/_reset.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/base/_typography.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_actions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_banner.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_box.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_button.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_form.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_gallery.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_icon.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_icons.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_image.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_index.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_items.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_list.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_row.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_section.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_spotlight.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_table.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/components/_wrapper.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/layout/_wrapper.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/libs/_breakpoints.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/libs/_functions.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/libs/_html-grid.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/libs/_mixins.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/libs/_vars.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/libs/_vendor.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/main.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/noscript.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/webfonts/fa-brands-400.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/webfonts/fa-brands-400.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/webfonts/fa-brands-400.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/webfonts/fa-brands-400.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/webfonts/fa-brands-400.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/webfonts/fa-regular-400.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/webfonts/fa-regular-400.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/webfonts/fa-regular-400.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/webfonts/fa-regular-400.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/webfonts/fa-regular-400.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/webfonts/fa-solid-900.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/webfonts/fa-solid-900.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/webfonts/fa-solid-900.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/webfonts/fa-solid-900.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/webfonts/fa-solid-900.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/charts.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style_charts.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style_main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style_main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/Casualties.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/Nikita.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/Obama.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/Putin.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/Putin.psd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/Wireframe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/Zelinsky.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/ana.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/authors.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/bg1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/headshot JB 1.5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/inne.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/inns.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/intro 2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/intro1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/ph1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/ph2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/ph3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/ph4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/ph5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/phss.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/indexTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/indexTest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/buttons.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/buttons.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/dotPlot.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dotPlot.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,6 +103,7 @@
       <workItem from="1669906365581" duration="1566000" />
       <workItem from="1669907993071" duration="2174000" />
       <workItem from="1670003511132" duration="3774000" />
+      <workItem from="1670007471417" duration="3982000" />
     </task>
     <servers />
   </component>
