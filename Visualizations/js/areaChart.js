@@ -17,6 +17,7 @@ class AreaChart {
         // Margin object with properties for the four directions
         let margin = {top: 20, right: 20, bottom: 20, left: 40};
 
+
         // Width and height as the inner dimensions of the chart area
 
        let width = document.getElementById(vis.parentElement).getBoundingClientRect().width - margin.left - margin.right;
@@ -88,7 +89,7 @@ class AreaChart {
         //with reference to https://d3-graph-gallery.com/graph/area_basic.html
         svg.append("path")
             .datum(vis.data)
-            .attr("fill", "rgba(255, 255, 102, 0.88)")
+            .attr("fill", "rgba(255, 255, 102, 0.5)")
             .attr("stroke","rgba(255, 255, 102, 1)")
             //.attr("stroke", "#038C9E")
             .attr("stroke-width", 2.5)
@@ -139,6 +140,20 @@ class AreaChart {
                     .style("opacity", 0)
             })
 
+        // Add a legend
+
+        d3.select("#keyArea").append("svg")
+            .attr("height", '30px')
+            .attr("width",'30px')
+            .append("circle")
+            .attr("cx", '2vh')
+            .attr("cy",'2vh')
+            .attr("r",7)
+            .style("fill", "rgba(145,196,196, 1)")
+            .style("stroke-width", 10)
+            .style("stroke", "rgba(255,255,255,0.5)")
+
+//
        /* //TOOLTIP
 
         //For converting Dates to strings

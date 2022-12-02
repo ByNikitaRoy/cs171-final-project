@@ -23,18 +23,20 @@
   <!-- Custom CSS code -->
     <link rel="stylesheet" href="css/style_charts.css">
     <link rel="stylesheet" href="css/style_main.css">
-   </head>
-   <body>
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="is-preload">
 
-   <!-- Wrapper -->
-  <div id="wrapper">
+<!-- Wrapper -->
+<div id="wrapper" class="divided">
 
       <!-- ONE: Intro Zelensky -->
       <section class= "intro orient-right content-align-left" id="first">
         <div style="background-image:url('img/bg 0.png'); background-position-x: right; background-repeat: no-repeat";>
           <div class="row intro">
             <div class="row container">
-            <div class=" padded col-md-6 offset-md-1">
+            <div class="padded col-md-6 offset-md-1">
               <h1 class="intro">UKRAINE
                 <br> RUSSIA
                 <br> WAR</h1>
@@ -52,8 +54,8 @@
       </section>
 
       <!-- TWO: Intro Putin -->
-      <section class="intro orient-right content-align-left image-position-center" id="second">
-        <div class="container-fluid" style="background-image:url('img/bg 1.png'); background-position-x: left; background-repeat: no-repeat;">
+      <section class="intro orient-right content-align-left" id="second">
+        <div style="background-image:url('img/bg 1.png'); background-position-x: left; background-repeat: no-repeat";>
           <div class="row intro">
             <div class="row container">
               <div class= "padded col-md-6 offset-md-6">
@@ -97,10 +99,10 @@
       <!-- THREE: Global Mentions Map -->
       <section class="wrapper yellow mid align-center">
         <div class="container-fluid text-center">
-          <div class="row padded light">
-            <h2 class= "sub" >GLOBAL UKRAINE MENTIONS</h2>
+            <div class="row" style="padding: 1vh">
+                <h2 class= "sub" >GLOBAL UKRAINE MENTIONS</h2>
           </div>
-           <div class="row padded light">
+           <div class="row" style="padding: 1vh">
             <p class="major" >How often is 'Ukraine' mentioned in global web-media since January 2022?
             </p>
           </div>
@@ -165,11 +167,17 @@
                           <h4 class= "sub" style="height: min-content"> How often is 'Ukraine' mentioned in global web-media since January 2022?</h4>
                           <h5 class= "sub">This chart looks specifically at broadcast news data and the percent of airtime dedicated to coverage of topics surrounding a keyword.
                               In this case, the key word is “Ukraine or Ukrainian”.</h5>
+                         <div class="row">
+                             <div class="col-2 align-left" id="keyArea"></div>
+                             <span class="col-5 align-left align-middle"><h6 class="col key align-middle">Relevant Events</h6></span>
+                         </div>
+
 
                           <!--About Button -->
                           <div class="align-left" style="padding-bottom: 5vh; padding-top: 5vh" id="aboutArea">
                             <button type="button" onclick="aboutData()" class="about btn btn-outline-light justify-content-md-center" id="about2" style="height: auto">About this data</button>
                           </div>
+
                       </div>
 
                       <div class="col-md-8">
@@ -198,25 +206,25 @@
       <!-- FIVE: Topics -->
       <section class="wrapper yellow mid align-center">
         <div class="container-fluid text-center">
-           <div class="row padded light">
+           <div class="row" style="padding: 1vh">
             <h2 class= "sub" >RELEVANT UKRAINE TOPICS</h2>
           </div>
-          <div class="row padded light">
+          <div class="row" style="padding: 1vh">
             <p class="major" > What is the media focusing on when talking about Ukraine?
             </p>
           </div>
-          <div class="row padded justify-content-center">
+          <div class="row justify-content-center" style="padding-bottom: 3vh">
             <div class="col justify-content-center">
               <div class="col justify-content-center" id ="bubble"></div>
             </div>
           </div>
         </div>
-        <!--About Button -->
-        <div class="row dark small justify-content-center" style="padding-bottom: 5vh" id="aboutTopics">
-            <span class="col-2" style= "padding-bottom: 5vh">
-            <div class="btn btn-outline-light btn-sm" id="about3" style="height: auto"> About this data</div>
-            </span>
-        </div>
+          <!--About Button -->
+          <div class="row dark small justify-content-center" style="padding-bottom: 5vh" id="aboutTopics">
+		<span class="col-2" style= "padding-bottom: 5vh">
+		<div class="btn btn-outline-light btn-sm" id="about3" style="height: auto"> About this data</div>
+        </span>
+          </div>
       </section>
 
       <!-- Intro into Multiline -->

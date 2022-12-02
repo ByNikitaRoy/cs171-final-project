@@ -3,32 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e54726cb-1768-439a-9a9f-5864896b8653" name="Changes" comment="Added index 2: everything is coming together theeeereee! :)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/charts.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style_charts.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/style_main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style_main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Casualties.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Nikita.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Obama.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Putin.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Putin.psd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Wireframe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/Zelinsky.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/ana.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/authors.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/bg1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/headshot JB 1.5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/inne.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/inns.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/intro 2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/intro1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/ph1.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/ph2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/ph3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/ph4.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/ph5.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/phss.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/indexTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/indexTest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/buttons.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/buttons.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +79,7 @@
       <workItem from="1669906365581" duration="1566000" />
       <workItem from="1669907993071" duration="2174000" />
       <workItem from="1670003511132" duration="3774000" />
-      <workItem from="1670007471417" duration="3982000" />
+      <workItem from="1670007471417" duration="11903000" />
     </task>
     <servers />
   </component>
