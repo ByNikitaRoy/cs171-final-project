@@ -143,10 +143,9 @@
 
         h4 {
             font-size: 1.1rem;
-            font-weight: 700;
+            font-weight: 500;
         }
             h4.sub {
-                color: rgba(255, 255, 255, 1);
                 font-weight: 500;
                 text-align: left;
             }
