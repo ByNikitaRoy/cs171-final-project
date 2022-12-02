@@ -72,7 +72,7 @@ class AreaChart {
         svg.append("text")
             .attr("class", "yearLabel")
             .attr("text-anchor", "start")
-            .attr("y", height-12)
+            .attr("y", height-11.5)
             .attr("x", 58)
             .attr("dy", ".75em")
             .text("2022");
