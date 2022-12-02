@@ -143,6 +143,8 @@ class AreaChart {
         // Add a legend
 
         d3.select("#keyArea").append("svg")
+            .attr("height", '30px')
+            .attr("width",'30px')
             .append("circle")
             .attr("cx", '2vh')
             .attr("cy",'2vh')
@@ -151,13 +153,6 @@ class AreaChart {
             .style("stroke-width", 10)
             .style("stroke", "rgba(255,255,255,0.5)")
 
-       // d3.select("#keyArea").append("svg")
-         //   .append("text")
-          //  .attr("y", 0)
-         //   .attr("x", 10)
-            //.attr("dy", ".75em")
-          //  .text("Important Events")
-           // .attr("class", "key");
 //
        /* //TOOLTIP
 
