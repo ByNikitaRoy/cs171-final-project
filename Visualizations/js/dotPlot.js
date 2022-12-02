@@ -262,7 +262,7 @@ class DotPlot {
                     .style("top", event.pageY + "px")
                     .html(`
                          <div style=" border-radius: 5px; background: white; padding: 10px">
-                             <h5 class="tooltips">${d.country}<h5>                          
+                             <h5 class="invert">${d.country}<h5>                          
                          </div>`);
             })
             .on('mouseout', function(event, d) {

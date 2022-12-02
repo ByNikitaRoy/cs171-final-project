@@ -21,17 +21,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Custom CSS code -->
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <link rel="stylesheet" href="css/style_main.css">
-   <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-   <link rel="stylesheet" href="css/style.css">
- </head>
- <body class="is-preload">
- <!-- Wrapper -->
-  <div id="wrapper" class="divided">
+    <link rel="stylesheet" href="css/style_main.css">
+    <link rel="stylesheet" href="css/style.css">
+   </head>
+   <body>
+
+   <!-- Wrapper -->
+  <div id="wrapper">
 
       <!-- ONE: Intro Zelensky -->
-      <section class= "content spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
+      <section class= "orient-right content-align-left" id="first">
         <div style="background-image:url('img/bg 0.png'); background-position-x: right; background-repeat: no-repeat";>
           <div class="row intro">
             <div class="row container">
@@ -40,7 +39,7 @@
                 <br> RUSSIA
                 <br> WAR</h1>
               <h2> A media and language analysis of the conflict. </h2>
-              <h5 class="invert">On February 24, 2022 Russia launched a
+              <h5 class="">On February 24, 2022 Russia launched a
                 full scale invasion of Ukraine, initiating the largest
                 military mobilization in Europe since World War II.
                 The effects of the invasion have been felt around the world
@@ -71,9 +70,9 @@
                   <h5 class="invert">This project leveraged data from the GDELT project, which monitors the world's news media in print,
                       broadcast, and web formats, in over 100 languages, every moment of every day.
                   </h5>-->
-                  <h5 class="invert">As you read through the interactive data visualizations in this article, you will be able to explore how web and television media is covering the Russia - Ukraine conflict.
+                  <h5 class="">As you read through the interactive data visualizations in this article, you will be able to explore how web and television media is covering the Russia - Ukraine conflict.
                       By deconstructing patterns and trends in the coverage of the Russia-Ukraine conflict we can expose regional biases, interests, and priorities.</h5>
-                  <h5 class="invert">This project leverages data from the GDELT project, which monitors the world's news media in print,
+                  <h5 class="">This project leverages data from the GDELT project, which monitors the world's news media in print,
                       broadcast, and web formats, in over 100 languages, every moment of every day.
                   </h5>
               </div>
@@ -131,7 +130,7 @@
       </section>
 
       <!-- FOUR: Area Chart-->
-      <section class="wrapper yellow mid align-center">
+      <!--<section class="wrapper yellow mid align-center">
         <div class="container-fluid text-center mainArea">
           <div class="row" style="padding: 1vh">
             <h2 class= "sub" >PERCENT OF GLOBAL WEB ARTICLES CONTAINING 'UKRAINE'</h2>
@@ -146,13 +145,40 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!--About Button -->
-        <div class="row dark small justify-content-center" style="padding-bottom: 5vh; padding-top: 5vh" id="aboutArea">
+        <!-- <div class="row dark small justify-content-center" style="padding-bottom: 5vh; padding-top: 5vh" id="aboutArea">
             <span class="col-2" style= "padding-bottom: 5vh">
             <div class="btn btn-outline-light btn-sm" id="about2" style="height: auto"> About this data</div>
             </span>
         </div>
+      </section> -->
+      <!-- FOUR: Area Chart-->
+      <section class="wrapper yellow mid align-center">
+          <div class="container-fluid text-center mainArea">
+              <div class="row" style="padding: 1vh">
+                  <h2 class= "sub" >PERCENT OF GLOBAL WEB ARTICLES CONTAINING 'UKRAINE'</h2>
+              </div>
+              <div class="container-fluid">
+                  <div class="row justify-content-md-center">
+                      <div class="col-md-3" style="padding: 3vh">
+                          <h3 style="height: min-content"> How often is 'Ukraine' mentioned in global web-media since January 2022?</h3>
+                          <p>In this graph you can observe...</p>
+
+                          <!--About Button -->
+                          <div class="dark small justify-content-center" style="padding-bottom: 5vh; padding-top: 5vh" id="aboutArea">
+                            <button type="button" onclick="aboutData()" class="btn btn-outline-light justify-content-md-center" id="about2" style="height: auto">About this data</button>
+                          </div>
+                      </div>
+
+                      <div class="col-md-8">
+                          <div class="justify-content-center graphArea" >
+                              <div class="align-self-center" id ="areaChart" style="padding:1vh; height:70vh" > </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </section>
 
       <!-- Intro Topics -->
