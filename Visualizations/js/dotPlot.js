@@ -77,7 +77,16 @@ class DotPlot {
             .attr("class", "xlabel")
             .attr("text-anchor", "middle")
             .attr("y", vis.height-vis.margin.bottom-10)
-            .attr("x", vis.width/2+ vis.margin.left)
+            .attr("x", (1*vis.width/5)+ vis.margin.left)
+            .attr("dy", ".75em")
+            .text("<-- Less Negative Tone");
+
+
+        vis.svg.append("text")
+            .attr("class", "xlabel")
+            .attr("text-anchor", "middle")
+            .attr("y", vis.height-vis.margin.bottom-10)
+            .attr("x", (vis.width/1.5)+ vis.margin.left)
             .attr("dy", ".75em")
             .text("Increasingly Negative Tone -->");
 
@@ -149,7 +158,6 @@ class DotPlot {
         //temporarily set selected time range to a day
         let parseDateDash = d3.timeParse('%Y-%m-%d');
 
-        //vis.selectedTimeConverted = parseDateDash(this.timeIndexSelected)
 
         this.selectedTime = this.dataByCountryInit[0].days[this.timeIndexSelected].date;
 
@@ -202,39 +210,7 @@ class DotPlot {
             this.timeIndexSelected = 14;
             stop();
         }
-        /*
-        code for downloading the file for faster run time optimization
-        vis.outputArray.push(vis.dataByCountry)
 
-        console.log(this.timeIndexSelected)
-        if(this.timeIndexSelected == 318){
-
-
-            function DownloadJSON() {
-                let json  = JSON.stringify(vis.outputArray)
-
-                //Convert JSON dotplotjsonextract to BLOB.
-                json = [json];
-                var blob1 = new Blob(json, { type: "application/json" });
-
-                //Check the Browser.
-                var isIE = false || !!document.documentMode;
-                if (isIE) {
-                    window.navigator.msSaveBlob(blob1, "Customers.txt");
-                } else {
-                    var url = window.URL || window.webkitURL;
-                    let link = url.createObjectURL(blob1);
-                    var a = document.createElement("a");
-                    a.download = "myfile.json";
-                    a.href = link;
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                }
-            }
-            DownloadJSON()
-            console.log('downloadJson')
-        }*/
         // Update the visualization
         vis.updateVis();
     }
@@ -254,15 +230,14 @@ class DotPlot {
                 d3.select(this)
                     .attr('stroke-width', '10px')
                     .attr('stroke', '#FFFFFF')
-                    //.attr('fill', '#FFFFFF');
 
                 vis.tooltip
                     .style("opacity", 1)
                     .style("left", event.pageX + 20 + "px")
                     .style("top", event.pageY + "px")
                     .html(`
-                         <div style=" border-radius: 5px; background: white; padding: 10px">
-                             <h5 class="invert">${d.country}<h5>                          
+                         <div style=" border-radius: 5px; background: white; padding: 1px 10px 0px 10px">
+                             <h5 class="invert">${d.country}</h5>                          
                          </div>`);
             })
             .on('mouseout', function(event, d) {
