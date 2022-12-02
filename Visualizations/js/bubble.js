@@ -1,7 +1,14 @@
+//svg size
+const margin = { top: 0, right: 0, bottom: 10, left: 0 };
+const width = 1000;
+const height = 700;
+const innerWidth = width - margin.left - margin.right;
+const innerHeight = height - margin.top - margin.bottom;
+
 //the dist from the label position to the center
-const labelPosRadius = Math.min(innerWidth, innerHeight) / 2 - 60;
+const labelPosRadius = Math.min(innerWidth, innerHeight) / 2 - 40;
 //the dist from the bubbles position to the center
-const bubblesPosRadius = labelPosRadius - 140;
+const bubblesPosRadius = labelPosRadius - 110;
 
 //the radius of the bubble core
 const bubbleCoreRadius = 2;
@@ -16,13 +23,13 @@ const bubblePctScale = d3
   .range([0, bubbleCount]);
 
 class BubbleViz {
-  constructor(_parentNodeId, _data) {
+  constructor(_parentNodeId, _data, _events) {
     this.container = d3.select(`#${_parentNodeId}`);
-    this.data = this.dataWrangling(_data);
+    [this.data, this.events] = this.dataWrangling(_data, _events);
 
     //
     this.timeIndexSelected = 0;
-    this.isLooping = true;
+    this.isLooping = false;
 
     //the time between days, unit is ms
     this.loopStepTime = 1000;
@@ -32,20 +39,10 @@ class BubbleViz {
   }
 
   initVis() {
-    //svg size
-    const margin = { top: 0, right: 0, bottom: 0, left: 0 };
-    const width = 1000;
-    const height = 1000;
-    const innerWidth = width - margin.left - margin.right;
-    const innerHeight = height - margin.top - margin.bottom;
-
-    this.controlWrapper = this.container.append("div").attr("class", "control");
-    this.control();
-
     //svg
     this.svg = this.container
       .append("svg")
-      .attr("width", width)
+      .attr("width", "100%")
       .attr("viewBox", [
         -margin.left - innerWidth / 2,
         -margin.top - innerHeight / 2,
@@ -53,21 +50,42 @@ class BubbleViz {
         height,
       ]);
 
+    this.gLegend = this.svg.append("g");
+    this.legend();
+
+    this.gDot = this.svg.append("g");
+
+    //
+    this.boardWrapper = this.container.append("div").attr("class", "board");
+
+    //
+    this.controlWrapper = this.container.append("div").attr("class", "control");
+    this.control();
+
     this.groupLayout();
-    this.start();
+
+    let isInView;
+    window.addEventListener("scroll", () => {
+      const el = this.svg.node();
+      const bounding = el.getBoundingClientRect();
+      const currentIsInView =
+          bounding.top >= 0 &&
+          bounding.bottom <=
+          (window.innerHeight || document.documentElement.clientHeight);
+      if (currentIsInView !== isInView) {
+        isInView = currentIsInView;
+
+        this.isLooping = isInView;
+
+        if (isInView) this.start();
+        else this.stop();
+
+        this.control();
+      }
+    });
   }
 
   control() {
-    //
-    const label = this.controlWrapper.selectAll("div.time-label").data([""]);
-    const labelEnter = label.enter().append("div").attr("class", "time-label");
-    const labelUpdate = label.merge(labelEnter);
-    label.exit().remove();
-
-    labelUpdate.text(
-      d3.timeFormat("%Y-%m-%d")(this.data[this.timeIndexSelected].date)
-    );
-
     //play-pause button
     const button = this.controlWrapper
       .selectAll("button.play-pause")
@@ -80,14 +98,90 @@ class BubbleViz {
     button.exit().remove();
 
     //button update
-    buttonUpdate.text(this.isLooping ? "Pause" : "Play").on("click", () => {
+    buttonUpdate.text(this.isLooping ? "Pause" : "Play");
+
+    //event
+    buttonUpdate.on("click", () => {
       this.isLooping = !this.isLooping;
 
-      this.control();
+
 
       if (this.isLooping) this.start();
       else this.stop();
+
+      this.control();
     });
+
+    //progress slider
+    const progress = this.controlWrapper.selectAll("div.progress").data([""]);
+    const progressEnter = progress
+        .enter()
+        .append("div")
+        .attr("class", "progress");
+    const progressUpdate = progress.merge(progressEnter);
+    progress.exit().remove();
+
+    progressEnter.append("div").attr("class", "range");
+
+    progressEnter
+        .select(".range")
+        .append("input")
+        .attr("class", "slider")
+        .attr("type", "range")
+        .attr("min", 0)
+        .attr("max", this.data.length - 1)
+        .attr("step", 1);
+
+    progressEnter.select(".range").append("div").attr("class", "sliderticks");
+    const ticks = {};
+
+    progressEnter
+        .select(".sliderticks")
+        .selectAll("p")
+        .data(d3.range(0, this.data.length))
+        .join("p")
+        .style("visibility", (d, i) => {
+          const text = d3.timeFormat("%b. %Y")(this.data[d].date);
+          const rst = ticks[text] ? "hidden" : "visible";
+          ticks[text] = true;
+          return rst;
+        })
+        .text((d) => d3.timeFormat("%b. %Y")(this.data[d].date));
+
+    //progress update
+    progressUpdate
+        .select("input")
+        .property("value", this.timeIndexSelected)
+        .on("input", (e) => {
+          this.timeIndexSelected = e.target.value;
+          //render
+          this.bubbleLayout();
+          this.control();
+        });
+
+    //
+    const date = this.data[this.timeIndexSelected].date;
+    const boardItem = this.boardWrapper.selectAll("div.board-item").data([
+      {
+        text: d3.timeFormat("%d %b. %Y")(date),
+        className: "date",
+      },
+      {
+        text: this.events.find((f) => f.date.getTime() == date.getTime())
+            ?.event,
+        className: "event",
+      },
+    ]);
+    const boardItemEnter = boardItem
+        .enter()
+        .append("div")
+        .attr("class", "board-item");
+    const boardItemUpdate = boardItem.merge(boardItemEnter);
+    boardItem.exit().remove();
+
+    boardItemUpdate
+        .attr("class", (d) => `board-item ${d.className}`)
+        .text((d) => d.text);
   }
 
   groupLayout() {
@@ -144,7 +238,7 @@ class BubbleViz {
 
   render() {
     //
-    const dot = this.svg.selectAll("circle.dot").data(
+    const dot = this.gDot.selectAll("circle.dot").data(
       this.bubbles.filter((d) => d.keyword),
       (d) => d.id
     );
@@ -152,15 +246,11 @@ class BubbleViz {
     const dotUpdate = dot.merge(dotEnter);
     dot.exit().remove();
 
-    dotEnter
-      .attr("fill", "white")
-      .attr("stroke", "white")
-      .attr("stroke-width", bubbleRadius)
-      .attr("r", bubbleCoreRadius);
+    dotEnter.attr("stroke-width", bubbleRadius).attr("r", bubbleCoreRadius);
     dotUpdate.attr("cx", (d) => d.x).attr("cy", (d) => d.y);
 
     //
-    const label = this.svg
+    const label = this.gDot
       .selectAll("g.label")
       .data(this.data[this.timeIndexSelected].groups, (d) => d.keyword);
     const labelEnter = label.enter().append("g").attr("class", "label");
@@ -179,8 +269,30 @@ class BubbleViz {
       .attr("class", "value")
       .attr("dy", 14 * 1.4);
 
-    labelUpdate.select(".name").text((d) => d.keyword);
+    labelUpdate.select(".name").text((d) => d.keyword.toUpperCase());
     labelUpdate.select(".value").text((d) => d.percentage + "%");
+  }
+
+  legend() {
+    this.gLegend.attr("transform", `translate(${85},${innerHeight / 2+3})`);
+    this.gLegend
+        .selectAll("circle.dot")
+        .data([""])
+        .join("circle")
+        .attr("class", "dot")
+        .attr("stroke-width", bubbleRadius)
+        .attr("r", bubbleCoreRadius);
+    this.gLegend
+        .selectAll("text")
+        .data([""])
+        .join("text")
+        .attr("dominant-baseline", "middle")
+        .attr("text-anchor", "start")
+        .attr("fill", "white")
+        .attr("font-size", 14)
+        .attr("x", bubbleRadius)
+        .attr("y", 1)
+        .text("Each bubble represents 1% of the articles that covered Ukraine");
   }
 
   start() {
@@ -199,6 +311,7 @@ class BubbleViz {
     };
 
     onStep(true);
+
     this.interval = setInterval(onStep, this.loopStepTime);
   }
 
@@ -206,7 +319,10 @@ class BubbleViz {
     if (this.interval) clearInterval(this.interval);
   }
 
-  dataWrangling(raw) {
+  dataWrangling(raw,rawEvents ) {
+
+    //data
+
     const dataTypeConverted = raw
       .map((d) => ({
         date: d.Date,
@@ -216,7 +332,7 @@ class BubbleViz {
       }))
       .filter((d) => d.keyword !== "");
 
-    const data = d3
+    let data = d3
       .rollups(
         dataTypeConverted,
         (v) => {
@@ -235,9 +351,15 @@ class BubbleViz {
       .map((d) => ({ date: new Date(d[0]), groups: d[1] }));
 
     data.sort((a, b) => a.date.getTime() - b.date.getTime());
+    data = data.filter((d) => d.date.getMonth() >= 1 && d.date.getMonth() <= 3);
     data.keywords = [...new Set(dataTypeConverted.map((d) => d.keyword))];
 
-    return data;
+    //event
+    const events = rawEvents.map((d) => ({
+      date: new Date(d.Date),
+      event: d.Event,
+    }));
+    return [data, events];
   }
 }
 

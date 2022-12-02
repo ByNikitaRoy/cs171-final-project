@@ -3,59 +3,43 @@ let multiLineChart, AreaChart1, AreaChart2, LineChart1, map, bubbleChart;
 let parseDate = d3.timeParse("%m/%d/%Y");
 let parseDateDash = d3.timeParse("%Y-%m-%d");
 
-let promises = [
-  d3.csv("data/cableNewsCoverageUpdate.csv", (d) => {
-    //convert to ints and parse the date
-    d.value = +d.Value;
-    d.date = parseDateDash(d.Date);
-
-    return d;
-  }),
-  d3.csv("data/newsVolumeOverTime.csv", (d) => {
-    //convert to ints and parse the date
-    d.value = +d.Value/100;
-    d.date = parseDate(d.Date);
-    d.deaths = +d.Deaths;
-    return d;
-  }),
-  d3.csv("data/new_data_topics.csv"),
-  d3.csv("data/volume_news_over_country - country coverage over time 2y.csv"),
+Promise.all([
+  d3.json("data/sentimentAnalysis3.json"),
   d3.json("data/geo-world.json"),
-  d3.csv("data/sentimentAnalysisFinal.csv", d => {
-    //convert to ints and parse the date
-    d.AverageDocTone = +d.AverageDocTone;
-    d.NumberOfArticles = +d.NumberOfArticles;
+]).then(([data, geo]) => {
+  data.forEach((d) => {
     d.date = new Date(d.Date);
-    return d;
-  })
-];
-
-Promise.all(promises)
-  .then(function (data) {
-    createVis(data);
-  })
-  .catch(function (err) {
-    console.log(err);
   });
 
-//data.group(({type})) => type);
+  map = new MapViz("map", data, geo);
+  DotPlotChart = new DotPlot("dotPlotVis", data);
+});
 
-//filter
+d3.csv("data/newsVolumeOverTime.csv", (d) => {
+  //convert to ints and parse the date
+  d.value = +d.Value / 100;
+  d.date = parseDate(d.Date);
+  d.deaths = +d.Deaths;
+  return d;
+}).then((data) => {
+  AreaChart1 = new AreaChart("areaChart", data);
+  AreaChart2 = new AreaChart_2("areaChart2", data);
+});
 
-function createVis(data) {
-  let cableNewsCoverageData = data[0];
-  let newsVolumeOverTime = data[1];
-  let dotPlotData = data[5];
+d3.csv("data/cableNewsCoverageUpdate.csv", (d) => {
+  //convert to ints and parse the date
+  d.value = +d.Value;
+  d.date = parseDateDash(d.Date);
+  return d;
+}).then((data) => {
+  // multiLineChart = new MultiLineChart("multiLineChart", data);
+  LineChart1 = new LineChart("lineChart", data);
+});
 
-  console.log("data", data);
-
-  //multiLineChart = new MultiLineChart("multiLineChart", newsCoverageData);
-  AreaChart1 = new AreaChart("areaChart", newsVolumeOverTime);
-  AreaChart2 = new AreaChart_2("areaChart2", newsVolumeOverTime);
-  LineChart1 = new LineChart("lineChart", cableNewsCoverageData);
-  map = new MapViz("map", data[3], data[4]);
-  bubbleChart = new BubbleViz("bubble", data[2]);
-  DotPlotChart = new DotPlot("dotPlotVis", dotPlotData);
-
-}
+Promise.all([
+  d3.csv("data/new_data_topics.csv"),
+  d3.csv("data/Events_for_bubble_chart.csv"),
+]).then(([data, events]) => {
+  bubbleChart = new BubbleViz("bubble", data, events);
+});
 
