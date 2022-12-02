@@ -12,12 +12,10 @@ class MapViz {
     
     //scale radius
     this.metrics = "sum";
-    const valueMax =
-      d3.max(
-        this.data.map((d) => d.data.map((dd) => dd[this.metrics])).flat()
-      ) || 1;
-
-    this.radius = d3.scaleSqrt().domain([0, valueMax]).nice().range([2, 40]);
+    const valueExt = d3
+        .extent(this.data.map((d) => d.data.map((dd) => dd[this.metrics])).flat())
+        .map((d, i) => d || i);
+    this.radius = d3.scaleLog().domain(valueExt).nice().range([2, 40]);
 
     //init
     this.initVis();
@@ -25,7 +23,7 @@ class MapViz {
 
   initVis() {
     //svg size
-    const margin = { top: 0, right: 0, bottom: 0, left: 0 };
+    const margin = { top: 40, right: 20, bottom: 30, left: 20 };
     const width = 1000;
     const height = 500;
 
@@ -34,17 +32,23 @@ class MapViz {
       [margin.left, margin.top],
       [width - margin.right, height - margin.bottom],
     ];
-    const projection = d3.geoEquirectangular().fitExtent(extent, this.geo);
-    this.geoGenerator = d3.geoPath().projection(projection);
+    this.projection  = d3.geoEquirectangular().fitExtent(extent, this.geo);
+    this.geoGenerator = d3.geoPath().projection(this.projection);
 
     //svg
     const viewBox = [-margin.left, -margin.top, width, height];
     this.svg = this.container
       .append("svg")
-      .attr("width", width)
+      .attr("width", "100%")
       .attr("viewBox", viewBox);
+    this.gLegend = this.svg.append("g");
+    this.lengend({ margin, width, height });
+
     this.gGeoArea = this.svg.append("g");
     this.gDot = this.svg.append("g");
+
+    //
+    this.boardWrapper = this.container.append("div").attr("class", "board");
 
     //control
     this.controlWrapper = this.container.append("div").attr("class", "control");
@@ -52,7 +56,22 @@ class MapViz {
 
     //render all
     this.geoArea();
-    this.start();
+    let isInView;
+    window.addEventListener("scroll", () => {
+      const el = this.svg.node();
+      const bounding = el.getBoundingClientRect();
+      const currentIsInView =
+          bounding.top >= 0 &&
+          bounding.bottom <=
+          (window.innerHeight || document.documentElement.clientHeight);
+      if (currentIsInView !== isInView) {
+        isInView = currentIsInView;
+        this.isLooping = isInView;
+        if (isInView) this.start();
+        else this.stop();
+        this.control();
+      }
+    });
   }
 
   control() {
@@ -68,13 +87,16 @@ class MapViz {
     button.exit().remove();
 
     //button update
-    buttonUpdate.text(this.isLooping ? "Pause" : "Play").on("click", () => {
-      this.isLooping = !this.isLooping;
+    buttonUpdate.text(this.isLooping ? "Pause" : "Play");
 
-      this.control();
+    //event
+    buttonUpdate.on("click", () => {
+      this.isLooping = !this.isLooping;
 
       if (this.isLooping) this.start();
       else this.stop();
+
+      this.control();
     });
 
     //progress slider
@@ -87,6 +109,7 @@ class MapViz {
     progress.exit().remove();
 
     progressEnter
+        .select(".range")
       .append("input")
       .attr("class", "slider")
       .attr("type", "range")
@@ -94,7 +117,20 @@ class MapViz {
       .attr("max", this.data.length - 1)
       .attr("step", 1);
 
-    progressEnter.append("span").attr("class", "slider-label");
+    progressEnter.select(".range").append("div").attr("class", "sliderticks");
+    const ticks = {};
+    progressEnter
+        .select(".sliderticks")
+        .selectAll("p")
+        .data(d3.range(0, this.data.length))
+        .join("p")
+        .style("visibility", (d, i) => {
+          const text = d3.timeFormat("%b. %Y")(this.data[d].minDateOfWeek);
+          const rst = ticks[text] ? "hidden" : "visible";
+          ticks[text] = true;
+          return rst;
+        })
+        .text((d) => d3.timeFormat("%b. %Y")(this.data[d].minDateOfWeek));
 
     //progress update
     progressUpdate
@@ -108,11 +144,18 @@ class MapViz {
         this.control();
       });
 
-    progressUpdate
-      .select(".slider-label")
-      .text(
+    //date label
+    const dateLabel = this.svg.selectAll("text.date-label").data([""]);
+    const dateLabelEnter = dateLabel
+        .enter()
+        .append("text")
+        .attr("class", "date-label");
+    const dateLabelUpdate = dateLabel.merge(dateLabelEnter);
+    dateLabel.exit().remove();
+    dateLabelEnter.attr("x", 50).attr("y", 60);
+    dateLabelUpdate.text(
         d3.timeFormat("%b. %Y")(this.data[this.timeIndexSelected].minDateOfWeek)
-      );
+    );
   }
 
   geoArea() {
@@ -125,11 +168,12 @@ class MapViz {
   }
 
   dot() {
-   //selected data
-    const data =
-      this.data[this.timeIndexSelected]?.data.filter(
-        (d) => this.featureMapping[d.country]
-      ) || [];
+    //selected data
+    let data = this.data[this.timeIndexSelected]?.data || [];
+    data.forEach((d) => {
+      [d.x, d.y] = this.projection([d.lon, d.lat]);
+    });
+    data = data.filter((d) => ![d.x, d.y].some((dd) => isNaN(dd)));
 
     //bind
     const item = this.gDot.selectAll("g.dot").data(data, (d) => d.country);
@@ -138,11 +182,7 @@ class MapViz {
     item.exit().remove();
 
     //enter
-    itemEnter.attr("transform", (d) => {
-      const feature = this.featureMapping[d.country];
-      const [x, y] = this.geoGenerator.centroid(feature);
-      return `translate(${x},${y})`;
-    });
+    itemEnter.attr("transform", (d) => `translate(${d.x},${d.y})`);
     itemEnter.append("circle").attr("class", "body");
     itemEnter.append("circle").attr("class", "core").attr("r", 2);
 
@@ -151,7 +191,61 @@ class MapViz {
       .select(".body")
       .transition(d3.easeQuadOut)
       .duration(this.loopStepTime)
-      .attr("r", (d) => this.radius(d[this.metrics]));
+        .attr("r", (d) => this.radius(d[this.metrics]))
+  }
+  lengend({ margin, width, height }) {
+    const ticks = [5, 10, 15];
+    const total = d3.sum(ticks) * 2 + (ticks.length - 1) * 10;
+    //
+    const dot = this.gLegend.selectAll("g.dot").data(ticks);
+    const dotEnter = dot.enter().append("g").attr("class", "dot");
+    dotEnter.attr(
+        "transform",
+        (d, i) =>
+            `translate(${
+                i == 0 ? 0 : ticks[0] + d3.sum(ticks.slice(1, i)) * 2 + d + 10 * i
+            },${0})`
+    );
+    dotEnter
+        .append("circle")
+        .attr("class", "body")
+        .attr("r", (d) => d);
+    dotEnter.append("circle").attr("class", "core").attr("r", 2);
+    this.gLegend
+        .selectAll("text")
+        .data([""])
+        .join("text")
+        .attr("dominant-baseline", "hanging")
+        .attr("text-anchor", "end")
+        .attr("fill", "#faf8b7")
+        .attr("font-size", 12)
+        .attr("x", total)
+        .attr("y", d3.max(ticks) + 24)
+        .text("Increasing number of publications");
+    this.gLegend
+        .selectAll("text.arrow")
+        .data([""])
+        .join("text")
+        .attr("class", "arrow")
+        .attr("dominant-baseline", "hanging")
+        .attr("text-anchor", "end")
+        .attr("fill", "#faf8b7")
+        .attr("font-size", 18)
+        .attr("transform", `translate(${total},${d3.max(ticks) + 20})rotate(90)`)
+        .text("▲");
+    this.gLegend
+        .selectAll("rect")
+        .data([""])
+        .join("rect")
+        .attr("fill", "#faf8b7")
+        .attr("stroke", "#faf8b7")
+        .attr("y", d3.max(ticks) + 10)
+        .attr("width", total - d3.max(ticks))
+        .attr("height", 4);
+    this.gLegend.attr(
+        "transform",
+        `translate(${width - margin.right - total - 30},${-20})`
+    );
   }
 
   start() {
@@ -169,7 +263,7 @@ class MapViz {
       this.control();
     };
 
-    onStep();
+    onStep(true);
     this.interval = setInterval(onStep, this.loopStepTime);
   }
 
@@ -180,50 +274,14 @@ class MapViz {
   dataWrangling(rawdata, geo) {
     //data type convert
     const dataTypeConverted = rawdata
-      .map((d) => ({
-        date: new Date(d.Date.trim()),
-        country: d.Country.trim(),
-        value: d["Value"].trim() * 1,
-      }))
-      .filter((d) => d.country !== "" && d.country !== "#N/A");
-
-    //find the mapping
-    this.featureMapping = {};
-
-    //NOTE - it is used to match country names between data and geo data
-    const countryNameMapping = {
-      "United States": "USA",
-      "United Kingdom": "England", //put the data at the lotation of England
-
-      //not sure what are the names in the GeoJson
-      Singapore: "",
-      Comoros: "",
-      Mayotte: "",
-      "Cape Verde": "",
-      Monaco: "",
-      "Hong Kong": "",
-      Bahrain: "",
-      Mauritius: "",
-      "Slovak Republic": "",
-      "Bosnia-Herzegovina": "",
-      Malta: "",
-      Guam: "",
-    };
-    const notFound = [];
-    [...new Set(dataTypeConverted.map((d) => d.country))].forEach((name) => {
-      const feature = geo.features.find(
-        (f) =>
-          f.properties.name == name ||
-          f.properties.name.includes(name) ||
-          name.includes(f.properties.name) ||
-          f.properties.name == countryNameMapping[name]
-      );
-
-      if (feature) this.featureMapping[name] = feature;
-      else notFound.push(name);
-    });
-
-    console.info("[!] Country Names Are Not found", notFound);
+        .map((d) => ({
+          date: new Date(d.Date.trim()),
+          country: d.Country.trim(),
+          value: d.NumberOfArticles * 1,
+          lat: d.Lat * 1,
+          lon: d.Lon * 1,
+        }))
+        .filter((d) => d.country !== "" && d.country !== "#N/A");
 
     //do stat
     const data = d3
@@ -251,6 +309,8 @@ class MapViz {
           rows,
           (v) => ({
             country: v[0].country,
+            lat: v[0].lat,
+            lon: v[0].lon,
             sum: d3.sum(v, (d) => d.value),
             avg: d3.mean(v, (d) => d.value),
             data: v,
