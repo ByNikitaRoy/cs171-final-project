@@ -4,7 +4,7 @@ let parseDate = d3.timeParse("%m/%d/%Y");
 let parseDateDash = d3.timeParse("%Y-%m-%d");
 
 Promise.all([
-  d3.json("data/sentimentAnalysis3.json"),
+  d3.json("data/sentimentAnalysisFinal.json"),
   d3.json("data/geo-world.json"),
 ]).then(([data, geo]) => {
   data.forEach((d) => {
