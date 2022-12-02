@@ -178,7 +178,14 @@
             p.major.invert {
                 font-size: 1.25rem;
             }
-
+            .key {
+                font-weight: 500;
+                line-height: 1.375;
+                letter-spacing: -0.05em;
+                margin: 0 0 1rem 0;
+                color: rgba(255, 255, 255, 0.75);
+                font-size: 0.7rem;
+            }
         sup {
             font-size: 0.8rem;
             position: relative;
@@ -210,6 +217,7 @@
         blockquote {
             border-left-color: rgba(255, 255, 255, 1);
         }
+
 
     /***********/
     /* BUTTONS */

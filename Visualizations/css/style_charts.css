@@ -361,7 +361,7 @@
 .visible {
   display: block;
 }
-. about {
+.about {
   color: rgba(255, 255, 102, 1);
   background-color: transparent;
   background-image: none;
