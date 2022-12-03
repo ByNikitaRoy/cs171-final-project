@@ -150,10 +150,13 @@ class LineChart {
 
             dot.append("circle")
                 .attr("r", 10)
-                .attr('fill', 'rgba(255, 255, 102, 1')
-                .attr("stroke", typeof color === "dotplotjsonextract" ? color : 'rgba(255, 255, 102)')
-                .attr("stroke-width", 20)
-                .attr("stroke-opacity", 0.2);
+                //.attr('fill', 'rgba(255, 255, 102, 1')
+                //.attr("stroke", typeof color === "dotplotjsonextract" ? color : 'rgba(255, 255, 102)')
+                //.attr("stroke-width", 20)
+                //.attr("stroke-opacity", 0.2)
+                .style("fill", "rgba(145,196,196, 1)")
+                .style("stroke-width", 10)
+                .style("stroke", "rgba(255,255,255,0.5)");
 
             const dotTool = svg.append("g")
                 .attr("display", "none")
