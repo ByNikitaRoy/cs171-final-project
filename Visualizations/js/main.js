@@ -23,6 +23,8 @@ d3.csv("data/newsVolumeOverTime.csv", (d) => {
 }).then((data) => {
     AreaChart1 = new AreaChart("areaChart", data);
     AreaChart2 = new AreaChart_2("areaChart2", data);
+    barchart = new BarChart('barChart', data);
+
 });
 
 d3.csv("data/cableNewsCoverageUpdate.csv", (d) => {
@@ -52,8 +54,17 @@ Promise.all([
     DotPlotChart = new DotPlot("dotPlotVis", data);
 });
 
-// React to 'brushed' event and update all bar charts
+// React to 'brushed' event and update bar chart
 function brushed() {
 
-   console.log('brushed')
+    let selectionRange = d3.brushSelection(d3.select(".brush").node());
+    console.log(selectionRange)
+    console.log('range udpate')
+
+    // Convert the extent into the corresponding domain values
+    let selectionDomain = selectionRange.map(AreaChart2.x.invert);
+    console.log(selectionDomain)
+
+    barchart.selectionChanged(selectionDomain);
+
 }

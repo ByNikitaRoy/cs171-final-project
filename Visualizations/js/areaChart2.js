@@ -28,6 +28,10 @@ class AreaChart_2 {
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+        vis.x = d3.scaleTime()
+            .range([margin.left, width - margin.right])
+            .domain(d3.extent(vis.data, function(d) { return d.date; }));
+
         //create x scale
         let xScale = d3.scaleTime()
             .domain(d3.extent(vis.data, function (d) {
