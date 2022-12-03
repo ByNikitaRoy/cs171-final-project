@@ -17,11 +17,10 @@ class AreaChart {
         // Margin object with properties for the four directions
         let margin = {top: 20, right: 20, bottom: 20, left: 40};
 
-
         // Width and height as the inner dimensions of the chart area
+        let width = 1300 - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
 
-       let width = document.getElementById(vis.parentElement).getBoundingClientRect().width - margin.left - margin.right;
-       let height = document.getElementById(vis.parentElement).getBoundingClientRect().height - margin.top - margin.bottom;
         //create svg area
         let svg = d3.select("#areaChart").append("svg")
             .attr("width", width + margin.left + margin.right)
@@ -73,7 +72,7 @@ class AreaChart {
         svg.append("text")
             .attr("class", "yearLabel")
             .attr("text-anchor", "start")
-            .attr("y", height-11.5)
+            .attr("y", height-12)
             .attr("x", 58)
             .attr("dy", ".75em")
             .text("2022");
@@ -89,7 +88,7 @@ class AreaChart {
         //with reference to https://d3-graph-gallery.com/graph/area_basic.html
         svg.append("path")
             .datum(vis.data)
-            .attr("fill", "rgba(255, 255, 102, 0.5)")
+            .attr("fill", "rgba(255, 255, 102, 0.88)")
             .attr("stroke","rgba(255, 255, 102, 1)")
             //.attr("stroke", "#038C9E")
             .attr("stroke-width", 2.5)
@@ -130,10 +129,8 @@ class AreaChart {
                     .style("top", event.pageY + "px")
                     .html(`
                          <div style=" border-radius: 5px; background:rgba(33,37,47,.85); padding: 10px">
-                             <h6 class="keymain">${d.sdescription}</h6> 
-                             <h6 class="key">Airtime: ${d.Value} %</h6>  
-                             <h6 class="about">Date: ${d.Date}</h6> 
-                                                   
+                             <h4>${d.Date}</h4>
+                             <h6>${d.sdescription}</h6>                          
                          </div>`);
             })
             .on('mouseout', function(event, d) {
@@ -142,20 +139,6 @@ class AreaChart {
                     .style("opacity", 0)
             })
 
-        // Add a legend
-
-        d3.select("#keyArea").append("svg")
-            .attr("height", '30px')
-            .attr("width",'30px')
-            .append("circle")
-            .attr("cx", '2vh')
-            .attr("cy",'2vh')
-            .attr("r",7)
-            .style("fill", "rgba(145,196,196, 1)")
-            .style("stroke-width", 10)
-            .style("stroke", "rgba(255,255,255,0.5)")
-
-//
        /* //TOOLTIP
 
         //For converting Dates to strings
@@ -236,4 +219,3 @@ class AreaChart {
     }
 
 }
-
