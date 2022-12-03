@@ -147,7 +147,8 @@ class DotPlot {
         //control
         this.container = d3.select(`#${this.parentElement}`);
 
-        this.controlWrapper = this.container.append("div").attr("class", "control");
+        this.controlWrapper = this.container.append("div")
+            .attr("class", "control");
         this.control();
 
     }

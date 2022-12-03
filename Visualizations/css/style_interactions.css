@@ -335,7 +335,7 @@ padding: 0px 0px 0px 8px;
 }
 
 #map .date-label{
-  fill:  #faf8b7;
+  fill:  #FFFF66;
   font-size:22;
   font-weight: bold;
 }
@@ -345,7 +345,8 @@ padding: 0px 0px 0px 8px;
   display: flex;
   flex-direction: row;
   column-gap: 20px;
-  padding: 20px;
+  padding: 0px;
+  margin: 0px
   align-items: center;
   width: 100%;
 }

@@ -223,7 +223,6 @@
 #dotPlotVis .control {
   display: flex;
   column-gap: 20px;
-  margin: 20px 0px;
   align-items: center;
 }
 
