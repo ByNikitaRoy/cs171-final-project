@@ -7,7 +7,7 @@ class DotPlot {
     constructor(parentElement, displayData) {
         this.parentElement = parentElement;
         this.data = displayData;
-        this.loopStepTime =50;
+        this.loopStepTime =80;
 
         this.initVis();
     }
