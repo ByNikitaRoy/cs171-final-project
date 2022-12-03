@@ -163,8 +163,6 @@ class LineChart {
             dotTool.append("text")
                 .attr("font-family", "Barlow")
                 .attr("font-weight", 700)
-                .attr("stroke", typeof color === "dotplotjsonextract" ? color : 'rgb(33,37,47)')
-                .attr("stroke-width", 1)
                 .attr("font-size", 35)
                 .attr('fill', 'rgba(255, 255, 102, 0.9)')
                 .attr("text-anchor", "end")
