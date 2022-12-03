@@ -142,10 +142,13 @@
                              <span class="col-5 align-left align-middle"><h6 class="col key">Relevant Events</h6></span>
                          </div>
 
-
                           <!--About Button -->
-                          <div class="align-left" style="padding-bottom: 5vh; padding-top: 5vh" id="aboutArea">
-                            <button type="button" onclick="aboutData()" class="about btn btn-outline-light" id="about2" style="height: auto">About this data</button>
+                          <button ONCLICK="aboutAreaButton()" class="about btn btn-outline-light justify-content-md-center">About This Data</button>
+                          <div ID="areaButton" STYLE="display:none">
+                              <div class="row dark small justify-content-center"
+                                   style=" padding-top: 2vh ">
+                                  <h6 class="about">This data was pulled from the GDELT Database. To learn more about GDELT, visit their website here: https://www.gdeltproject.org/</h6>
+                              </div>`);
                           </div>
 
                       </div>
@@ -232,8 +235,12 @@
           </div>
         </div>
           <!--About Button -->
-          <div class="align-left" style="padding-bottom: 5vh; padding-top: 5vh" id="aboutChannels">
-              <button type="button" onclick="aboutData()" class="about btn btn-outline-light justify-content-md-center" id="about4" style="height: auto">About this data</button>
+          <button ONCLICK="aboutNewsButton()" class="about btn btn-outline-light justify-content-md-center">About This Data</button>
+          <div ID="newsButton" STYLE="display:none">
+              <div class="row dark small justify-content-center"
+                   style=" padding-top: 2vh ">
+                  <h6 class="about">This data was pulled from the GDELT Database. To learn more about GDELT, visit their website here: https://www.gdeltproject.org/</h6>
+              </div>`);
           </div>
       </section>
 
@@ -351,8 +358,12 @@
 
         </div>
           <!--About Button -->
-          <div class="align-left" style="padding-bottom: 5vh; padding-top: 5vh" id="aboutTone">
-              <button type="button" onclick="aboutData()" class="about btn btn-outline-light justify-content-md-center" id="about5" style="height: auto">About this data</button>
+          <button ONCLICK="aboutDotsButton()" class="about btn btn-outline-light justify-content-md-center">About This Data</button>
+          <div ID="dotsButton" STYLE="display:none">
+              <div class="row dark small justify-content-center"
+                   style=" padding-top: 2vh ">
+                  <h6 class="about">This data was pulled from the GDELT Database. To learn more about GDELT, visit their website here: https://www.gdeltproject.org/</h6>
+              </div>`);
           </div>
       </section>
 
@@ -416,10 +427,16 @@
                         </div>
 
                         <!--About Button -->
-                        <div class="align-left" style="padding-bottom: 5vh; padding-top: 5vh" id="aboutCasualties">
-                            <button type="button" onclick="aboutData()" class="about btn btn-outline-light" id="about6" style="height: auto">About this data</button>
+                        <button ONCLICK="aboutCasualtiesButton()" class="about btn btn-outline-light justify-content-md-center">About This Data</button>
+                        <div ID="casualtiesButton" STYLE="display:none">
+                            <div class="row dark small justify-content-center"
+                                 style=" padding-top: 2vh ">
+                                <h6 class="about">This data was pulled from the GDELT Database. To learn more about GDELT, visit their website here: https://www.gdeltproject.org/ <br>
+                                    <br>
+                                    The casualties data was sourced from the ACLED Conflict Data set. To learn more about ACLED, visit their site here: https://acleddata.com/
+                                </h6>
+                            </div>`);
                         </div>
-
                     </div>
 
                     <div class="col-md-8">
@@ -551,7 +568,7 @@
       <script src="js/dotPlot.js"></script>
       <script src="js/areaChart2.js"></script>
       <script src="js/buttons.js"></script>
-      <script src="js/buttons2.js"></script>
+      <script src="js/buttons.js"></script>
 
 </div> <!-- Closing Wrapper -->
 </body>
