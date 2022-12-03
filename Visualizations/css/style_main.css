@@ -266,3 +266,9 @@ btn-warning.dropdown-toggle{
     background-color:rgba(255, 255, 102, 1);
     border-color:rgba(255, 255, 102, 1);
     box-shadow:0 0 0 .2rem rgba(255, 255, 102, .5)}
+
+.form-control {
+color: #FFFFFF;
+background-color: rgba(33,37,47, .7);
+background-clip: padding-box;
+border: 1px solid #ced4da;}
