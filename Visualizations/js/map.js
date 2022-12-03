@@ -1,7 +1,7 @@
-
 class MapViz {
   constructor(_parentNodeId, _data, _geo) {
     this.container = d3.select(`#${_parentNodeId}`);
+
     [this.data, this.geo] = this.dataWrangling(_data, _geo);
 
     //
@@ -9,12 +9,13 @@ class MapViz {
     this.isLooping = true;
 
     this.loopStepTime = 800;
-    
+
     //scale radius
     this.metrics = "sum";
     const valueExt = d3
         .extent(this.data.map((d) => d.data.map((dd) => dd[this.metrics])).flat())
         .map((d, i) => d || i);
+
     this.radius = d3.scaleLog().domain(valueExt).nice().range([2, 40]);
 
     //init
@@ -32,15 +33,16 @@ class MapViz {
       [margin.left, margin.top],
       [width - margin.right, height - margin.bottom],
     ];
-    this.projection  = d3.geoEquirectangular().fitExtent(extent, this.geo);
+    this.projection = d3.geoEquirectangular().fitExtent(extent, this.geo);
     this.geoGenerator = d3.geoPath().projection(this.projection);
 
     //svg
     const viewBox = [-margin.left, -margin.top, width, height];
     this.svg = this.container
-      .append("svg")
-      .attr("width", "100%")
-      .attr("viewBox", viewBox);
+        .append("svg")
+        .attr("width", "100%")
+        .attr("viewBox", viewBox);
+
     this.gLegend = this.svg.append("g");
     this.lengend({ margin, width, height });
 
@@ -56,19 +58,25 @@ class MapViz {
 
     //render all
     this.geoArea();
+
     let isInView;
     window.addEventListener("scroll", () => {
       const el = this.svg.node();
       const bounding = el.getBoundingClientRect();
+
       const currentIsInView =
           bounding.top >= 0 &&
           bounding.bottom <=
           (window.innerHeight || document.documentElement.clientHeight);
+
       if (currentIsInView !== isInView) {
         isInView = currentIsInView;
+
         this.isLooping = isInView;
+
         if (isInView) this.start();
         else this.stop();
+
         this.control();
       }
     });
@@ -77,12 +85,12 @@ class MapViz {
   control() {
     //play-pause button
     const button = this.controlWrapper
-      .selectAll("button.play-pause")
-      .data([""]);
+        .selectAll("button.play-pause")
+        .data([""]);
     const buttonEnter = button
-      .enter()
-      .append("button")
-      .attr("class", "play-pause");
+        .enter()
+        .append("button")
+        .attr("class", "play-pause");
     const buttonUpdate = button.merge(buttonEnter);
     button.exit().remove();
 
@@ -102,22 +110,25 @@ class MapViz {
     //progress slider
     const progress = this.controlWrapper.selectAll("div.progress").data([""]);
     const progressEnter = progress
-      .enter()
-      .append("div")
-      .attr("class", "progress");
+        .enter()
+        .append("div")
+        .attr("class", "progress");
     const progressUpdate = progress.merge(progressEnter);
     progress.exit().remove();
 
+    progressEnter.append("div").attr("class", "range");
+
     progressEnter
         .select(".range")
-      .append("input")
-      .attr("class", "slider")
-      .attr("type", "range")
-      .attr("min", 0)
-      .attr("max", this.data.length - 1)
-      .attr("step", 1);
+        .append("input")
+        .attr("class", "slider")
+        .attr("type", "range")
+        .attr("min", 0)
+        .attr("max", this.data.length - 1)
+        .attr("step", 1);
 
     progressEnter.select(".range").append("div").attr("class", "sliderticks");
+
     const ticks = {};
     progressEnter
         .select(".sliderticks")
@@ -134,17 +145,17 @@ class MapViz {
 
     //progress update
     progressUpdate
-      .select("input")
-      .property("value", this.timeIndexSelected)
-      .on("input", (e) => {
-        this.timeIndexSelected = e.target.value;
+        .select("input")
+        .property("value", this.timeIndexSelected)
+        .on("input", (e) => {
+          this.timeIndexSelected = e.target.value;
 
-        //render
-        this.dot();
-        this.control();
-      });
+          //render
+          this.dot();
+          this.control();
+        });
 
-    //date label
+    //date labal
     const dateLabel = this.svg.selectAll("text.date-label").data([""]);
     const dateLabelEnter = dateLabel
         .enter()
@@ -152,7 +163,9 @@ class MapViz {
         .attr("class", "date-label");
     const dateLabelUpdate = dateLabel.merge(dateLabelEnter);
     dateLabel.exit().remove();
+
     dateLabelEnter.attr("x", 50).attr("y", 60);
+
     dateLabelUpdate.text(
         d3.timeFormat("%b. %Y")(this.data[this.timeIndexSelected].minDateOfWeek)
     );
@@ -160,11 +173,11 @@ class MapViz {
 
   geoArea() {
     this.gGeoArea
-      .selectAll("path.area")
-      .data(this.geo.features, (d) => d.properties.name)
-      .join("path")
-      .attr("class", "area")
-      .attr("d", this.geoGenerator);
+        .selectAll("path.area")
+        .data(this.geo.features, (d) => d.properties.name)
+        .join("path")
+        .attr("class", "area")
+        .attr("d", this.geoGenerator);
   }
 
   dot() {
@@ -188,17 +201,21 @@ class MapViz {
 
     //update
     itemUpdate
-      .select(".body")
-      .transition(d3.easeQuadOut)
-      .duration(this.loopStepTime)
+        .select(".body")
+        .transition(d3.easeQuadOut)
+        .duration(this.loopStepTime)
         .attr("r", (d) => this.radius(d[this.metrics]))
   }
+
   lengend({ margin, width, height }) {
     const ticks = [5, 10, 15];
+
     const total = d3.sum(ticks) * 2 + (ticks.length - 1) * 10;
+
     //
     const dot = this.gLegend.selectAll("g.dot").data(ticks);
     const dotEnter = dot.enter().append("g").attr("class", "dot");
+
     dotEnter.attr(
         "transform",
         (d, i) =>
@@ -206,11 +223,13 @@ class MapViz {
                 i == 0 ? 0 : ticks[0] + d3.sum(ticks.slice(1, i)) * 2 + d + 10 * i
             },${0})`
     );
+
     dotEnter
         .append("circle")
         .attr("class", "body")
         .attr("r", (d) => d);
     dotEnter.append("circle").attr("class", "core").attr("r", 2);
+
     this.gLegend
         .selectAll("text")
         .data([""])
@@ -222,6 +241,7 @@ class MapViz {
         .attr("x", total)
         .attr("y", d3.max(ticks) + 24)
         .text("Increasing number of publications");
+
     this.gLegend
         .selectAll("text.arrow")
         .data([""])
@@ -233,6 +253,7 @@ class MapViz {
         .attr("font-size", 18)
         .attr("transform", `translate(${total},${d3.max(ticks) + 20})rotate(90)`)
         .text("▲");
+
     this.gLegend
         .selectAll("rect")
         .data([""])
@@ -242,6 +263,7 @@ class MapViz {
         .attr("y", d3.max(ticks) + 10)
         .attr("width", total - d3.max(ticks))
         .attr("height", 4);
+
     this.gLegend.attr(
         "transform",
         `translate(${width - margin.right - total - 30},${-20})`
@@ -264,6 +286,7 @@ class MapViz {
     };
 
     onStep(true);
+
     this.interval = setInterval(onStep, this.loopStepTime);
   }
 
@@ -285,19 +308,19 @@ class MapViz {
 
     //do stat
     const data = d3
-      .rollups(
-        dataTypeConverted,
-        stat,
-        (d) => d3.timeFormat("%G%V")(d.date) * 1
-      )
-      .map((d) => ({
-        week: d[0],
-        minDateOfWeek: d3.min(
-          d[1].map((dd) => dd.data).flat(),
-          (dd) => dd.date
-        ),
-        data: d[1],
-      }));
+        .rollups(
+            dataTypeConverted,
+            stat,
+            (d) => d3.timeFormat("%G%V")(d.date) * 1
+        )
+        .map((d) => ({
+          week: d[0],
+          minDateOfWeek: d3.min(
+              d[1].map((dd) => dd.data).flat(),
+              (dd) => dd.date
+          ),
+          data: d[1],
+        }));
 
     data.sort((a, b) => a.week - b.week);
 
@@ -305,19 +328,19 @@ class MapViz {
 
     function stat(rows) {
       const result = d3
-        .rollups(
-          rows,
-          (v) => ({
-            country: v[0].country,
-            lat: v[0].lat,
-            lon: v[0].lon,
-            sum: d3.sum(v, (d) => d.value),
-            avg: d3.mean(v, (d) => d.value),
-            data: v,
-          }),
-          (d) => d.country
-        )
-        .map((d) => d[1]);
+          .rollups(
+              rows,
+              (v) => ({
+                country: v[0].country,
+                lat: v[0].lat,
+                lon: v[0].lon,
+                sum: d3.sum(v, (d) => d.value),
+                avg: d3.mean(v, (d) => d.value),
+                data: v,
+              }),
+              (d) => d.country
+          )
+          .map((d) => d[1]);
 
       return result;
     }
