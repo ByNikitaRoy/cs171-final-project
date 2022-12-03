@@ -21,15 +21,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Custom CSS code -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style_interactions.css">
     <link rel="stylesheet" href="css/style_charts.css">
     <link rel="stylesheet" href="css/style_main.css">
 
 </head>
-<body class="is-preload">
+<body>
 
 <!-- Wrapper -->
-<div id="wrapper" class="divided">
+<div id="wrapper">
 
       <!-- ONE: Intro Zelensky -->
       <section class= "intro orient-right content-align-left" id="first">
@@ -357,7 +357,7 @@
       </section>
 
       <!-- TEN: Casualties -->
-      <section class="wrapper yellow mid align-center">
+     <!-- <section class="wrapper yellow mid align-center">
         <div class="container-fluid text-center">
           <div class="row" style="padding: 1vh">
             <h2 class= "sub" >WAR CASUALTIES VS NEWS COVERAGE</h2>
@@ -377,24 +377,58 @@
             </div>
           </div>
         </div>
-          <!--About Button -->
-          <div class="align-left" style="padding-bottom: 5vh; padding-top: 5vh" id="aboutCasualties">
+          <!-About Button -->
+         <!-- <div class="align-left" style="padding-bottom: 5vh; padding-top: 5vh" id="aboutCasualties">
               <button type="button" onclick="aboutData()" class="about btn btn-outline-light justify-content-md-center" id="about6" style="height: auto">About this data</button>
           </div>
-      </section>
+      </section> -->
 
-      <!-- Conclusion: A Human Conflict -->
+    <!-- FOUR: Area Chart-->
+    <section class="wrapper yellow mid align-center">
+        <div class="container-fluid mainArea">
+            <div class="row padded light">
+                <h2 class= "sub text-center" >WAR CASUALTIES VS NEWS COVERAGE</h2>
+            </div>
+            <div class="container-fluid">
+                <div class="row justify-content-md-center">
+                    <div class="col-md-3" style="padding: 3vh">
+                        <h4 class= "sub" style="height: min-content"> What is the relationship between human toll and conflict coverage?</h4>
+                        <h5 class= "sub">This case study deconstructs the nature of news coverage around the world, as it pertains to a modern armed conflict.
+                            It’s evident that there is always going to be a gap between what gets covered in the media and the day-to-day reality of victims.</h5>
+
+                        <!--Casualties Button -->
+                        <div class="align-left" style="padding-bottom: 2vh; padding-top:5vh">
+                            <button class="interact btn btn-warning small" id="s-ukraine" style="height: auto"> Show Casualties</button>
+                        </div>
+
+                        <!--About Button -->
+                        <div class="align-left" style="padding-bottom: 5vh; padding-top: 5vh" id="aboutCasualties">
+                            <button type="button" onclick="aboutData()" class="about btn btn-outline-light" id="about6" style="height: auto">About this data</button>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="justify-content-center graphArea" >
+                            <div class="align-self-center" id ="areaChart2" style="padding:1vh; height:70vh" > </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Conclusion: A Human Conflict -->
       <section class="wrapper yellow align-center">
         <div class="inner container-fluid text-center">
           <div class="col align-self-center">
             <h2 class = "sub invert">A HUMAN CONFLICT</h2>
             <p class = "major invert">
-              This case study deconstructs the nature of news coverage around the world, as it pertains to a modern armed conflict.
-              It’s evident that there is always going to be a gap between what gets covered in the media and the day-to-day reality of victims.
+
               </p>
             <p class = "major invert">
-              However, sources of news are ultimately set up to inform the public about current events.
-              And in the translation of facts to articles, journalists imbue content with opinions
+             Sources of news are ultimately set up to inform the public about current events, and in the translation of facts to articles, journalists imbue content with opinions
               informed by national priorities. Our access to and analysis of big data has helped us begin to understand what facts are communicated,
               and more importantly how they are communicated.
             </p>
