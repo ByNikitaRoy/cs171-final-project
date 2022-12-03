@@ -235,7 +235,7 @@ class MapViz {
         .data([""])
         .join("text")
         .attr("dominant-baseline", "hanging")
-        .attr("text-anchor", "end")
+        .attr("text-anchor", "middle")
         .attr("fill", "#FFFF66FF")
         .attr("font-size", 12)
         .attr("x", total)
@@ -266,7 +266,7 @@ class MapViz {
 
     this.gLegend.attr(
         "transform",
-        `translate(${width - margin.right - total - 30},${-20})`
+        `translate(${70},${350})`
     );
   }
 
