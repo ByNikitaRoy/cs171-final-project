@@ -16,6 +16,7 @@ class BarChart {
         this.displayData = data;
 
         this.initVis();
+
     }
 
     /*
@@ -24,7 +25,7 @@ class BarChart {
 
     initVis() {
         let vis = this;
-
+        vis.casualtiesBool = 0;
         //initialize dimensions
         vis.margin = {top:10, right: 40, bottom: 10, left: 40};
 
@@ -42,7 +43,7 @@ class BarChart {
         //create scale and axis - not sure if this is the correct step
         //scale
         vis.x = d3.scaleLinear()
-            .range([0, vis.width - vis.margin.right])
+            .range([0, vis.width - vis.margin.right- vis.margin.left-vis.margin.right - 60])
             .domain([0,20287]);
 
         vis.y = d3.scaleBand()
@@ -57,16 +58,12 @@ class BarChart {
             .attr("class", "y-axis")
             .attr("transform", "translate(0,"+ vis.margin.top+")");
 
+
+
+
         // (Filter, aggregate, modify data)
-        vis.wrangleData();
     }
 
-
-    wrangleData() {
-        let vis = this;
-
-        vis.updateVis();
-    }
 
     /*
      * The drawing function - should use the D3 update sequence (enter, update, exit)
@@ -84,17 +81,24 @@ class BarChart {
         // (2) Draw rectangles
         bars.enter().append('rect')
             .merge(bars)
-            .transition()
-            .duration(300)
+            //.transition()
+            //.duration(300)
             .attr("y", 0)
-            .attr("x", d => vis.x(0))
-            .attr("height", 25)
+            .attr("x", d => vis.x(0) + vis.margin.left + vis.margin.left +60)
+            .attr("height", 30)
             .attr("width",vis.x(vis.totalDeaths))
             .attr("fill", "#FFFF66")
             .attr("class","rect");
 
         bars.exit().remove();
 
+        vis.svg.append("text")
+            .attr("class", "casualtiesLabel")
+            .attr("text-anchor", "start")
+            .attr("y", 0)
+            .attr("x", vis.x(vis.totalDeaths) +20)
+            .attr("dy", ".75em")
+            .text("test");
 
         //I think this is not the proper way to do this, go back and check
         //vis.svg.select(".y-axis").call(vis.yAxis)
@@ -109,20 +113,44 @@ class BarChart {
         vis.brushFilter = vis.data.filter( d => {
             return (d.date > brushRegion[0] && d.date < brushRegion[1])
         });
-        console.log('brushfilter')
-        console.log(vis.brushFilter)
+
         vis.displayData = vis.brushFilter
         vis.totalDeaths = 0;
 
         vis.displayData.forEach(d => {
             vis.totalDeaths = vis.totalDeaths + d.deaths
         })
-        console.log('total deaths')
-        console.log(vis.totalDeaths)
 
 
+        if(vis.casualtiesBool == 0){
+            vis.casualtiesBool = 1;
+            this.appendCasualtiesLabel()
+        }
 
         // Update the visualization
-        vis.wrangleData();
+        vis.updateVis()
     }
+
+    appendCasualtiesLabel(){
+        let vis = this;
+
+        //add year label
+        vis.svg.append("text")
+            .attr("class", "casualtiesLabel")
+            .attr("text-anchor", "start")
+            .attr("y", -5)
+            .attr("x", vis.margin.left)
+            .attr("dy", ".75em")
+            .text("Casualties");
+
+        vis.svg.append("text")
+            .attr("class", "casualtiesLabel")
+            .attr("text-anchor", "start")
+            .attr("y", 18)
+            .attr("x", vis.margin.left)
+            .attr("dy", ".75em")
+            .text("Selected");
+    }
+
+
 }

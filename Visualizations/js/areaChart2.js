@@ -76,8 +76,6 @@ class AreaChart_2 {
             .attr("transform", "rotate(-90)")
             .text("Percent of Monitored Media Articles");
 
-
-
         //add year label
         svg.append("text")
             .attr("class", "yearLabel")

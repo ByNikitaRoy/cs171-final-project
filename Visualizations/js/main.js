@@ -58,13 +58,10 @@ Promise.all([
 function brushed() {
 
     let selectionRange = d3.brushSelection(d3.select(".brush").node());
-    console.log(selectionRange)
-    console.log('range udpate')
 
     // Convert the extent into the corresponding domain values
     let selectionDomain = selectionRange.map(AreaChart2.x.invert);
-    console.log(selectionDomain)
-
+    
     barchart.selectionChanged(selectionDomain);
 
 }
