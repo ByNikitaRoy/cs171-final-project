@@ -78,7 +78,7 @@
             font-weight: 300;
             line-height: 1.65;
         }
-        h1, h2, h3, h4, h5, h6 {
+        h1, h2, h3, h4, h5, h6{
             font-weight: 300;
             line-height: 1.375;
             letter-spacing: -0.05em;
@@ -163,9 +163,12 @@
         h6 {
             border-color: rgba(255, 255, 255, 0.5);
         }
+
             h6.about {
                 font-size: 0.7rem;
             }
+
+
         p {
             margin: 0 0 0rem 0;
             color: rgba(255, 255, 255, 0.75);
@@ -266,3 +269,12 @@ btn-warning.dropdown-toggle{
     background-color:rgba(255, 255, 102, 1);
     border-color:rgba(255, 255, 102, 1);
     box-shadow:0 0 0 .2rem rgba(255, 255, 102, .5)}
+
+h7 {
+    font-weight: 300;
+    line-height: 1.375;
+    letter-spacing: -0.05em;
+    margin: 0 0 0 0;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 20px;
+}
