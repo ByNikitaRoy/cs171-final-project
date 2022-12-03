@@ -187,7 +187,14 @@
                 color: rgba(255, 255, 255, 0.75);
                 font-size: 0.7rem;
                 margin-block-end: 0;
-            }
+            .keymain {
+            font-weight: 300;
+            line-height: 1.375;
+            letter-spacing: -0.05em;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.9rem;
+            margin-block-end: 0;
+                    }
         sup {
             font-size: 0.8rem;
             position: relative;

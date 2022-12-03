@@ -130,8 +130,10 @@ class AreaChart {
                     .style("top", event.pageY + "px")
                     .html(`
                          <div style=" border-radius: 5px; background:rgba(33,37,47,.85); padding: 10px">
-                             <h4>${d.Date}</h4>
-                             <h6>${d.sdescription}</h6>                          
+                             <h6 class="keymain">${d.sdescription}</h6> 
+                             <h6 class="key">Airtime: ${d.Value} %</h6>  
+                             <h6 class="about">Date: ${d.Date}</h6> 
+                                                   
                          </div>`);
             })
             .on('mouseout', function(event, d) {
