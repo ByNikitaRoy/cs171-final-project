@@ -116,13 +116,7 @@ class LineChart {
                 .call(voronoi ? () => {} : g => g.selectAll(".tick line").clone()
                     .attr("x2", width - marginLeft - marginRight)
                     .attr("stroke-opacity", 0.05))
-                /*.call(g => g.append("text")
-                    .attr("x", -marginLeft)
-                    .attr("y", 11)
-                    .attr("fill", "currentColor")
-                    .attr("text-anchor", "start")
-                    .attr('class','yLabelLine')
-                    .text(yLabel));*/
+
 
             svg.append("g").append("text")
                 .attr("class", "yLabelDot")
@@ -161,53 +155,32 @@ class LineChart {
                 .attr("stroke-width", 20)
                 .attr("stroke-opacity", 0.2);
 
+            const dotTool = svg.append("g")
+                .attr("display", "none")
+                .attr('x',200)
+                .attr('y', 200);
             //tooltip text
-            dot.append("text")
+            dotTool.append("text")
                 .attr("font-family", "Barlow")
                 .attr("font-weight", 700)
                 .attr("stroke", typeof color === "dotplotjsonextract" ? color : 'rgb(33,37,47)')
                 .attr("stroke-width", 1)
                 .attr("font-size", 35)
                 .attr('fill', 'rgba(255, 255, 102, 0.9)')
-                .attr("text-anchor", "middle")
-                .attr("y", -100);
-            /*
-            //legend
-            // Add a legend
-            var regionSet = new Set();
-            for (var i = 0; i < 7; i++) {
-                regionSet.add(vis.newsChannels[i]);
-            };
-
-            var regions = Array.from(regionSet);
-            var ordinal = d3.scaleOrdinal()
-                .domain(regions)
-                .range(["#FFFF66", "#426b42", "#336691", "#D599FF", "#a4fda4", "#6c068a", "#ffffff"]);
-
-            svg.append("g")
-                .attr("class", "legendOrdinal")
-                .attr('transform', `translate (${width - (width *(1/6))}, ${marginTop})`);
+                .attr("text-anchor", "end")
 
 
-            var legendOrdinal = d3.legendColor()
-                .title("Legend: Continent")
-                .shape("path", d3.symbol().type(d3.symbolCircle).size(200)())
-                .shapePadding(10)
-                .scale(ordinal);
-
-            svg.select(".legendOrdinal")
-                .attr('class','legendDots')
-                .on("click", legendSelect)
-                .call(legendOrdinal);
-
-            */
 
             function pointermoved(event) {
                 const [xm, ym] = d3.pointer(event);
                 const i = d3.least(I, i => Math.hypot(xScale(X[i]) - xm, yScale(Y[i]) - ym)); // closest point
                 path.style("stroke", ([z]) => Z[i] === z ? null : "rgba(255, 255, 255, 0.15)").filter(([z]) => Z[i] === z).raise();
                 dot.attr("transform", `translate(${xScale(X[i])},${yScale(Y[i])})`);
-                if (T) dot.select("text").text(T[i]);
+                dotTool.select('text')
+                    .attr('x', width-marginLeft-marginRight)
+                    .attr('y',100)
+                    .attr('display',null);
+                if (T) dotTool.select("text").text(T[i]);
                 svg.property("value", O[i]).dispatch("input", {bubbles: true});
             }
 
@@ -215,11 +188,14 @@ class LineChart {
                 path.style("mix-blend-mode", null)
                     .style("stroke", "rgba(255, 255, 255, 0.8)");
                 dot.attr("display", null);
+                dotTool.attr("display", null);
+
             }
 
             function pointerleft() {
                 path.style("mix-blend-mode", mixBlendMode).style("stroke", null);
                 dot.attr("display", "none");
+                dotTool.attr("display", 'none');
                 svg.node().value = null;
                 svg.dispatch("input", {bubbles: true});
             }
