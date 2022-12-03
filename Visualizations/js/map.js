@@ -236,7 +236,7 @@ class MapViz {
         .join("text")
         .attr("dominant-baseline", "hanging")
         .attr("text-anchor", "end")
-        .attr("fill", "#faf8b7")
+        .attr("fill", "#FFFF66FF")
         .attr("font-size", 12)
         .attr("x", total)
         .attr("y", d3.max(ticks) + 24)
@@ -249,7 +249,7 @@ class MapViz {
         .attr("class", "arrow")
         .attr("dominant-baseline", "hanging")
         .attr("text-anchor", "end")
-        .attr("fill", "#faf8b7")
+        .attr("fill", "#FFFF66FF")
         .attr("font-size", 18)
         .attr("transform", `translate(${total},${d3.max(ticks) + 20})rotate(90)`)
         .text("▲");
@@ -258,8 +258,8 @@ class MapViz {
         .selectAll("rect")
         .data([""])
         .join("rect")
-        .attr("fill", "#faf8b7")
-        .attr("stroke", "#faf8b7")
+        .attr("fill", "#FFFF66FF")
+        //.attr("stroke", "#FFFF66FF")
         .attr("y", d3.max(ticks) + 10)
         .attr("width", total - d3.max(ticks))
         .attr("height", 4);
@@ -300,7 +300,7 @@ class MapViz {
         .map((d) => ({
           date: new Date(d.Date.trim()),
           country: d.Country.trim(),
-          value: d.NumberOfArticles * 1,
+          value: d.NumberOfArticles*1,
           lat: d.Lat * 1,
           lon: d.Lon * 1,
         }))

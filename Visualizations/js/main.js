@@ -4,7 +4,7 @@ let parseDate = d3.timeParse("%m/%d/%Y");
 let parseDateDash = d3.timeParse("%Y-%m-%d");
 
 Promise.all([
-    d3.json("data/sentimentAnalysisFinal.json"),
+    d3.json("data/sentimentAnalysisMap.json"),
     d3.json("data/geo-world.json"),
 ]).then(([data, geo]) => {
     data.forEach((d) => {
@@ -12,7 +12,6 @@ Promise.all([
     });
 
     map = new MapViz("map", data, geo);
-    DotPlotChart = new DotPlot("dotPlotVis", data);
 });
 
 d3.csv("data/newsVolumeOverTime.csv", (d) => {
@@ -43,3 +42,12 @@ Promise.all([
     bubbleChart = new BubbleViz("bubble", data, events);
 });
 
+Promise.all([
+    d3.json("data/sentimentAnalysisFinal.json"),
+]).then(([data]) => {
+    data.forEach((d) => {
+        d.date = new Date(d.Date);
+    });
+
+    DotPlotChart = new DotPlot("dotPlotVis", data);
+});
