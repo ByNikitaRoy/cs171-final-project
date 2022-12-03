@@ -68,10 +68,12 @@ class BubbleViz {
     window.addEventListener("scroll", () => {
       const el = this.svg.node();
       const bounding = el.getBoundingClientRect();
+
       const currentIsInView =
-          bounding.top >= 0 &&
-          bounding.bottom <=
+        bounding.top >= 0 &&
+        bounding.bottom <=
           (window.innerHeight || document.documentElement.clientHeight);
+
       if (currentIsInView !== isInView) {
         isInView = currentIsInView;
 
@@ -104,8 +106,6 @@ class BubbleViz {
     buttonUpdate.on("click", () => {
       this.isLooping = !this.isLooping;
 
-
-
       if (this.isLooping) this.start();
       else this.stop();
 
@@ -115,49 +115,49 @@ class BubbleViz {
     //progress slider
     const progress = this.controlWrapper.selectAll("div.progress").data([""]);
     const progressEnter = progress
-        .enter()
-        .append("div")
-        .attr("class", "progress");
+      .enter()
+      .append("div")
+      .attr("class", "progress");
     const progressUpdate = progress.merge(progressEnter);
     progress.exit().remove();
 
     progressEnter.append("div").attr("class", "range");
 
     progressEnter
-        .select(".range")
-        .append("input")
-        .attr("class", "slider")
-        .attr("type", "range")
-        .attr("min", 0)
-        .attr("max", this.data.length - 1)
-        .attr("step", 1);
+      .select(".range")
+      .append("input")
+      .attr("class", "slider")
+      .attr("type", "range")
+      .attr("min", 0)
+      .attr("max", this.data.length - 1)
+      .attr("step", 1);
 
     progressEnter.select(".range").append("div").attr("class", "sliderticks");
-    const ticks = {};
 
+    const ticks = {};
     progressEnter
-        .select(".sliderticks")
-        .selectAll("p")
-        .data(d3.range(0, this.data.length))
-        .join("p")
-        .style("visibility", (d, i) => {
-          const text = d3.timeFormat("%b. %Y")(this.data[d].date);
-          const rst = ticks[text] ? "hidden" : "visible";
-          ticks[text] = true;
-          return rst;
-        })
-        .text((d) => d3.timeFormat("%b. %Y")(this.data[d].date));
+      .select(".sliderticks")
+      .selectAll("p")
+      .data(d3.range(0, this.data.length))
+      .join("p")
+      .style("visibility", (d, i) => {
+        const text = d3.timeFormat("%b. %Y")(this.data[d].date);
+        const rst = ticks[text] ? "hidden" : "visible";
+        ticks[text] = true;
+        return rst;
+      })
+      .text((d) => d3.timeFormat("%b. %Y")(this.data[d].date));
 
     //progress update
     progressUpdate
-        .select("input")
-        .property("value", this.timeIndexSelected)
-        .on("input", (e) => {
-          this.timeIndexSelected = e.target.value;
-          //render
-          this.bubbleLayout();
-          this.control();
-        });
+      .select("input")
+      .property("value", this.timeIndexSelected)
+      .on("input", (e) => {
+        this.timeIndexSelected = e.target.value;
+        //render
+        this.bubbleLayout();
+        this.control();
+      });
 
     //
     const date = this.data[this.timeIndexSelected].date;
@@ -168,20 +168,20 @@ class BubbleViz {
       },
       {
         text: this.events.find((f) => f.date.getTime() == date.getTime())
-            ?.event,
+          ?.event,
         className: "event",
       },
     ]);
     const boardItemEnter = boardItem
-        .enter()
-        .append("div")
-        .attr("class", "board-item");
+      .enter()
+      .append("div")
+      .attr("class", "board-item");
     const boardItemUpdate = boardItem.merge(boardItemEnter);
     boardItem.exit().remove();
 
     boardItemUpdate
-        .attr("class", (d) => `board-item ${d.className}`)
-        .text((d) => d.text);
+      .attr("class", (d) => `board-item ${d.className}`)
+      .text((d) => d.text);
   }
 
   groupLayout() {
@@ -275,24 +275,26 @@ class BubbleViz {
 
   legend() {
     this.gLegend.attr("transform", `translate(${85},${innerHeight / 2+3})`);
+
     this.gLegend
-        .selectAll("circle.dot")
-        .data([""])
-        .join("circle")
-        .attr("class", "dot")
-        .attr("stroke-width", bubbleRadius)
-        .attr("r", bubbleCoreRadius);
+      .selectAll("circle.dot")
+      .data([""])
+      .join("circle")
+      .attr("class", "dot")
+      .attr("stroke-width", bubbleRadius)
+      .attr("r", bubbleCoreRadius);
+
     this.gLegend
-        .selectAll("text")
-        .data([""])
-        .join("text")
-        .attr("dominant-baseline", "middle")
-        .attr("text-anchor", "start")
-        .attr("fill", "white")
-        .attr("font-size", 14)
-        .attr("x", bubbleRadius)
-        .attr("y", 1)
-        .text("Each bubble represents 1% of the articles that covered Ukraine");
+      .selectAll("text")
+      .data([""])
+      .join("text")
+      .attr("dominant-baseline", "middle")
+      .attr("text-anchor", "start")
+      .attr("fill", "white")
+      .attr("font-size", 14)
+      .attr("x", bubbleRadius)
+      .attr("y", 1)
+      .text("Each bubble represents 1% of the articles that covered Ukraine");
   }
 
   start() {
@@ -319,10 +321,8 @@ class BubbleViz {
     if (this.interval) clearInterval(this.interval);
   }
 
-  dataWrangling(raw,rawEvents ) {
-
+  dataWrangling(raw, rawEvents) {
     //data
-
     const dataTypeConverted = raw
       .map((d) => ({
         date: d.Date,
@@ -359,6 +359,7 @@ class BubbleViz {
       date: new Date(d.Date),
       event: d.Event,
     }));
+
     return [data, events];
   }
 }
