@@ -141,6 +141,8 @@ class AreaChart_2 {
                         return yScaleDeaths(d.deaths)
                     })
                 ) }
+
+
         //TOOLTIP
 
         //For converting Dates to strings
@@ -207,6 +209,24 @@ class AreaChart_2 {
 
             })
 
+        //Initialize brush component
+        let brush = d3.brushX()
+            .extent([[margin.right, margin.top], [width-margin.right, height-margin.bottom]])
+            .on("brush", brushed);
+
+        // TO-DO: Append brush component here
+        svg.append("g")
+            .attr("class", "x brush")
+            .call(brush)
+            .selectAll("rect")
+            .attr("y", -margin.top)
+            .attr("height", height);
+
+        svg.append("defs").append("clipPath")
+            .attr("id", "clip")
+            .append("rect")
+            .attr("width", width)
+            .attr("height", height);
 
 
     }

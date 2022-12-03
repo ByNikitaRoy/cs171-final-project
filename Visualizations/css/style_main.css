@@ -278,3 +278,14 @@ h7 {
     color: rgba(255, 255, 255, 0.75);
     font-size: 20px;
 }
+
+.brushArea{
+    height: 20vh;
+}
+
+
+.brush .extent {
+    stroke: #fff;
+    fill-opacity: .125;
+    shape-rendering: crispEdges;
+}

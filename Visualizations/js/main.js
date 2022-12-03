@@ -4,7 +4,7 @@ let parseDate = d3.timeParse("%m/%d/%Y");
 let parseDateDash = d3.timeParse("%Y-%m-%d");
 
 Promise.all([
-    d3.json("data/sentimentAnalysisMap.json"),
+    d3.json("data/sentimentAnalysisMap2.json"),
     d3.json("data/geo-world.json"),
 ]).then(([data, geo]) => {
     data.forEach((d) => {
@@ -51,3 +51,9 @@ Promise.all([
 
     DotPlotChart = new DotPlot("dotPlotVis", data);
 });
+
+// React to 'brushed' event and update all bar charts
+function brushed() {
+
+   console.log('brushed')
+}
