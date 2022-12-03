@@ -47,6 +47,7 @@
                 military mobilization in Europe since World War II.
                 The effects of the invasion have been felt around the world
                 and media coverage has been ubiquitous.
+                  <br>
               </h5>
                 <br>
             </div>
@@ -100,8 +101,13 @@
             </div>
 
                 <!--About Button -->
-            <div class="align-left" style="padding-bottom: 5vh; padding-top: 5vh" id="aboutMap">
-               <button type="button" onclick="aboutData()" class="about btn btn-outline-light justify-content-md-center" id="about1" style="height: auto">About this data</button>
+            <!--About Button -->
+            <button ONCLICK="aboutMapButton()" class="about btn btn-outline-light justify-content-md-center">About This Data</button>
+            <div ID="mapButton" STYLE="display:none">
+                <div class="row dark small justify-content-center"
+                     style=" padding-top: 2vh ">
+                    <h6 class="about">This data was pulled from the GDELT Database. To learn more about GDELT, visit their website here: https://www.gdeltproject.org/</h6>
+                </div>`);
             </div>
         </div>
       </section>
@@ -183,11 +189,18 @@
             </div>
           </div>
         </div>
+
           <!--About Button -->
-          <div class="align-left" style="padding-bottom: 5vh; padding-top: 5vh" id="aboutTopics">
-              <button type="button" onclick="aboutData()" class="about btn btn-outline-light justify-content-md-center" id="about3" style="height: auto">About this data</button>
+          <button ONCLICK="aboutTopicsButton()" class="about btn btn-outline-light justify-content-md-center">About This Data</button>
+          <div ID="topicsButton" STYLE="display:none">
+              <div class="row dark small justify-content-center"
+                   style=" padding-top: 2vh ">
+                  <h6 class="about">This data was pulled from the GDELT Database. To learn more about GDELT, visit their website here: https://www.gdeltproject.org/</h6>
+              </div>`);
           </div>
       </section>
+
+
 
       <!-- Intro into Multiline -->
       <section class="wrapper yellow align-center">
@@ -538,6 +551,8 @@
       <script src="js/dotPlot.js"></script>
       <script src="js/areaChart2.js"></script>
       <script src="js/buttons.js"></script>
-  </div> <!-- Closing Wrapper -->
+      <script src="js/buttons2.js"></script>
+
+</div> <!-- Closing Wrapper -->
 </body>
 </html>
