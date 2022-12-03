@@ -92,13 +92,11 @@ class BarChart {
 
         bars.exit().remove();
 
-        vis.svg.append("text")
-            .attr("class", "casualtiesLabel")
-            .attr("text-anchor", "start")
-            .attr("y", 0)
-            .attr("x", vis.x(vis.totalDeaths) +20)
+        vis.svg.selectAll('.casualtiesNumber')
+            .attr("y", 5)
+            .attr("x", vis.x(vis.totalDeaths) + vis.margin.left + vis.margin.left +80 )
             .attr("dy", ".75em")
-            .text("test");
+            .text(vis.totalDeaths);
 
         //I think this is not the proper way to do this, go back and check
         //vis.svg.select(".y-axis").call(vis.yAxis)
@@ -150,6 +148,14 @@ class BarChart {
             .attr("x", vis.margin.left)
             .attr("dy", ".75em")
             .text("Selected");
+
+        vis.svg.append("text")
+            .attr("class", "casualtiesNumber")
+            .attr("text-anchor", "start")
+            .attr("y", 18)
+            .attr("x", vis.margin.left)
+            .attr("dy", ".75em")
+
     }
 
 
