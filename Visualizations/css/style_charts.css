@@ -96,7 +96,7 @@
 
 #bubble {
   /* background-color: #1c2a36; */
-  width: fit-content;
+  /*width: fit-content;*/
   display: flex;
   column-gap: 20px;
 }

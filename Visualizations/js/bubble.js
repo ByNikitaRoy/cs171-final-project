@@ -18,9 +18,9 @@ const bubbleRadius = bubbleCoreRadius * 4;
 //bubble count
 const bubbleCount = 100;
 const bubblePctScale = d3
-  .scaleLinear()
-  .domain([0, 100])
-  .range([0, bubbleCount]);
+    .scaleLinear()
+    .domain([0, 100])
+    .range([0, bubbleCount]);
 
 class BubbleViz {
   constructor(_parentNodeId, _data, _events) {
@@ -41,14 +41,14 @@ class BubbleViz {
   initVis() {
     //svg
     this.svg = this.container
-      .append("svg")
-      .attr("width", "100%")
-      .attr("viewBox", [
-        -margin.left - innerWidth / 2,
-        -margin.top - innerHeight / 2,
-        width,
-        height,
-      ]);
+        .append("svg")
+        .attr("width", "100%")
+        .attr("viewBox", [
+          -margin.left - innerWidth / 2,
+          -margin.top - innerHeight / 2,
+          width,
+          height,
+        ]);
 
     this.gLegend = this.svg.append("g");
     this.legend();
@@ -68,10 +68,12 @@ class BubbleViz {
     window.addEventListener("scroll", () => {
       const el = this.svg.node();
       const bounding = el.getBoundingClientRect();
+
       const currentIsInView =
           bounding.top >= 0 &&
           bounding.bottom <=
           (window.innerHeight || document.documentElement.clientHeight);
+
       if (currentIsInView !== isInView) {
         isInView = currentIsInView;
 
@@ -88,12 +90,12 @@ class BubbleViz {
   control() {
     //play-pause button
     const button = this.controlWrapper
-      .selectAll("button.play-pause")
-      .data([""]);
+        .selectAll("button.play-pause")
+        .data([""]);
     const buttonEnter = button
-      .enter()
-      .append("button")
-      .attr("class", "play-pause");
+        .enter()
+        .append("button")
+        .attr("class", "play-pause");
     const buttonUpdate = button.merge(buttonEnter);
     button.exit().remove();
 
@@ -103,8 +105,6 @@ class BubbleViz {
     //event
     buttonUpdate.on("click", () => {
       this.isLooping = !this.isLooping;
-
-
 
       if (this.isLooping) this.start();
       else this.stop();
@@ -133,8 +133,8 @@ class BubbleViz {
         .attr("step", 1);
 
     progressEnter.select(".range").append("div").attr("class", "sliderticks");
-    const ticks = {};
 
+    const ticks = {};
     progressEnter
         .select(".sliderticks")
         .selectAll("p")
@@ -220,27 +220,27 @@ class BubbleViz {
     if (this.simulation) this.simulation.stop();
 
     this.simulation = d3
-      .forceSimulation(this.bubbles.filter((d) => d.keyword))
-      .force("charge", d3.forceManyBody().strength(-5))
-      .force("collision", d3.forceCollide().radius(bubbleRadius))
-      .force(
-        "x",
-        d3.forceX().x((d) => this.groups[d.keyword].center.x)
-      )
-      .force(
-        "y",
-        d3.forceY().y((d) => this.groups[d.keyword].center.y)
-      )
-      .on("tick", () => {
-        this.render();
-      });
+        .forceSimulation(this.bubbles.filter((d) => d.keyword))
+        .force("charge", d3.forceManyBody().strength(-5))
+        .force("collision", d3.forceCollide().radius(bubbleRadius))
+        .force(
+            "x",
+            d3.forceX().x((d) => this.groups[d.keyword].center.x)
+        )
+        .force(
+            "y",
+            d3.forceY().y((d) => this.groups[d.keyword].center.y)
+        )
+        .on("tick", () => {
+          this.render();
+        });
   }
 
   render() {
     //
     const dot = this.gDot.selectAll("circle.dot").data(
-      this.bubbles.filter((d) => d.keyword),
-      (d) => d.id
+        this.bubbles.filter((d) => d.keyword),
+        (d) => d.id
     );
     const dotEnter = dot.enter().append("circle").attr("class", "dot");
     const dotUpdate = dot.merge(dotEnter);
@@ -251,8 +251,8 @@ class BubbleViz {
 
     //
     const label = this.gDot
-      .selectAll("g.label")
-      .data(this.data[this.timeIndexSelected].groups, (d) => d.keyword);
+        .selectAll("g.label")
+        .data(this.data[this.timeIndexSelected].groups, (d) => d.keyword);
     const labelEnter = label.enter().append("g").attr("class", "label");
     const labelUpdate = label.merge(labelEnter);
     label.exit().remove();
@@ -265,9 +265,9 @@ class BubbleViz {
 
     labelEnter.append("text").attr("class", "name");
     labelEnter
-      .append("text")
-      .attr("class", "value")
-      .attr("dy", 14 * 1.4);
+        .append("text")
+        .attr("class", "value")
+        .attr("dy", 14 * 1.4);
 
     labelUpdate.select(".name").text((d) => d.keyword.toUpperCase());
     labelUpdate.select(".value").text((d) => d.percentage + "%");
@@ -275,6 +275,7 @@ class BubbleViz {
 
   legend() {
     this.gLegend.attr("transform", `translate(${85},${innerHeight / 2+3})`);
+
     this.gLegend
         .selectAll("circle.dot")
         .data([""])
@@ -282,6 +283,7 @@ class BubbleViz {
         .attr("class", "dot")
         .attr("stroke-width", bubbleRadius)
         .attr("r", bubbleCoreRadius);
+
     this.gLegend
         .selectAll("text")
         .data([""])
@@ -319,36 +321,34 @@ class BubbleViz {
     if (this.interval) clearInterval(this.interval);
   }
 
-  dataWrangling(raw,rawEvents ) {
-
+  dataWrangling(raw, rawEvents) {
     //data
-
     const dataTypeConverted = raw
-      .map((d) => ({
-        date: d.Date,
-        keyword: d.Keyword.trim(),
-        percentage:
-          d["Percentage of articles about keyword"].replaceAll("%", "") * 1,
-      }))
-      .filter((d) => d.keyword !== "");
+        .map((d) => ({
+          date: d.Date,
+          keyword: d.Keyword.trim(),
+          percentage:
+              d["Percentage of articles about keyword"].replaceAll("%", "") * 1,
+        }))
+        .filter((d) => d.keyword !== "");
 
     let data = d3
-      .rollups(
-        dataTypeConverted,
-        (v) => {
-          v.reduce((prev, curr) => {
-            const count = Math.round(bubblePctScale(curr.percentage));
-            const from = prev;
-            const to = prev + count;
-            curr.iRange = count !== 0 ? [from, to] : undefined;
-            return count !== 0 ? to : prev;
-          }, 0);
+        .rollups(
+            dataTypeConverted,
+            (v) => {
+              v.reduce((prev, curr) => {
+                const count = Math.round(bubblePctScale(curr.percentage));
+                const from = prev;
+                const to = prev + count;
+                curr.iRange = count !== 0 ? [from, to] : undefined;
+                return count !== 0 ? to : prev;
+              }, 0);
 
-          return v;
-        },
-        (d) => d.date
-      )
-      .map((d) => ({ date: new Date(d[0]), groups: d[1] }));
+              return v;
+            },
+            (d) => d.date
+        )
+        .map((d) => ({ date: new Date(d[0]), groups: d[1] }));
 
     data.sort((a, b) => a.date.getTime() - b.date.getTime());
     data = data.filter((d) => d.date.getMonth() >= 1 && d.date.getMonth() <= 3);
@@ -359,6 +359,7 @@ class BubbleViz {
       date: new Date(d.Date),
       event: d.Event,
     }));
+
     return [data, events];
   }
 }
