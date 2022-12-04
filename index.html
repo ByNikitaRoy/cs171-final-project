@@ -43,8 +43,7 @@
                 <br> WAR</h1>
               <h2> How has the global media covered the war in Ukraine?
               </h2>
-              <h5 class="">On February 24, 2022 Russia launched a full scale invasion of Ukraine, initiating the largest military mobilization in Europe since World War II. The role of the media in times of war can be very influential in either reinforcing or changing public and individual opinion.
-
+              <h5 class="">On February 24, 2022 Russia launched a full scale invasion of Ukraine, initiating the largest military mobilization in Europe since World War II. The role of the media in times of war can be very influential in either reinforcing or changing public opinion. Our team embarked on a study to understand and analyze the global media coverage of this war.
                   <br>
               </h5>
                 <br>
@@ -61,11 +60,9 @@
             <div class="row container">
               <div class= "padded col-md-6 offset-md-6">
                 <h2 class= "sub" >WHAT CAN WE LEARN FROM ANALYZING GLOBAL MEDIA?</h2>
-                  <h5 class="">Our analysis on the global media 's coverage of the Ukraine war deconstructs regional biases and trends that influenced the news people consumed. Through the following interactive visualizations, we unpack how the online news media and broadcast media across the globe have differed on their approaches to covering the war.
-
-                      <h5 class="">This project leverages data from the GDELT project, which monitors the world's news media in print,
-                      broadcast, and web formats, in over 100 languages, every moment of every day.
-                  </h5>
+                  <h5 class="">Our analysis of the global media coverage of this war deconstructs regional biases and trends that influenced the news coverage. Through the following interactive visualizations, we unpack online news and broadcast media coverage of this war from various geographical locations worldwide.
+                      <h5 class="">This study sourced data from the <a href="https://www.gdeltproject.org/">GDELT project</a>, which “monitors the world's news media from nearly every corner of every country in print, broadcast, and web formats, in over 100 languages, every moment of every day.”
+                      </h5>
               </div>
             </div>
           </div>
@@ -79,7 +76,7 @@
             <h2 class ="sub invert" >EXPLORING THE GLOBAL ONLINE NEWS COVERAGE
             </h2>
             <p class ="major invert" >
-                Let’s delve into how the online news cycle covering Ukraine has changed since the war began and understand which regions across the globe have had the highest frequency of news covering Ukraine.
+                Let’s delve into how the online news cycle covering Ukraine has changed since the beginning of the war and understand which regions have had the highest frequency of news covering Ukraine.
             </p>
           </div>
         </div>
@@ -89,8 +86,9 @@
       <section class="wrapper yellow mid align-center">
         <div class="container-fluid text-center">
             <div class="row" style="padding: 0vh">
-                    <h2 class= "sub" >GLOBAL UKRAINE MENTIONS</h2>
-                <h4 style="margin-bottom: 0">How often is 'Ukraine' mentioned in global web-media since January 2022?
+                    <h2 class= "sub" >A BIRD’S EYE VIEW OF THE GLOBAL ONLINE NEWS COVERAGE
+                    </h2>
+                <h4 style="margin-bottom: 0">How often is Ukraine mentioned in online news since January 2022?
                 </h4>
             </div>
 
@@ -104,8 +102,9 @@
             <div ID="mapButton" STYLE="display:none">
                 <div class="row dark small justify-content-center"
                      style=" padding-top: 2vh ">
-                    <h6 class="about">Source: GDELT Global Geographic Graph. The chart above shows the weekly volume of online news coverage about Ukraine displayed using a log scale.
-                        </h6>
+                    <h6 class="about">Source: <a href="https://console.cloud.google.com/bigquery?p=gdelt-bq&d=gdeltv2&t=ggg&page=table">GDELT Global Geographic Graph</a>.
+                        The chart above shows the weekly volume of online news coverage about Ukraine displayed using a log scale.  An article was considered about Ukraine if it had at least 3 matching mentions to the string ‘ukrain’ in either the headline or body of the article.
+                    </h6>
                 </div>`);
             </div>
             <div class="row" style="padding: 2vh">
@@ -118,10 +117,10 @@
       <section class="wrapper yellow align-center">
         <div class="inner container-fluid text-center">
           <div class="col align-self-center">
-            <h2 class = "sub invert" >TO UNDERSTAND THIS A LITTLE BIT BETTER</h2>
+            <h2 class = "sub invert" >UNDERSTANDING THE TRENDS IN NEWS COVERAGE
+            </h2>
             <p class = "major invert" >
-              Why don’t we look at online news coverage of ‘Ukraine’
-              in relation to key events in the war.
+                Let's dig deeper and explore how critical events in the war influenced the amount of online news coverage of Ukraine
             </p>
           </div>
         </div>
@@ -131,7 +130,7 @@
       <section class="wrapper yellow mid align-center">
           <div class="container-fluid mainArea">
               <div class="row padded light">
-                  <h2 class= "sub text-center" >PERCENT OF GLOBAL WEB ARTICLES CONTAINING 'UKRAINE'</h2>
+                  <h2 class= "sub text-center" >PERCENT OF GLOBAL ONLINE NEWS ARTICLES ABOUT UKRAINE</h2>
               </div>
               <div class="container-fluid">
                   <div class="row justify-content-md-center">
@@ -320,7 +319,12 @@
         <div ID="topicsButton" STYLE="display:none">
             <div class="row dark small justify-content-center"
                  style=" padding-top: 2vh ">
-                <h6 class="about">This data was pulled from the GDELT Database. To learn more about GDELT, visit their website here: https://www.gdeltproject.org/</h6>
+                <h6 class="about">Source: <a href="https://console.cloud.google.com/bigquery?p=gdelt-bq&d=gdeltv2&t=ggg&page=table">GDELT Global Geographic Graph</a>.
+
+                    This chart synthesizes data specifically from web articles about Ukraine. The data set includes the counts of use of key words such as “NATO” or “refugee” in the set of all globally published web articles that discuss “Ukraine or Ukrainian(s)”. This chart represents the count of each key word on the specific date referenced at the top of the chart.
+
+                    Each dot in this chart represents 1% of all web articles that match the keyword 'ukrain' on that specific date.
+                </h6>
             </div>`);
         </div>
     </section>
@@ -330,7 +334,7 @@
       <section class="wrapper yellow align-center">
         <div class="inner container-fluid text-center">
           <div class="col align-self-center">
-            <h2 class = "sub invert" >EMOTION</h2>
+            <h2 class = "sub invert" >SENTIMENT</h2>
             <p class = "major invert">
               News coverage varies not only on quantity but also on tone. Both factors might have an effect on overall trends in attitudes
               and behaviors towards the conflict. Let's use sentiment analysis to analyze the relative strength of emotions in articles about the conflict.
