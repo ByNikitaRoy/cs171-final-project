@@ -159,6 +159,10 @@
             h5.sub {
                 text-align: left;
             }
+            h5.resources
+            {
+                font-weight: 500;
+            }
 
         h6 {
             border-color: rgba(255, 255, 255, 0.5);
@@ -170,6 +174,10 @@
             h6.videos {
                 color: rgba(255, 255, 102, 1);
                 font-weight: 500;
+            }
+            a {
+                font-size: 0.9rem;
+                color: rgba(33,37,47, 1);
             }
 
 
