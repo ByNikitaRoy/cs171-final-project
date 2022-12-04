@@ -138,15 +138,19 @@
                               In this case, the key word is “Ukraine or Ukrainian”.</h5>
                          <div class="row">
                              <div class="col-2 align-left" id="keyArea"></div>
-                             <span class="col-5 align-left align-middle"><h6 class="col key">Relevant Events</h6></span>
+                             <div class="col-5 align-left align-middle " style="padding-left:0"><h6 class=" key align-middle" style = "padding-top:1.5vh">Relevant Events</h6></div>
                          </div>
+                          <div class="row" style="padding: 2vh"></div>
 
                           <!--About Button -->
                           <button ONCLICK="aboutAreaButton()" class="about btn btn-outline-light justify-content-md-center">About This Data</button>
                           <div ID="areaButton" STYLE="display:none">
-                              <div class="row dark small justify-content-center"
-                                   style=" padding-top: 2vh ">
-                                  <h6 class="about">This data was pulled from the GDELT Database. To learn more about GDELT, visit their website here: https://www.gdeltproject.org/</h6>
+                              <div class="row dark small align-left"
+                                   style="padding-top: 2vh">
+                                  <h6 class="about" > The relevant events are based on the New York Times Tracker of the Russian Invasion of Ukraine found here:
+                                      https://www.nytimes.com/interactive/2022/world/europe/ukraine-maps.html </h6>
+                                      <h6 class="about" >  This data was pulled from the GDELT Database.
+                                          To learn more about GDELT, visit their website here: https://www.gdeltproject.org/</h6>
                               </div>`);
                           </div>
 
@@ -203,6 +207,81 @@
           </div>
           <div class="row" style="padding: 2vh"></div>
       </section>
+    <!-- SEVEN: VIDEOS -->
+    <!-- <section class="wrapper yellow mid align-center">
+        <div style="padding-bottom: 2vh">
+            <h2 class="sub">VIDEOS</h2>
+            <p> Here you can explore snippets of coverage from the different news channels broadcasted on February 24th. </p>
+        </div> -->
+
+        <!-- Video Carousel -->
+        <!-- Drop Down Menu -->
+        <!--
+        <form class="row justify-content-center">
+            <div class="col-3 justify-content-center">
+                <div class="form-group">
+                    <select class="form-control" id="videos">
+                        <option value="RT">Russia Today</option>
+                        <option value="DW">Deutsche Welle</option>
+                        <option value="ALJAZEERA">Al Jazeera</option>
+                        <option value="BBCNEWS">BBC NEWS</option>
+                        <option value="MSNBC">MSNBC</option>
+                        <option value="FOX">Fox News</option>
+                    </select>
+                </div>
+            </div>
+        </form> -->
+<!--
+    </section>
+
+    <section class="wrapper yellow mid align-center">
+        <div class="row padded ">
+
+            <div class="col justify-content-center">
+                <div class="row padded light"> <h6 class="videos">Russia Today</h6>
+                </div>
+                <iframe class="align-center" width="250" height="200"  allowfullscreen src="https://archive.org/embed/RT_20220224_060000_News?start=120&end=180" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+            </div>
+
+            <div class="col justify-content-center">
+                <div class="row padded light"> <h6 class="videos">BBC News</h6>
+                </div>
+                <iframe class=" " width="250" height="200"  allowfullscreen src="https://archive.org/embed/BBCNEWS_20220224_033000_Click?start=1847&end=1882" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+            </div>
+
+            <div class="col justify-content-center">
+                <div class="row padded light"> <h6 class="videos">FOX News</h6>
+                </div>
+                <iframe width="250" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/FOXNEWSW_20220224_090000_FOX__Friends_First?start=2120&end=2155" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+            </div>
+
+            <div class="col justify-content-center">
+                <div class="row padded light"> <h6 class="videos">CNN</h6>
+                </div>
+                <iframe width="250" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/CNNW_20220224_000000_Erin_Burnett_OutFront?start=68&end=103" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+            </div>
+
+            <div class="col justify-content-center">
+                <div class="row padded light"> <h6 class="videos">MSNBC</h6>
+                </div>
+                <iframe width="250" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/MSNBCW_20220224_180000_MTP_Daily?start=2694&end=2729" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+            </div>
+
+
+            <div class="col justify-content-center">
+                <div class="row padded light"> <h6 class="videos">Deutsche Welle</h6>
+                </div>
+                <iframe width="250" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/DW_20220224_110000_DW_News_-_News?start=1177&end=1212" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+            </div>
+
+            <div class="col justify-content-center">
+                <div class="row padded light"> <h6 class="videos">Al Jazeera</h6>
+                </div>
+                <iframe width="250" height="200" frameborder="0" allowfullscreen src="https://archive.org/embed/ALJAZ_20220224_180000_NEWSHOUR?start=2700&end=2760" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>                </div>
+
+        </div>
+    </section> -->
+
     <!-- Intro Topics -->
     <section class="wrapper yellow align-center">
         <div class="inner container-fluid text-center">
@@ -243,51 +322,6 @@
         </div>
     </section>
 
-
-
-    <!-- SEVEN: VIDEOS -->
-      <section class="wrapper yellow mid align-center">
-        <div style="padding-bottom: 2vh">
-          <h2 class="sub">VIDEOS</h2>
-          <p> Here you can explore snippets of coverage from around the world. </p>
-        </div>
-
-        <!-- Video Carousel -->
-        <!-- Drop Down Menu -->
-          <form class="row justify-content-center">
-              <div class="col-3 justify-content-center">
-                  <div class="form-group">
-                      <select class="form-control" id="videos">
-                          <option value="BBCNE">CNN</option>
-                          <option value="RT">Russia Today</option>
-                          <option value="DW">Deutsche Welle</option>
-                          <option value="ALJAZEERA">Al Jazeera</option>
-                          <option value="BBCNEWS">BBCNEWS</option>
-                          <option value="MSNBC">MSNBC</option>
-                          <option value="FOX">Fox News</option>
-                      </select>
-                  </div>
-              </div>
-          </form>
-
-      </section>
-
-   <!-- <section>
-        <div class="row " style="padding: 5vh">
-              <div class="col">
-                  <iframe width="400" height="200"  src="https://archive.org/embed/RT_20211223_123000_News._Views._Hughes?start=165&end=200" ></iframe>
-              </div>
-              <div class="col">
-                  <iframe width="400" height="200"   src="https://archive.org/embed/RT_20211203_110000_News?start=543&end=578"></iframe>
-              </div>
-              <div class="col">
-                  <iframe width="400" height="200"   src="https://archive.org/embed/RT_20211228_010000_News?start=753&end=788" ></iframe>
-              </div>
-            <div class="col">
-                <iframe width="400" height="200"  src="https://archive.org/embed/RT_20211228_010000_News?start=753&end=788"></iframe>
-            </div>
-        </div>
-    </section> -->
 
       <!-- Intro Emotions -->
       <section class="wrapper yellow align-center">
