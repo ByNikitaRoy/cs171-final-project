@@ -73,10 +73,10 @@
       <section class="wrapper yellow align-center">
         <div class="inner container-fluid text-center">
           <div class="col align-self-center">
-            <h2 class ="sub invert" >EXPLORING THE GLOBAL ONLINE NEWS COVERAGE ABOUT UKRAINE
+            <h2 class ="sub invert" >EXPLORING THE GLOBAL ONLINE NEWS COVERAGE
             </h2>
             <p class ="major invert" >
-                Let’s delve into how the online news cycle covering the Russian war on Ukraine has changed since the beginning of the war and understand which regions have had the highest frequency of news covering Ukraine.
+                Let’s delve into how the online news cycle covering Ukraine has changed since the beginning of the war and understand which regions have had the highest frequency of news covering Ukraine.
             </p>
           </div>
         </div>
@@ -86,7 +86,7 @@
       <section class="wrapper yellow mid align-center">
         <div class="container-fluid text-center">
             <div class="row" style="padding: 0vh">
-                    <h2 class= "sub" >A BIRD’S EYE VIEW OF THE ONLINE NEWS COVERAGE ABOUT UKRAINE
+                    <h2 class= "sub" >A BIRD’S EYE VIEW OF THE GLOBAL ONLINE NEWS COVERAGE
                     </h2>
                 <h4 style="margin-bottom: 0">How often is Ukraine mentioned in online news since January 2022?
                 </h4>
@@ -319,7 +319,12 @@
         <div ID="topicsButton" STYLE="display:none">
             <div class="row dark small justify-content-center"
                  style=" padding-top: 2vh ">
-                <h6 class="about">This data was pulled from the GDELT Database. To learn more about GDELT, visit their website here: https://www.gdeltproject.org/</h6>
+                <h6 class="about">Source: <a href="https://console.cloud.google.com/bigquery?p=gdelt-bq&d=gdeltv2&t=ggg&page=table">GDELT Global Geographic Graph</a>.
+
+                    This chart synthesizes data specifically from web articles about Ukraine. The data set includes the counts of use of key words such as “NATO” or “refugee” in the set of all globally published web articles that discuss “Ukraine or Ukrainian(s)”. This chart represents the count of each key word on the specific date referenced at the top of the chart.
+
+                    Each dot in this chart represents 1% of all web articles that match the keyword 'ukrain' on that specific date.
+                </h6>
             </div>`);
         </div>
     </section>
@@ -329,7 +334,7 @@
       <section class="wrapper yellow align-center">
         <div class="inner container-fluid text-center">
           <div class="col align-self-center">
-            <h2 class = "sub invert" >EMOTION</h2>
+            <h2 class = "sub invert" >SENTIMENT</h2>
             <p class = "major invert">
               News coverage varies not only on quantity but also on tone. Both factors might have an effect on overall trends in attitudes
               and behaviors towards the conflict. Let's use sentiment analysis to analyze the relative strength of emotions in articles about the conflict.
