@@ -51,8 +51,8 @@
           <div class="row intro">
             <div class="row container">
             <div class="padded col-md-6 offset-md-1" >
-              <h1 class="intro">UKRAINE
-                <br> RUSSIA
+              <h1 class="intro">RUSSIA
+                <br> UKRAINE
                 <br> WAR</h1>
               <h2> How has the global media covered the war in Ukraine?
               </h2>
@@ -171,7 +171,7 @@
                                   <h6 class="about" > Sources: <a href="https://gdelt.github.io/#api=geo&query=ukraine&geomode=PointData&geotimespan=1d">GDELT Database</a>. <a href="https://www.nytimes.com/interactive/2022/world/europe/ukraine-maps.html">Maps: Tracking the Russian Invasion of Ukraine, The New York Times
                                       </a>.
                                   </h6>
-                                      <h6 class="about" >  This chart looks specifically at broadcast news data and the percent of airtime dedicated to coverage of topics surrounding a keyword. In this case, the key word is “Ukraine or Ukrainian”.
+                                      <h6 class="about" > For the purposes of this analysis, an article was considered to be about Ukraine if it included the key word “Ukraine" or "Ukrainian” in either the headline or body of the article.
                                       </h6>
                               </div>`);
                           </div>
@@ -227,7 +227,14 @@
           <div ID="newsButton" STYLE="display:none">
               <div class="row dark small justify-content-center"
                    style=" padding-top: 2vh ">
-                  <h6 class="about">This data was pulled from the GDELT Database. To learn more about GDELT, visit their website here: https://www.gdeltproject.org/</h6>
+                  <h6 class="about">Source:<a href="https://api.gdeltproject.org/api/v2/summary/summary?d=iatv"> GDELT analysis of Internet Archive closed-captioning data
+                  </a>.
+
+                  </h6>
+                  <h6 class="about">
+                      This chart displays airtime data from seven broadcast news networks which included BBC News (UK/Global), CNN (US), Fox News (US), MSNBC (US), Russia Today (Russia, state owned), Aljazeera (Middle East/Global) and Deutsche Welle News (Germany).
+                      The chart shows the percent airtime dedicated to “Ukraine or Ukranian” for every day over the listed period.
+                  </h6>
               </div>`);
           </div>
           <div class="row" style="padding: 2vh"></div>
