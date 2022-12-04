@@ -167,6 +167,10 @@
             h6.about {
                 font-size: 0.7rem;
             }
+            h6.videos {
+                color: rgba(255, 255, 102, 1);
+                font-weight: 500;
+            }
 
 
         p {
