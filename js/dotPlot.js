@@ -227,7 +227,6 @@ class DotPlot {
             .attr('class', 'circle')
             .on('mouseover', function(event, d) {
 
-
                 d3.select(this)
                     .attr('stroke-width', '10px')
                     .attr('stroke', '#FFFFFF')
