@@ -43,7 +43,7 @@
                 <br> WAR</h1>
               <h2> How has the global media covered the war in Ukraine?
               </h2>
-              <h5 class="">On February 24, 2022 Russia launched a full scale invasion of Ukraine, initiating the largest military mobilization in Europe since World War II.  The role of the media in times of war can be very influential in either reinforcing or changing public opinion.  Our team embarked on a study to understand and analyze the global media coverage of this war.
+              <h5 class="">On February 24, 2022 Russia launched a full scale invasion of Ukraine, initiating the largest military mobilization in Europe since World War II.  The role of the media in times of war can be very influential in either reinforcing or changing public opinion.  This is a study to understand and analyze the global media coverage of this war.
                   <br>
               </h5>
                 <br>
@@ -104,7 +104,7 @@
                      style=" padding-top: 2vh ">
                     <h6 class="about">Source: <a href="https://console.cloud.google.com/bigquery?p=gdelt-bq&d=gdeltv2&t=ggg&page=table">GDELT Global Geographic Graph</a>.
                     </h6>
-                    <h6 class="about" >The chart above shows the weekly volume of online news coverage about Ukraine displayed using a log scale.  An article was considered about Ukraine if it had at least 3 matching mentions to the string ‘ukrain’ in either the headline or body of the article.
+                    <h6 class="about" >The chart above shows the weekly volume of online news coverage about Ukraine displayed using a log scale.  An article was considered about Ukraine if it had at least 3 matching mentions to the key word is “Ukraine or Ukrainian”. in either the headline or body of the article.
                     </h6>
                 </div>`);
             </div>
@@ -176,12 +176,12 @@
       <section class="wrapper yellow align-center">
         <div class="inner container-fluid text-center">
           <div class="col align-self-center">
-            <h2 class = "sub invert" >HOW DOES TELEVISION NEWS DIFFER IN ITS COVERAGE OF THE WAR?
+            <h2 class = "sub invert" >HOW DO TELEVISION NEWS NETWORKS DIFFER IN THEIR COVERAGE OF THE WAR?
             </h2>
             <p class = "major invert" >
-                Television news coverage differs from online news because of its need to be timely and accurate to report breaking news quickly. With a more visual presentation of the news, major TV channels tasked journalists to cover bombings and violence in hard-hit regions across Ukraine.
+                Television news coverage differs from online news because of its need to be timely and accurate to report breaking news quickly.
 
-                We looked at the airtime volume dedicated to covering the war across seven news outlets, including CNN, Fox News, MSNBC, BBC, Russia Today, Al-Jazeera, and DW News.
+                We looked at the airtime volume dedicated to covering the war across seven news outlets, including CNN, Fox News, MSNBC, BBC, Russia Today, Al-Jazeera, and DW News. You'll notice that the volume of airtime shifts based on networks.
             </p>
           </div>
         </div>
@@ -294,9 +294,7 @@
         <div class="inner container-fluid text-center">
             <div class="col align-self-center">
                 <h2 class = "sub invert">TOPICS</h2>
-                <p class = "major invert"> The last visualization tracked every mention of our keyword
-                    “Ukraine” since the start of 2022. However, the context of each mention is not the same.
-                    How does the focus of coverage change as the conflict develops?
+                <p class = "major invert"> The war in Ukraine has had impacts on issues around the globe. Let’s explore how the media covered different issues concerning the war during the peak of the news coverage.
                 </p>
             </div>
         </div>
@@ -339,9 +337,9 @@
       <section class="wrapper yellow align-center">
         <div class="inner container-fluid text-center">
           <div class="col align-self-center">
-            <h2 class = "sub invert" >SENTIMENT</h2>
+            <h2 class = "sub invert" >HOW DOES THE TONE OF ARTICLES VARY ACROSS TIME? </h2>
             <p class = "major invert">
-                News coverage varies not only in quantity but also in tone. Both factors might affect overall attitudes and sentiments toward the war. Using sentiment analysis, we looked at the relative strength of emotions in articles about the war.
+                News coverage varies not only in quantity but also in tone. Both factors might affect overall attitudes and sentiments toward the war. Using sentiment analysis, we looked at the relative strength of negative tone in articles about the war.
             </p>
           </div>
         </div>
@@ -354,7 +352,7 @@
             <h2 class= "sub" >TONE BY COUNTRY OVER TIME</h2>
           </div>
           <div class="row padded light">
-            <p class="major" >How negatively, on average, do articles talk about the conflict in different countries?
+            <p class="major" >How negatively, on average, do articles from different countries talk about the Russia-Ukraine war?
             </p>
           </div>
             <div class="container-fluid">
@@ -377,7 +375,8 @@
               <div ID="dotsButton" STYLE="display:none">
                   <div class="row dark small justify-content-center"
                        style=" padding-top: 2vh ">
-                      <h6 class="about">This data was pulled from the GDELT Database. To learn more about GDELT, visit their website here: https://www.gdeltproject.org/</h6>
+                      <h6 class="about"> This chart used the ‘AvgDocTone’ measure from the GDELT database to visualize the sentiment analysis of the articles.
+                      </h6>
                   </div>`);
               </div>
           </div>
@@ -390,10 +389,10 @@
           <div class="col align-self-center">
             <h2 class = "sub invert">BRINGING IT BACK TO WHAT IT MATTERS</h2>
             <p class = "major invert">
-              We have seen how news coverage varies across media outlets, countries and time. These patterns inevitably affect our perceptions of the “truth.”
+                We have seen how news coverage varies across media outlets, countries, and time. These patterns inevitably affect our perceptions of the “truth.”
 
-              What we read on the news was someone's choice: it’s a product of personal opinion, geopolitical context, and potentially so much more. The news doesn’t necessarily reflect the priorities of victims on the ground.
-            <p>
+                What we read on the news was someone’s choice: it’s a product of opinion, geopolitical context, and potentially much more. The information doesn’t necessarily reflect the priorities of victims on the ground.
+              <p>
           </div>
         </div>
       </section>
@@ -434,12 +433,12 @@
             <div class="container-fluid">
                 <div class="row justify-content-md-center">
                     <div class="col-md-3" style="padding: 3vh">
-                        <h4 class= "sub" style="height: min-content"> What is the relationship between human toll and conflict coverage?</h4>
-                        <h5 class= "sub" style="font-size:20px">This case study deconstructs the nature of news coverage around the world, as it pertains to a modern armed conflict.
-                            It’s evident that there is always going to be a gap between what gets covered in the media and the day-to-day reality of victims.
+                        <h4 class= "sub" style="height: min-content"> Has the trend in online news coverage correlated with the death toll?
+                        </h4>
+                        <h5 class= "sub" style="font-size:20px">This chart highlights the gap between what gets covered in the media and the ground reality of the victims of war, a tragedy that is not much emphasized by the media.
                             <br>
                             <br>
-                            Click and drag on the chart to interact further.
+                            Click and drag on the chart to view the total number of casualties within a selected time period.
                         </h5>
 
                         <!--Casualties Button -->
@@ -478,14 +477,13 @@
       <section class="wrapper yellow align-center">
         <div class="inner container-fluid text-center">
           <div class="col align-self-center">
-            <h2 class = "sub invert">A HUMAN CONFLICT</h2>
+            <h2 class = "sub invert">A HUMAN TRAGEDY</h2>
             <p class = "major invert">
 
               </p>
             <p class = "major invert">
-             Sources of news are ultimately set up to inform the public about current events, and in the translation of facts to articles, journalists imbue content with opinions
-              informed by national priorities. Our access to and analysis of big data has helped us begin to understand what facts are communicated,
-              and more importantly how they are communicated.
+                Ultimately, news media outlets are in the business of informing the public about current events. In translating facts into articles, journalists imbue content with opinions informed by national priorities. Our access to and analysis of big data surrounding the news media industry has helped us begin to understand what facts are communicated, and more importantly how they are communicated.
+
             </p>
               <h5 class="resources invert">Here are some ways you can help people affected by this conflict:</h5>
 
@@ -501,8 +499,8 @@
       <section class="wrapper yellow mid align-center">
         <div class="inner container-fluid text-center">
           <div class="col align-self-center">
-            <h2 class = "sub">ABOUT THE PROJECT</h2>
-            <div class="row padded light">
+            <h2 class = "sub">AUTHORS</h2>
+            <!--<div class="row padded light">
               <h3 class="footer">THE GDELT DATABASE</h3>
             </div>
             <div class="row" style="padding: 1vh">
@@ -516,9 +514,9 @@
               <a href= https://www.gdeltproject.org/> <div class="btn btn-outline-light" id="outlet" style="height: auto">GO TO GDETL</div></a>
             </span>
             <br>
-           <div class = "row" style= "padding: 7vh"></div>
+           <div class = "row" style= "padding: 7vh"></div>-->
             <div class="row" style="padding: 1vh">
-              <h3 class="footer">AUTHORS</h3>
+
             </div>
 
 
