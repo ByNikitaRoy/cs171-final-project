@@ -257,8 +257,11 @@
     font-weight: 400;
     font-size: 1rem;
     justify-content: left;
-
+    border-color:rgba(255, 255, 102, 1);
 }
+/*:root {
+    -bs-warning: rgba(255, 255, 102, 1);
+}*/
 .btn-warning:hover {
     color:rgba(33,37,47, 1);
     background-color:rgba(145,196,196, 1);
@@ -268,7 +271,7 @@
     box-shadow:0 0 0 .2rem rgba(255, 255, 102, .5)}
 .btn-warning.disabled,.btn-warning:disabled{
     background-color:rgba(255, 255, 102, 1);border-color:rgba(255, 255, 102, 1)}
-btn-warning.dropdown-toggle{
+.btn-warning.dropdown-toggle{
     color:#111;
     background-color:rgba(255, 255, 102, 1);
     border-color:rgba(255, 255, 102, 1);
