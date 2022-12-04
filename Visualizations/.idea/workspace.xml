@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e54726cb-1768-439a-9a9f-5864896b8653" name="Changes" comment="Added index 2: everything is coming together theeeereee! :)" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HanzLRailJTChjqnebToWP8hkz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/stevenmorse/Dropbox/Harvard Courses/Visualization/Final Project/cs171-final-project/Visualizations&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e54726cb-1768-439a-9a9f-5864896b8653" name="Changes" comment="Added index 2: everything is coming together theeeereee! :)" />
+      <created>1668532322563</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668532322563</updated>
+      <workItem from="1668532323823" duration="4983000" />
+      <workItem from="1668567138920" duration="14466000" />
+      <workItem from="1668870368853" duration="26859000" />
+      <workItem from="1668986286560" duration="3460000" />
+      <workItem from="1669041262164" duration="2037000" />
+      <workItem from="1669043326700" duration="2364000" />
+      <workItem from="1669046392124" duration="1678000" />
+      <workItem from="1669048153983" duration="426000" />
+      <workItem from="1669048609695" duration="218000" />
+      <workItem from="1669049162280" duration="290000" />
+      <workItem from="1669050858018" duration="4518000" />
+      <workItem from="1669055479097" duration="183000" />
+      <workItem from="1669058412904" duration="598000" />
+      <workItem from="1669129672941" duration="611000" />
+      <workItem from="1669169195165" duration="481000" />
+      <workItem from="1669237259642" duration="611000" />
+      <workItem from="1669244151309" duration="1783000" />
+      <workItem from="1669405512308" duration="1215000" />
+      <workItem from="1669419523373" duration="980000" />
+      <workItem from="1669420913593" duration="408000" />
+      <workItem from="1669497276323" duration="11794000" />
+      <workItem from="1669512887476" duration="5334000" />
+      <workItem from="1669583129769" duration="2029000" />
+      <workItem from="1669663702514" duration="700000" />
+      <workItem from="1669828769424" duration="1000" />
+      <workItem from="1669828815265" duration="2659000" />
+      <workItem from="1669906365581" duration="1566000" />
+      <workItem from="1669907993071" duration="2174000" />
+      <workItem from="1670003511132" duration="3774000" />
+      <workItem from="1670007471417" duration="11903000" />
+      <workItem from="1670023047438" duration="9154000" />
+      <workItem from="1670033491529" duration="3749000" />
+      <workItem from="1670037861917" duration="43000" />
+      <workItem from="1670164146956" duration="207000" />
+      <workItem from="1670164365171" duration="21000" />
+      <workItem from="1670164394240" duration="79000" />
+      <workItem from="1670164579005" duration="27000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

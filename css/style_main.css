@@ -22,7 +22,7 @@
           box-sizing: border-box;
         }
         div.intro {
-            height: 80vh;
+            height: 100%;
         }
         section {
             padding: 3vh;
