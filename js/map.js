@@ -24,9 +24,9 @@ class MapViz {
 
   initVis() {
     //svg size
-    const margin = { top: 40, right: 20, bottom: 30, left: 20 };
-    const width = 1000;
-    const height = 500;
+    const margin = { top: 10, right: 20, bottom: 0, left: 20 };
+    const width = 900;
+    const height = 470;
 
     //geo
     const extent = [

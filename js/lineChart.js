@@ -125,7 +125,7 @@ class LineChart {
                 .attr("x", -height/2)
                 .attr("dy", ".75em")
                 .attr("transform", "rotate(-90)")
-                .text("Percent of Monitored Media Articles");
+                .text("Percent of Airtime");
 
 
             //add all of the paths

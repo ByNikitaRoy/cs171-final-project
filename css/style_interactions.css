@@ -258,7 +258,7 @@ padding: 0px 0px 0px 8px;
   display: flex;
   flex-direction: row;
   column-gap: 20px;
-  padding: 20px;
+  padding: 0px;
   align-items: center;
   width: 100%;
 }
