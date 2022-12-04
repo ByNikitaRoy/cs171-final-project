@@ -43,7 +43,7 @@
                 <br> WAR</h1>
               <h2> How has the global media covered the war in Ukraine?
               </h2>
-              <h5 class="">On February 24, 2022 Russia launched a full scale invasion of Ukraine, initiating the largest military mobilization in Europe since World War II. The role of the media in times of war can be very influential in either reinforcing or changing public opinion. Our team embarked on a study to understand and analyze the global media coverage of this war.
+              <h5 class="">On February 24, 2022 Russia launched a full scale invasion of Ukraine, initiating the largest military mobilization in Europe since World War II.  The role of the media in times of war can be very influential in either reinforcing or changing public opinion.  Our team embarked on a study to understand and analyze the global media coverage of this war.
                   <br>
               </h5>
                 <br>
@@ -103,7 +103,8 @@
                 <div class="row dark small justify-content-center"
                      style=" padding-top: 2vh ">
                     <h6 class="about">Source: <a href="https://console.cloud.google.com/bigquery?p=gdelt-bq&d=gdeltv2&t=ggg&page=table">GDELT Global Geographic Graph</a>.
-                        The chart above shows the weekly volume of online news coverage about Ukraine displayed using a log scale.  An article was considered about Ukraine if it had at least 3 matching mentions to the string ‘ukrain’ in either the headline or body of the article.
+                    </h6>
+                    <h6 class="about" >The chart above shows the weekly volume of online news coverage about Ukraine displayed using a log scale.  An article was considered about Ukraine if it had at least 3 matching mentions to the string ‘ukrain’ in either the headline or body of the article.
                     </h6>
                 </div>`);
             </div>
@@ -136,8 +137,8 @@
                   <div class="row justify-content-md-center">
                       <div class="col-md-3" style="padding: 3vh">
                           <h4 class= "sub" style="height: min-content"> How often is 'Ukraine' mentioned in global web-media since January 2022?</h4>
-                          <h5 class= "sub">This chart looks specifically at broadcast news data and the percent of airtime dedicated to coverage of topics surrounding a keyword.
-                              In this case, the key word is “Ukraine or Ukrainian”.</h5>
+                          <h5 class= "sub">This chart looks specifically at broadcast news data and the percent of airtime dedicated to coverage of topics surrounding Ukraine.
+                              </h5>
                          <div class="row">
                              <div class="col-2 align-left" id="keyArea"></div>
                              <div class="col-5 align-left align-middle " style="padding-left:0"><h6 class=" key align-middle" style = "padding-top:1.5vh">Relevant Events</h6></div>
@@ -149,10 +150,11 @@
                           <div ID="areaButton" STYLE="display:none">
                               <div class="row dark small align-left"
                                    style="padding-top: 2vh">
-                                  <h6 class="about" > The relevant events are based on the New York Times Tracker of the Russian Invasion of Ukraine found here:
-                                      https://www.nytimes.com/interactive/2022/world/europe/ukraine-maps.html </h6>
-                                      <h6 class="about" >  This data was pulled from the GDELT Database.
-                                          To learn more about GDELT, visit their website here: https://www.gdeltproject.org/</h6>
+                                  <h6 class="about" > Sources: <a href="https://gdelt.github.io/#api=geo&query=ukraine&geomode=PointData&geotimespan=1d">GDELT Database</a>. <a href="https://www.nytimes.com/interactive/2022/world/europe/ukraine-maps.html">Maps: Tracking the Russian Invasion of Ukraine, The New York Times
+                                      </a>.
+                                  </h6>
+                                      <h6 class="about" >  This chart looks specifically at broadcast news data and the percent of airtime dedicated to coverage of topics surrounding a keyword. In this case, the key word is “Ukraine or Ukrainian”.
+                                      </h6>
                               </div>`);
                           </div>
 
@@ -174,9 +176,12 @@
       <section class="wrapper yellow align-center">
         <div class="inner container-fluid text-center">
           <div class="col align-self-center">
-            <h2 class = "sub invert" >HOW DO DIFFERENT NEWS OUTLETS PLAY INTO THIS?</h2>
+            <h2 class = "sub invert" >HOW DOES TELEVISION NEWS DIFFER IN ITS COVERAGE OF THE WAR?
+            </h2>
             <p class = "major invert" >
-              Major news organisations around the world have tasked journalists to cover bombings and violence in hard-hit towns and cities across broadcast media. However, can we see differences in their reporting?
+                Television news coverage differs from online news because of its need to be timely and accurate to report breaking news quickly. With a more visual presentation of the news, major TV channels tasked journalists to cover bombings and violence in hard-hit regions across Ukraine.
+
+                We looked at the airtime volume dedicated to covering the war across seven news outlets, including CNN, Fox News, MSNBC, BBC, Russia Today, Al-Jazeera, and DW News.
             </p>
           </div>
         </div>
@@ -186,7 +191,7 @@
       <section class="wrapper yellow mid align-center">
         <div class="container-fluid text-center">
           <div class="row" style="height: auto" >
-            <h2 class="sub"> NEWS COVERAGE BY VARIOUS T.V. CHANNELS </h2>
+            <h2 class="sub"> NEWS COVERAGE BY VARIOUS TV CHANNELS </h2>
               <div class="container-fluid">
                   <div class="row justify-content-md-center">
                       <div class="col-md-9 ">
@@ -336,8 +341,7 @@
           <div class="col align-self-center">
             <h2 class = "sub invert" >SENTIMENT</h2>
             <p class = "major invert">
-              News coverage varies not only on quantity but also on tone. Both factors might have an effect on overall trends in attitudes
-              and behaviors towards the conflict. Let's use sentiment analysis to analyze the relative strength of emotions in articles about the conflict.
+                News coverage varies not only in quantity but also in tone. Both factors might affect overall attitudes and sentiments toward the war. Using sentiment analysis, we looked at the relative strength of emotions in articles about the war.
             </p>
           </div>
         </div>
