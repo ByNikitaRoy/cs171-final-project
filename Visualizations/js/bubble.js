@@ -1,7 +1,7 @@
 //svg size
 const margin = { top: 0, right: 0, bottom: 10, left: 0 };
-const width = 1000;
-const height = 700;
+const width = 900;
+const height = 550;
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 
@@ -11,7 +11,7 @@ const labelPosRadius = Math.min(innerWidth, innerHeight) / 2 - 40;
 const bubblesPosRadius = labelPosRadius - 110;
 
 //the radius of the bubble core
-const bubbleCoreRadius = 2;
+const bubbleCoreRadius = 1.5;
 //the radius of the bubble
 const bubbleRadius = bubbleCoreRadius * 4;
 
@@ -274,7 +274,7 @@ class BubbleViz {
   }
 
   legend() {
-    this.gLegend.attr("transform", `translate(${85},${innerHeight / 2+3})`);
+    this.gLegend.attr("transform", `translate(${50},${innerHeight / 2+3})`);
 
     this.gLegend
         .selectAll("circle.dot")
