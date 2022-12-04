@@ -304,3 +304,10 @@ h7 {
     fill-opacity: .125;
     shape-rendering: crispEdges;
 }
+
+img:hover {
+    border-radius:50%;
+    border-offset: -20px;
+    outline: 7px solid #FFFF66;
+    outline-offset: -7px;
+ }
