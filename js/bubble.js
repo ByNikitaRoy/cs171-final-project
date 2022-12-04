@@ -1,6 +1,6 @@
 //svg size
 const margin = { top: 0, right: 0, bottom: 10, left: 0 };
-const width = 900;
+const width = 700;
 const height = 550;
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
@@ -175,7 +175,8 @@ class BubbleViz {
     const boardItemEnter = boardItem
         .enter()
         .append("div")
-        .attr("class", "board-item");
+        .attr("class", "board-item")
+
     const boardItemUpdate = boardItem.merge(boardItemEnter);
     boardItem.exit().remove();
 
