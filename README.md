@@ -1,7 +1,7 @@
 # A media and language analysis of the Russia-Ukraine War
 
 ## Description
-This is the code base for the website [www.ukrainenewsviz.com](https://www.ukrainenewsviz.com).
+This is the code base for the website [www.ukrainenewsviz.com](https://www.ukrainenewsviz.com). You can view our project video [here](https://www.dropbox.com/s/ngr6x4u402cni4h/Ukraine.mp4?dl=0)
 
 ## File Layout
 The directory structure is as follows:
