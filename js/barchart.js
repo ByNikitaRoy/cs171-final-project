@@ -139,7 +139,7 @@ class BarChart {
             .attr("y", -5)
             .attr("x", vis.margin.left)
             .attr("dy", ".75em")
-            .text("Casualties");
+            .text("Number of");
 
         vis.svg.append("text")
             .attr("class", "casualtiesLabel")
@@ -147,7 +147,7 @@ class BarChart {
             .attr("y", 18)
             .attr("x", vis.margin.left)
             .attr("dy", ".75em")
-            .text("Selected");
+            .text("Casualities");
 
         vis.svg.append("text")
             .attr("class", "casualtiesNumber")
