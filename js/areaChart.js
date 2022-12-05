@@ -152,20 +152,6 @@ class AreaChart {
 
     }
 
-    wrangleData () {
-        let vis = this;
-
-        // No data wrangling/filtering needed
-
-        // Update the visualization
-        vis.updateVis();
-    }
-
-    updateVis() {
-        let vis = this;
-
-
-    }
 
 }
 

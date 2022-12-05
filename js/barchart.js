@@ -73,16 +73,12 @@ class BarChart {
         let vis = this;
 
         // (1) Update domains
-        //vis.x.domain([0, d3.max(vis.displayData, d=> d.deaths)]);
-        //vis.y.domain(vis.configGroup.map(function(d) {return d.key;}))
 
         let bars = vis.svg.selectAll('rect').data(vis.displayData);
 
         // (2) Draw rectangles
         bars.enter().append('rect')
             .merge(bars)
-            //.transition()
-            //.duration(300)
             .attr("y", 0)
             .attr("x", d => vis.x(0) + vis.margin.left + vis.margin.left +60)
             .attr("height", 30)
@@ -98,8 +94,6 @@ class BarChart {
             .attr("dy", ".75em")
             .text(vis.totalDeaths);
 
-        //I think this is not the proper way to do this, go back and check
-        //vis.svg.select(".y-axis").call(vis.yAxis)
 
     }
 

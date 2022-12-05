@@ -208,9 +208,7 @@ class LineChart {
 
             return Object.assign(svg.node(), {value: null});
         }
-        //focus = null
-        //focus = Generators.input(vis.chart) // or say viewof focus = LineChart(…)
-       // vis.LineChart(vis.chart)
+
 
     }
 

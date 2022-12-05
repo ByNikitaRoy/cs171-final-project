@@ -329,7 +329,6 @@ class DotPlot {
             continent
         }))
 
-        //vis.dataByCountry["United Arab Emirates"].sum = 23;
         vis.dataByCountryInit.forEach((row, index) => {
             let sumPublications = 0
             let avgTone = 0
