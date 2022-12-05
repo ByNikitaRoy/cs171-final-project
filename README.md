@@ -3,6 +3,9 @@
 ## Description
 This is the code base for the website [www.ukrainenewsviz.com](https://www.ukrainenewsviz.com). You can view our project video [here](https://www.dropbox.com/s/ngr6x4u402cni4h/Ukraine.mp4?dl=0)
 
+## Installation
+To run this on your local workstation, please download the code repository and navigate to the index.html file in the root directory to launch the site. 
+
 ## File Layout
 The directory structure is as follows:
 
