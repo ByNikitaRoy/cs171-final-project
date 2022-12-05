@@ -79,7 +79,7 @@ class DotPlot {
             .attr("y", vis.height-vis.margin.bottom-10)
             .attr("x", (1*vis.width/5)+ vis.margin.left)
             .attr("dy", ".75em")
-            .text("<-- Less Negative Tone");
+            .text("<-- Decreasing Negative Tone");
 
 
         vis.svg.append("text")
@@ -88,7 +88,7 @@ class DotPlot {
             .attr("y", vis.height-vis.margin.bottom-10)
             .attr("x", (vis.width/1.5)+ vis.margin.left)
             .attr("dy", ".75em")
-            .text("Increasingly Negative Tone -->");
+            .text("Increasing Negative Tone -->");
 
         //add yAxis Labels
         vis.svg.append("text")
