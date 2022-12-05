@@ -61,22 +61,7 @@ class MultiLineChart {
             .attr("text-anchor", "middle")
             .attr('x', width / 2)
             .attr('y', 10)
-/*
-        svg.append("path")
-            .datum(vis.data)
-            .attr("fill", "none")
-            .attr("stroke", "#038C9E")
-            .attr("stroke-width", 2.5)
-            .attr("opacity", 0.8)
-            .attr("d", d3.area()
-                .x(function (d) {
-                    return xScale(d.Date)
-                })
-                .y0(yScale(0))
-                .y1(function (d) {
-                    return yScale(d.Value)
-                })
-            )*/
+
 
         vis.wrangleData()
     }
@@ -85,28 +70,6 @@ class MultiLineChart {
         let vis = this;
 
 
-
-        //attempting to figure out grouping but a bunch of this isn't supported
-        /*
-        let products = [
-            { name: 'asparagus', type: 'vegetables', quantity: 5 },
-            { name: 'bananas', type: 'fruit', quantity: 0 },
-            { name: 'goat', type: 'meat', quantity: 23 },
-            { name: 'cherries', type: 'fruit', quantity: 5 },
-            { name: 'fish', type: 'meat', quantity: 22 }
-        ];
-        const groupByCategory = products.groupBy(product => {
-            return product.type;
-        });
-        console.log(groupByCategory);
-        console.log("result")
-
-
-        let ungrouped = vis.data;
-        let groupedChannels = ungrouped.group(({Series}) => Series);
-        console.log("groupedChannels")
-        console.log(groupedChannels)
-*/
         // Update the visualization
         vis.updateVis();
     }
