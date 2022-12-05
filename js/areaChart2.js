@@ -83,7 +83,7 @@ class AreaChart_2 {
             .attr("y", height-12)
             .attr("x", 58)
             .attr("dy", ".75em")
-            .text("2021");
+            .text("2022");
 
 
         //append the area
