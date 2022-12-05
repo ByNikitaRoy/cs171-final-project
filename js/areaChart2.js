@@ -85,13 +85,6 @@ class AreaChart_2 {
             .attr("dy", ".75em")
             .text("2021");
 
-        //Create chart title
-        //svg.append('text')
-        //    .text('Percent of Global News Volume Containing "Ukraine"')
-        //   .attr('class', 'titleText')
-        //   .attr("text-anchor", "middle")
-        //   .attr('x', width / 2)
-        //  .attr('y', 10)
 
         //append the area
         //with reference to https://d3-graph-gallery.com/graph/area_basic.html
@@ -232,18 +225,5 @@ class AreaChart_2 {
 
 
     }
-    wrangleData () {
-        let vis = this;
 
-        // No data wrangling/filtering needed
-
-        // Update the visualization
-        vis.updateVis();
-    }
-
-    updateVis() {
-        let vis = this;
-
-
-    }
 }
