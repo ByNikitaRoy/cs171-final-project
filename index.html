@@ -199,7 +199,7 @@
             <p class = "major invert" >
                 Television news coverage differs from online news because of its need to be timely and accurate to report breaking news quickly.
 
-                We looked at the airtime volume dedicated to covering the war across seven news outlets, including CNN, Fox News, MSNBC, BBC, Russia Today, Al-Jazeera, and DW News. You'll notice that the volume of airtime shifts based on networks.
+                We looked at the airtime volume dedicated to covering the war across seven news outlets, including CNN, Fox News, MSNBC, BBC, Russia Today, Al-Jazeera, and DW News. In the chart below we see that the percentage of airtime dedicated to the war coverage shifts across time based on networks.
             </p>
           </div>
         </div>
@@ -348,8 +348,9 @@
             <div class="row dark small justify-content-center"
                  style=" padding-top: 2vh ">
                 <h6 class="about">Source: <a href="https://console.cloud.google.com/bigquery?p=gdelt-bq&d=gdeltv2&t=ggg&page=table">GDELT Global Geographic Graph</a>.
-
-                    This chart synthesizes data specifically from web articles about Ukraine. The data set includes the counts of use of key words such as “NATO” or “refugee” in the set of all globally published web articles that discuss “Ukraine or Ukrainian(s)”. This chart represents the count of each key word on the specific date referenced at the top of the chart.
+                </h6>
+                    <h6 class="about">
+                            This chart synthesizes data specifically from web articles about Ukraine. The data set includes the counts of use of key words such as “NATO” or “refugee” in the set of all globally published web articles that discuss “Ukraine or Ukrainian”. This chart represents the count of each key word on the specific date referenced at the top of the chart.
 
                     Each dot in this chart represents 1% of all web articles that match the keyword 'ukrain' on that specific date.
                 </h6>
@@ -400,7 +401,10 @@
               <div ID="dotsButton" STYLE="display:none">
                   <div class="row dark small justify-content-center"
                        style=" padding-top: 2vh ">
-                      <h6 class="about"> This chart used the ‘AvgDocTone’ measure from the GDELT database to visualize the sentiment analysis of the articles.
+                      <h6 class="about"> Source: <a href="https://console.cloud.google.com/bigquery?p=gdelt-bq&d=gdeltv2&t=ggg&page=table">GDELT Global Geographic Graph</a>.
+                      </h6>
+                      <h6 class="about">
+                          This chart used the ‘AvgDocTone’ measure from the GDELT database to visualize the sentiment analysis of the articles. This measure provides the strength of the negative tone of the overall article. Our chart averages the ‘AvgDocTone’ measure for all articles from each country over the past 20 days.
                       </h6>
                   </div>`);
               </div>
@@ -412,7 +416,7 @@
       <section class="wrapper yellow align-center">
         <div class="inner container-fluid text-center">
           <div class="col align-self-center">
-            <h2 class = "sub invert">BRINGING IT BACK TO WHAT IT MATTERS</h2>
+            <h2 class = "sub invert">BRINGING IT BACK TO WHY IT MATTERS</h2>
             <p class = "major invert">
                 We have seen how news coverage varies across media outlets, countries, and time. These patterns inevitably affect our perceptions of the “truth.”
 
@@ -476,10 +480,7 @@
                         <div ID="casualtiesButton" STYLE="display:none">
                             <div class="row dark small justify-content-center"
                                  style=" padding-top: 2vh ">
-                                <h6 class="about">This data was pulled from the GDELT Database. To learn more about GDELT, visit their website here: https://www.gdeltproject.org/ <br>
-                                    <br>
-                                    The casualties data was sourced from the ACLED Conflict Data set. To learn more about ACLED, visit their site here: https://acleddata.com/
-                                </h6>
+                                <h6 class="about">Sources: <a href="https://console.cloud.google.com/bigquery?p=gdelt-bq&d=gdeltv2&t=ggg&page=table">GDELT Global Geographic Graph.</a> <a href=" https://acleddata.com/">ACLED conflict dataset.</a></h6>
                             </div>`);
                         </div>
                     </div>
@@ -585,12 +586,12 @@
         </div>
 
           <!-- social media links-->
-          <!--  <div class="col align-self-center">
-               <h2 class = "sub">IF YOU ENJOYED THIS PROJECT</h2>
+          <div class="col align-self-center">
+              <!--  <h2 class = "sub">IF YOU ENJOYED THIS PROJECT</h2>-->
                <div class="row padded light">
-                   <h3 class="footer">PLEASE SHARE IT WITH YOUR FRIENDS!</h3>
+                   <h3 class="footer">Share this article to raise awareness about the news media coverage of the Russia-Ukraine war</h3>
                </div>
-           </div>-->
+           </div>
 
 
           <!--scripts-->
