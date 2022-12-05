@@ -140,6 +140,8 @@ class AreaChart {
 
                 vis.tooltip
                     .style("opacity", 0)
+                    .style("left", 0+ "px")
+                    .style("top", 0 + "px")
             })
 
         // Add a legend
@@ -148,8 +150,8 @@ class AreaChart {
             .attr("height", '30px')
             .attr("width",'30px')
             .append("circle")
-            .attr("cx", '2vh')
-            .attr("cy",'2vh')
+            .attr("cx", '15')
+            .attr("cy",'15')
             .attr("r",7)
             .style("fill", "rgba(145,196,196, 1)")
             .style("stroke-width", 10)
