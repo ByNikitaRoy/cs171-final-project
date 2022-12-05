@@ -125,7 +125,7 @@
                      style=" padding-top: 2vh ">
                     <h6 class="about">Source: <a href="https://console.cloud.google.com/bigquery?p=gdelt-bq&d=gdeltv2&t=ggg&page=table">GDELT Global Geographic Graph</a>.
                     </h6>
-                    <h6 class="about" >The chart above shows the weekly volume of online news coverage about Ukraine displayed using a log scale.  For the purposes of this analysis, an article was considered to be about Ukraine if it had at least 3 matching mentions to the key word is “Ukraine" or "Ukrainian” in either the headline or body of the article.
+                    <h6 class="about col-4" >The chart above shows the weekly volume of online news coverage about Ukraine displayed using a log scale.  For the purposes of this analysis, an article was considered to be about Ukraine if it had at least 3 matching mentions to the key word is “Ukraine" or "Ukrainian” in either the headline or body of the article.
                     </h6>
                 </div>`);
             </div>
@@ -171,12 +171,12 @@
                           <div ID="areaButton" STYLE="display:none">
                               <div class="row dark small align-left"
                                    style="padding-top: 2vh">
-                                  <h6 class="about" > Sources: <a href="https://gdelt.github.io/#api=geo&query=ukraine&geomode=PointData&geotimespan=1d">GDELT Database</a>. <a href="https://www.nytimes.com/interactive/2022/world/europe/ukraine-maps.html" style = "font-size: 2px" >Maps: Tracking the Russian Invasion of Ukraine, The New York Times
-                                      </a>.
+                                  <h6 class="about" > Sources: <a href="https://gdelt.github.io/#api=geo&query=ukraine&geomode=PointData&geotimespan=1d">GDELT Database</a><a href="https://www.nytimes.com/interactive/2022/world/europe/ukraine-maps.html" style = "font-size: 2px" >Maps: Tracking the Russian Invasion of Ukraine, The New York Times
+                                      </a>
                                   </h6>
                                       <h6 class="about" > For the purposes of this analysis, an article was considered to be about Ukraine if it included the key word “Ukraine" or "Ukrainian” in either the headline or body of the article.
                                       </h6>
-                              </div>`);
+                              </div>
                           </div>
 
                       </div>
@@ -232,14 +232,13 @@
               <div class="row dark small justify-content-center"
                    style=" padding-top: 2vh ">
                   <h6 class="about">Source:<a href="https://api.gdeltproject.org/api/v2/summary/summary?d=iatv"> GDELT analysis of Internet Archive closed-captioning data
-                  </a>.
-
+                  </a>
                   </h6>
-                  <h6 class="about">
+                  <h6 class="about col-4">
                       This chart displays airtime data from seven broadcast news networks which included BBC News (UK/Global), CNN (US), Fox News (US), MSNBC (US), Russia Today (Russia, state owned), Aljazeera (Middle East/Global) and Deutsche Welle News (Germany).
                       The chart shows the percent airtime dedicated to “Ukraine or Ukranian” for every day over the listed period.
                   </h6>
-              </div>`);
+              </div>
           </div>
           <div class="row" style="padding: 2vh"></div>
       </section>
@@ -277,14 +276,14 @@
         <div ID="topicsButton" STYLE="display:none">
             <div class="row dark small justify-content-center"
                  style=" padding-top: 2vh ">
-                <h6 class="about">Source: <a href="https://console.cloud.google.com/bigquery?p=gdelt-bq&d=gdeltv2&t=ggg&page=table">GDELT Global Geographic Graph</a>.
+                <h6 class="about">Source: <a href="https://console.cloud.google.com/bigquery?p=gdelt-bq&d=gdeltv2&t=ggg&page=table">GDELT Global Geographic Graph</a>
                 </h6>
-                    <h6 class="about">
+                    <h6 class="about col-4">
                             This chart synthesizes data specifically from web articles about Ukraine. The data set includes the counts of use of key words such as “NATO” or “refugee” in the set of all globally published web articles that discuss “Ukraine or Ukrainian”. This chart represents the count of each key word on the specific date referenced at the top of the chart.
 
                     Each dot in this chart represents 1% of all web articles that match the keyword “Ukraine" or "Ukrainian” on that specific date.
                 </h6>
-            </div>`);
+            </div>
         </div>
         <div class="row" style="padding: 2vh"></div>
 
@@ -335,12 +334,12 @@
               <div ID="dotsButton" STYLE="display:none">
                   <div class="row dark small justify-content-center"
                        style=" padding-top: 2vh ">
-                      <h6 class="about"> Source: <a href="https://console.cloud.google.com/bigquery?p=gdelt-bq&d=gdeltv2&t=ggg&page=table">GDELT Global Geographic Graph</a>.
+                      <h6 class="about"> Source: <a href="https://console.cloud.google.com/bigquery?p=gdelt-bq&d=gdeltv2&t=ggg&page=table">GDELT Global Geographic Graph</a>
                       </h6>
-                      <h6 class="about">
+                      <h6 class="about col-4">
                           This chart used the ‘AvgDocTone’ measure from the GDELT database to visualize the sentiment analysis of the articles. This measure provides the strength of the negative tone of the overall article. Our chart averages the ‘AvgDocTone’ measure for all articles from each country over the past 20 days.
                       </h6>
-                  </div>`);
+                  </div>
               </div>
           </div>
           <div class="row" style="padding: 2vh"></div>
@@ -387,10 +386,11 @@
                         <!--About Button -->
                         <button ONCLICK="aboutCasualtiesButton()" class="about btn btn-outline-light justify-content-md-center">About This Data</button>
                         <div ID="casualtiesButton" STYLE="display:none">
-                            <div class="row dark small justify-content-center"
+                            <div class="row dark small align-left"
                                  style=" padding-top: 2vh ">
-                                <h6 class="about">Sources: <a href="https://console.cloud.google.com/bigquery?p=gdelt-bq&d=gdeltv2&t=ggg&page=table">GDELT Global Geographic Graph.</a> <a href=" https://acleddata.com/">ACLED conflict dataset.</a></h6>
-                            </div>`);
+                                <h6 class="about">Sources: <a href="https://console.cloud.google.com/bigquery?p=gdelt-bq&d=gdeltv2&t=ggg&page=table">GDELT Global Geographic Graph.</a><br>
+                                    <a href=" https://acleddata.com/">ACLED conflict dataset.</a></h6>
+                            </div>
                         </div>
                     </div>
 
