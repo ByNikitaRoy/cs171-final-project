@@ -77,13 +77,6 @@ class AreaChart {
             .attr("x", 58)
             .attr("dy", ".75em")
             .text("2022");
-        //Create chart title
-        // svg.append('text')
-        //    .text('Percent of Global News Volume Containing "Ukraine"')
-        //     .attr('class', 'titleText')
-        //    .attr("text-anchor", "middle")
-        //    .attr('x', width / 2)
-        //   .attr('y', 10)
 
         //append the area
         //with reference to https://d3-graph-gallery.com/graph/area_basic.html
@@ -140,6 +133,8 @@ class AreaChart {
 
                 vis.tooltip
                     .style("opacity", 0)
+                    .style("left", 0+ "px")
+                    .style("top", 0 + "px")
             })
 
         // Add a legend
@@ -148,76 +143,13 @@ class AreaChart {
             .attr("height", '30px')
             .attr("width",'30px')
             .append("circle")
-            .attr("cx", '2vh')
-            .attr("cy",'2vh')
+            .attr("cx", '15')
+            .attr("cy",'15')
             .attr("r",7)
             .style("fill", "rgba(145,196,196, 1)")
             .style("stroke-width", 10)
             .style("stroke", "rgba(255,255,255,0.5)")
 
-//
-       /* //TOOLTIP
-
-        //For converting Dates to strings
-        var formatTime = d3.timeFormat("%b %d , %Y");
-        let bisectDate = d3.bisector(d => d.date).right;
-
-        let group = svg.append('g')
-            .attr('class', 'tooltip2')
-
-        //create rect for mouseover
-        svg.append('rect')
-            .attr('fill', 'transparent')
-            .attr('x', 25)
-            .attr('y', 0)
-            .attr('width', width - (margin.left * 2))
-            .attr('height', height)
-
-        //on mouseover
-        svg.on('mouseover', function (data,event) {
-
-        })
-        //when mouseover moves create and remove
-        svg.on('mousemove', function (data) {
-            d3.select('#tooltip').remove();
-            d3.select('#tooltip1').remove();
-            d3.select('#tooltip2').remove();
-
-            let xPosition = d3.pointer(event)[0];
-            let yPosition = d3.pointer(event) [0];
-
-            const mouseDate = xScale.invert(xPosition);
-            const mouseVolume = yScale.invert(yPosition);
-
-            //add the line
-            group.append('line')
-                .attr('id', 'tooltip1')
-                .attr('x1', xPosition)
-                .attr('x2', xPosition)
-                .attr("y1", margin.top)
-                .attr("y2", height - margin.bottom)
-                .attr('stroke', 'lightgrey')
-                .attr('stroke-width', '2px')
-
-
-            svg.append('text')
-                .attr('id', 'tooltip')
-                .attr('x', xPosition + 10)
-                .attr('y', margin.top +15)
-                .attr('text-anchor', 'start')
-                .attr('font-size', '15px')
-                .attr('fill', 'white')
-                .text(function () {
-                    return formatTime(mouseDate)})
-
-
-
-        //})
-            //remove the line
-            .on('mouseout', function () {
-                d3.select('#tooltip').remove();
-
-            })*/
     }
 
     wrangleData () {
