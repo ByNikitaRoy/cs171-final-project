@@ -46,7 +46,9 @@
             padding: 1vh;
         }
         div.padded.lighter{
-            padding: 0.5vh;
+            padding: 1vh;
+            padding-left: 0;
+            padding-right: 0;
         }
 
         /* Wrapper (yellow) */
