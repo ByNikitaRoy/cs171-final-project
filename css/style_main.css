@@ -45,6 +45,10 @@
         div.padded.light{
             padding: 1vh;
         }
+        div.padded.lighter{
+            padding: 0.5vh;
+        }
+
         /* Wrapper (yellow) */
 
         .wrapper.yellow > .inner {
