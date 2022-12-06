@@ -124,7 +124,7 @@ class AreaChart {
                     .html(`
                          <div style=" border-radius: 5px; background:rgba(33,37,47,.85); padding: 10px">
                              <h6 class="keymain">${d.sdescription}</h6> 
-                             <h6 class="key">Airtime: ${d.Value} %</h6>  
+                             <h6 class="key">Airtime: ${Math.round(d.Value*10)/10}%</h6>  
                              <h6 class="about">Date: ${d.Date}</h6> 
                                                    
                          </div>`);
